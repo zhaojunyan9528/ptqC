@@ -1,0 +1,47 @@
+<!--pages/my/address/index.wxml-->
+<compage id="compage">
+  <view class="content">
+    
+    <view wx:if="{{listLength>0}}" style="padding-bottom: {{listLength>=4?200:0}}rpx">
+      <view wx:for="{{address_list}}" wx:key="{{index}}" data-id="{{item.address_id}}">
+        <view class="list" >
+            <view  bindtap="{{select_address==1?'gotoPay':''}}">
+                  <view class="name-tel">
+                    <view class="name">{{item.consignee}}</view>
+                    <view class="tel">{{item.telephone}}</view>
+                  </view>
+                  <view class="address">
+                    <text style="color:#999;">地址： </text>
+                    <text class="address-content">{{item.province}}{{item.city}}{{item.country}} {{item.place}}</text>
+                  </view>
+              </view>
+          <view class="address-operation">
+            <view class="default-address" >
+              <view class="icon" wx:if="{{item.is_default == '1'}}">
+                <icon class="{{item.is_default == '1' ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 40rpx;"></icon>
+              </view>
+              <view class="de-add" wx:if="{{item.is_default == '1'}}">默认地址</view>
+            </view>
+            <view class="operation">
+                <vwx-button type="mi" theme="font-b1" text="编辑" class="edit" bind:tap-event='editAddressInfo' data-id="{{item.address_id}}"></vwx-button>
+                <vwx-button id="vwx-button-del{{index}}" type="mi" theme="font-b1" text="删除" loading="true" bind:tap-event="delAddress" data-index="{{index}}" data-id="{{item.address_id}}"></vwx-button>
+            </view>
+          </view>
+        </view>
+      </view>
+    
+  </view>
+  <view wx:if="{{listLength ==  0}}" class="noAddress">
+      <view class="img-content">
+        <image src="{{imgSrc}}" mode="aspectFill" style="width:400rpx;height:400rpx"></image>
+      </view>
+      <view class="text-hint">
+        {{text}}
+      </view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <vwx-button text="添加收货地址" bind:tap-event="addAddress" style='width: 100%;'></vwx-button>
+  </view>
+</compage>

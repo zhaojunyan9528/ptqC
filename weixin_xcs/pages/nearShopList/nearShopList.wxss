@@ -1,0 +1,335 @@
+/* pages/nearShopList/nearShopList/nearShopList.wxss */
+/* 逛逛列表为空 */
+.nD_i {
+    width: 100%;
+    height: 1100rpx;
+    overflow: hidden;
+    background: #fff;
+    padding-top:100rpx;
+}
+.nD_i .nD_i_in {
+    width: 540rpx;
+    display: flex;
+    flex-direction: column;
+    height: 670rpx;
+    margin: 100rpx auto;
+}
+
+.nD_i_in_t {
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+
+.nD_i_in_t_img {
+    width: 348rpx;
+    height: 256rpx;
+    min-width: 348rpx;
+}
+
+.nD_i_in_t_txt {
+    margin-top: 68rpx;
+    font-size:32rpx;
+    width: 100%;
+    color: #333333;
+}
+
+.cenFlex{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.nD_i_in_t_img>image{
+  width: 100%;
+  height: 100%;
+}
+
+.shadow{
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background-color: #000;
+}
+.index_all_box{
+    overflow-x: hidden;
+    width:100%;
+    /*height: 100%;*/
+}
+.icon-pq-sousuo{
+  font-size: 40rpx;
+  margin : 0rpx 20rpx;
+  color:#ccc;
+}
+.near_chart{
+  background: #f8f8f8;
+	width: 100%;
+	height: 44px;
+	position: fixed;
+	top: 0rpx;
+	z-index: 9999;
+}
+
+.icon-pq-sjxd{
+  font-size:18rpx;
+margin-left:20rpx;
+color:#999;
+}
+.icon-pq-sjxu{
+   color: #e60012;
+  font-size: 18rpx;
+  margin-left: 20rpx;
+}
+.near_chart_in{
+	width: 100%;
+	margin-left: 30rpx;
+	background: #fff;
+	height: 60rpx;
+	display: flex;
+	align-items: center;
+	border-radius: 10rpx;
+}
+.aaF{
+    color:#aaaaaa;
+}
+.near_chart_in_btn{
+	font-size: 1.2em;
+	width: 14%;
+	height: 60rpx;
+	margin-right: 30rpx;
+	text-align: right;
+	line-height: 60rpx;
+}
+.cenFlex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.near_chart_in_input{
+	width: 90%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.near_chart_in_input input{
+  height: 100%;
+  width: 100%;
+}
+.inteSort{
+	height: 44px;
+	background: #fff;
+	padding: 0rpx 50rpx;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 30rpx;
+	border-bottom: 2rpx #f5f5f5 solid;
+	position: fixed;
+	top: 44px;
+	z-index: 9999;
+}
+.inteSort_in{
+	width: 100%;
+	height: 100%;
+}
+.icon-pq-xllb{
+  font-size: 15rpx;
+  margin-left: 15rpx;
+
+  }
+  .icon-pq-sjxup{
+  font-size: 15rpx;
+  margin-left: 15rpx;
+ 
+  }
+  .inteSort_box{
+	width: 100%;
+	position: fixed;
+	top: 88px;
+	z-index: 99999;
+	background: #fff;
+}
+.inteSort_box_in{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0rpx 30rpx;
+	height: 45px;
+	font-size: 1.2em;
+	border-bottom: 2rpx #f5f5f5 solid;
+}
+.inteSort_box_in_r{
+	width: 50rpx;
+	height: 50rpx;
+	min-width: 50rpx;
+}
+.icon-pq-duihao{
+  color: red;
+  font-size:40rpx;
+}
+.icon-pq-sjxup{
+   color: red;
+}     
+.inteSort_box_in_l{
+  font-size:28rpx;
+}
+.near_goods_t{
+	padding: 0rpx 4%;
+	height: 90rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+
+	bottom: 0rpx;
+	z-index: 1;
+	background: #e60012;
+}
+.near_goods_t_m{
+	background: #000;
+	opacity: .7;
+	z-index: 666;
+}
+.near_goods_t_l{
+	color: #fff;
+}
+.near_goods_t_l_in_f{
+	padding:5rpx 6rpx;
+	margin: 0rpx 10rpx;
+	min-width: 40rpx;
+	height: 40rpx;
+	background: #fff;
+	color: #ed4e4e;
+	font-size: 1.1em;
+	border-radius: 10rpx;
+}
+.near_goods_t_r{
+	color: #fff;
+	text-align: right;
+	opacity: .9;
+}
+.near_goods_t_r_t{
+	font-size: 1.1em;
+}
+.near_goods_t_r_b{
+	font-size: .8em;
+	margin-top: 5rpx;
+}        
+.down_goods{
+	position: relative;
+	padding-top: 88px;
+  width: 100%;
+  min-height: 467px;
+
+}
+.near_goods_info{
+  padding:25rpx 30rpx;
+  background:#fff;
+  height:154rpx;
+}
+.nowDay_box_txt{
+	margin-top: 0rpx;
+}
+.nowDay_box_txt{
+  font-size: 32rpx;
+  color:#333;
+  text-overflow:ellipsis;
+  -webkit-box-orient:vertical;
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-line-clamp:1;
+
+}
+.nowDay_box_btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10rpx;
+}
+.index_all_box{
+    overflow-x: hidden;
+    width:100%;
+    /*height: 100%;*/
+}
+.nowDay_box_btn_l_in1{
+    font-size: 32rpx;
+    color: #e60012;
+}
+.nowDay_box_btn_l{
+    align-items: flex-end;
+}
+.icon-pq-jump{
+  font-size: 30rpx;
+
+}
+.bold{
+  font-weight: bold;
+}
+.nowDay_box_btn_r{
+    padding: 10rpx 20rpx;
+    color: #fff;
+    font-size: 1.1em;
+    background: #e60012;
+    border-radius: 10rpx;
+    padding-right: 10rpx;
+}
+.near_goods_h{
+	width: 100%;
+	min-height: 500rpx;height: 500rpx;	position: relative;
+}
+.near_goods_h >image{
+  height:500rpx;
+  width:750rpx;
+}
+.near_goods{
+	margin-bottom: 20rpx;
+  border-bottom:1rpx solid #e8e8e8;
+}
+.near_goods_t_l_in_f{
+	padding:5rpx 6rpx;
+	margin: 0rpx 10rpx;
+	min-width: 40rpx;
+	height: 40rpx;
+	background: #fff;
+	color: #ed4e4e;
+	font-size: 1.1em;
+	border-radius: 10rpx;
+}
+.nowDay_box_btn_l_in2{
+    font-size: 22rpx;
+    color:#999;
+    margin-left: 15rpx;
+    text-decoration:line-through;
+    margin-bottom: 6rpx;
+}
+.near_goods_t_l_in{
+  color: #fff;
+}
+.nearByMerchants{
+	width: 100%;
+	top: 101px;
+	position: relative;
+}
+
+.buyBtn{
+  width:150rpx;
+  height:54rpx;
+  display: flex;
+  align-items: center;
+  background-color: #E60012;
+  font-size:500;
+  color:#fff;
+  border-radius: 10rpx;
+  justify-content: center;
+}
+.valignCenter{
+  display: flex;
+  align-items: center;
+}
+.meng{
+  background-color:#000;
+  opacity:.7;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  z-index:100;
+}

@@ -1,0 +1,62 @@
+/* component/goods/itemShop.wxss */
+@import "../../css/weui.wxss";
+@import "../../css/com.wxss";
+
+.good_home{
+   position: relative;
+   background-color: #ffffff;
+   padding: 20rpx 30rpx;
+   margin:20rpx 0;
+   align-items:center;
+}
+.good_home_img{
+   width: 140rpx;
+   height: 140rpx;
+   overflow: hidden
+}
+.good_home_img image{
+  height: 140rpx;
+  width: 140rpx;
+}
+.store_name{
+	font-size: 32rpx;
+	color:#333;
+	font-weight: 500;
+}
+.good_home .good_home_tit{
+   padding-left: 20rpx;
+}
+.good_home .good_home_tit_3{
+   font-size: 24rpx;
+	 color:#333;
+}
+.good_home .good_home_tit_3 text{
+   color: #333;
+   padding:0 10rpx 0 5rpx;
+}
+.good_home .good_home_address{
+  font-size: 24rpx;
+	color:#999;
+	font-weight: 500;
+	height:60rpx;
+	line-height:1.3;
+}
+.good_home .good_home_rz{
+  position: absolute;
+  top:20rpx;
+  right: 20rpx;
+}
+.twoFontNow {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.color3{
+	color:#333;
+}
+.color6{
+	color:#666;
+}

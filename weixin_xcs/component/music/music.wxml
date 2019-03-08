@@ -1,0 +1,7 @@
+<!--component/music/music.wxml-->
+<image class='music {{ rotate && musicClass }}'  
+        style="{{ musicStyle }}"  
+        src="{{ icon }}"  
+        bindtap='_switch'  
+        wx:if="{{ music }}">
+</image>

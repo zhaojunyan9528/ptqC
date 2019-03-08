@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "更多",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "btn": "/component/button/button",
+    "vwx-footer": "/component/footer/footer"
+
+  }
+}

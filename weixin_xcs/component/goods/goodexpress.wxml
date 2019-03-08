@@ -1,0 +1,9 @@
+<!--component/goods/goodexpress.wxml-->
+<view class='exp'>
+<view class='good_title_all'>
+   <view class="good_title_sm" wx:if="{{genre == 0 || genre == 3}}">●<text class="{{genre==0||genre==3?'':'xxxx'}}"   > 送货上门</text></view>
+   <view class="good_title_sm " wx:if="{{genre == 1 || genre == 3}}">●<text class="{{genre==1||genre==3?'':'xxxx'}}"> 到店自提</text></view>
+   </view>
+   <!-- 在赚红包开启的情况下显示 -->
+   <view class='good-packet' wx:if="{{is_red == 1}}"><text>赚红包活动不支持退款</text></view>
+</view>

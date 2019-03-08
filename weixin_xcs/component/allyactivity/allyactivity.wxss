@@ -1,0 +1,145 @@
+/* component/allyactivity.wxss *//*友情推荐*/
+.icon-pq-rightarr:before { content: "\e734"; }
+.indexAll_bus_t{
+    height: 90rpx;
+    border-bottom: 2rpx #f0f0f0 solid;
+    background: #fff;
+    margin-top: 20rpx;
+}
+.indexAll_bus_m_t{
+    padding: 15rpx 30rpx;
+    background: #fff;
+    border-bottom: 2rpx #f0f0f0 solid;
+}
+.indexAll_bus_m_t_l_1{
+    width: 80rpx;
+    height: 80rpx;
+    min-width: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+.indexAll_bus_m_t_r{
+    color: #999;
+    font-size: .9em;
+}
+.indexAll_bus_m_t_l_2_2{
+    color: #999;
+    font-size: .8em;
+    margin-top: 5rpx;
+}
+.indexAll_bus_m_t_r_2{
+    width: 30rpx;
+    height: 30rpx;
+    min-width: 30rpx;
+    margin-right: -10;
+    margin-left: 10rpx;
+    line-height:30rpx;
+}
+.indexAll_bus_m{
+    border-bottom: 20rpx #f0f0f0 solid;
+}
+.indexAll_bus_m_b{
+    padding: 0rpx 30rpx;
+    background: #fff;
+}
+.indexAll_bus_m_b_in{
+    padding: 30rpx 0rpx;
+    border-bottom: 2rpx #f0f0f0 solid;
+    display: flex;
+}
+.indexAll_bus_m_b_in:last-child{
+  border:none;
+}
+.indexAll_bus_m_b_in_l{
+    width: 280rpx;
+    height: 186rpx;
+    min-width: 280rpx;
+}
+.indexAll_bus_m_b_in_r{
+    padding-left: 20rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.indexAll_bus_m_b_in_r_t{
+    line-height: 40rpx;
+}
+.indexAll_bus_m_b_in_r_t_l{
+    padding: 4rpx 10rpx;
+    color: #fff;
+    margin-right: 10rpx;
+    display: inline-block;
+    border-radius: 8rpx;
+}
+.indexAll_bus_m_b_in_r_b_in1{
+    color: #e60012;
+    font-size: 26rpx;
+}
+.indexAll_bus_m_b_in_r_b_in2{
+    color: #999999;
+    font-size: 22rpx;
+    margin-top: 5rpx;
+}
+.indexAll_bus_m_t_r_1{
+    color: #666;
+    font-size: 28rpx;
+}
+.cenFlex{
+  display:flex;
+align-items:center;
+justify-content:center;
+
+}
+.sbFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.gd_pr_t_l_ico_in {
+    padding: 0rpx 15rpx;
+    color: #fff;
+    font-size: 22rpx;
+    max-height: 40rpx;
+    line-height: 28rpx;
+    background-color: #eee;
+    height:28rpx;
+}
+.gd_pr_t_l_ico {
+    padding: 6rpx 0rpx;
+    border-top: 2rpx #eee dashed;
+    border-bottom: 2rpx #eee dashed;
+    border-left: 2rpx #eee solid;
+    border-right: 2rpx #eee solid;
+    border-radius: 5rpx;
+    margin-right: 5rpx;
+    display: inline-block;
+    height:44rpx;
+    position:absolute;
+    right:0;
+    bottom:4rpx;
+}
+.twoFontNow {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size:28rpx;
+    color:#333;
+}
+
+.r-b{
+  display: flex;
+  justify-content: space-between;
+  position:relative;
+}
+.indexAll_bus_m_t_l_2_1{
+  font-size:28rpx;
+}
+.indexAll_bus_m_t_l_2_2{
+  font-size: 22rpx;
+  color:#999;
+}

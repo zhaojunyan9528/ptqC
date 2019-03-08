@@ -1,0 +1,15 @@
+/* pages/my/authorize/authorize.wxss */
+
+.authorize{
+	width: 60vw;
+   margin: auto;
+}
+.textBox{
+   width: 100%;
+   text-align: center;
+   margin: 0 20px;
+}
+.goAuthoBtn{
+   margin: 22px 0;
+    background-color: #f2f2f2;
+}

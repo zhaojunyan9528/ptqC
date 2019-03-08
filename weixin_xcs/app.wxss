@@ -1,0 +1,48 @@
+/**app.wxss**/
+@import "css/weui.wxss";
+@import "css/icon.wxss";
+@import "css/line.wxss";
+@import "css/color.wxss";
+@import "css/com.wxss";
+@import "css/layout.wxss";
+
+/*默认page样式  */
+
+page{
+	background: #f8f8f8;
+    overflow-x: hidden;
+    width: 100%;
+    max-width:750rpx;
+    color: #666;
+    font-size: 26rpx;
+}
+/*默认view样式  */
+view {
+   box-sizing: border-box;
+}
+/*默认container样式，每个页面都根节点  */
+.container {
+   width: 100%;
+   height: auto;
+   display: block;
+   box-sizing: border-box;
+}
+image{
+   max-height: 100%; 
+   max-width: 100%; 
+   
+}
+.twoFontNow {
+    display: -webkit-box;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.onFontNow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

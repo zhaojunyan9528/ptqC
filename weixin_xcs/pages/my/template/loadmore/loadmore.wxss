@@ -1,0 +1,4 @@
+/* pages/my/template/loadmore/loadmore.wxss */
+.container{
+  margin-top: 20rpx;
+}

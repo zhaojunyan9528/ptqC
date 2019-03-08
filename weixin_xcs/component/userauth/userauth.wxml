@@ -1,0 +1,14 @@
+<!--component/userauth/userauth.wxml-->
+<view class='renzheng '>
+<!-- type : 1 个人认证 2.店铺认证 -->
+	<view wx:if="{{ auth == 1}}" class='renzhen'>
+		<!-- <icon class="{{type == 1?'icon-pq-ggrz':'icon-pq-dprz'}}" style="padding-top: 6rpx;"></icon> -->
+    <image wx:if="{{type == 1}}" src='/assets/images/goods3_ico1.png' class="auth_img" mode="aspectFill"></image>
+    <image wx:if="{{type == 2}}" src='/assets/images/index3_ico3.png' class="auth_img" mode="aspectFill"></image>
+		<text style='color:#f7a20e !important;padding-left:0rpx' >{{type == 1 ?'个人认证':'店铺认证'}}</text>
+	</view>
+	<view wx:if="{{auth == 0}}" >
+	        <image  mode="aspectFill" class='wrzImg ' style='width:24rpx;padding-top:1rpx' src='{{imgUrl}}index3_ico7.png' ></image>
+		<text style='padding-left:0rpx !important'>未认证</text>
+	</view>
+</view>

@@ -1,0 +1,130 @@
+<!--pages/index.wxml-->
+<import src="/template/goodlist.wxml" />
+<compage id="compage">
+
+   <view class="container" wx:if="{{errStore}}" >
+      <!--头部内容  -->
+      <view class='home_top'>
+         <image src='{{store_info.store_background}}'></image>
+         <view class='store_logo'>
+            <image src='{{store_info.store_logo}}'></image>
+         </view>
+         <view class='home_top_head weui-flex'>
+            <view class='home_top_lt'>
+            </view>
+            <view class='weui-flex__item'>
+               <view class='h4'>{{store_info.store_name}}</view>
+               <view class='home_top_rz'>
+                  <vwx-user-auth type="{{store_info.auth_type}}" auth="{{store_info.is_authentication}}"></vwx-user-auth>
+                  <text style='font-size:20rpx' >{{DF.FANS}}:{{store_info.customer_fans}}</text>
+               </view>
+            </view>
+            <button class=' tv_btn' bindtap='tapPoint'>
+               <icon class='icon-pq-follow' style="{{store_info.is_attention==1?'color:#ff4352':''}}"></icon>
+               <view style="{{store_info.is_attention==1?'color:#ff4352':''}}">{{store_info.is_attention==1?'已关注':'未关注'}}</view>
+            </button>
+            <button class='tv_btn' hover-class="none" open-type="share">
+               <view class='icon-pq-fx'></view>
+               分享
+            </button>
+         </view>
+         <view class='home_address weui-flex border-tb' >
+            <view class='weui-flex__item home_address_in flex'  bindtap="storeClick" data-latitude="{{store_info.latitude}}" data-longitude="{{store_info.longitude}}">
+               <view>
+                <icon class='icon-pq-map' size='18'></icon> 
+               </view>
+               <view class="nowrap">
+                {{store_info.address}}
+               </view>
+            </view>
+            <view class='home_tel' bindtap='Callphone'>
+               <icon class='icon-pq-phone' size='20'></icon>
+            </view>
+         </view>
+      </view>
+      <!--商家活动  -->
+      <view class='home_active'>
+         <!--特惠与拼团立减切换bar  -->
+         <vwx-tab tabs="{{tabs}}" bindmyselect="selectTab"  actIndex="{{activeIndex}}"></vwx-tab>
+         <view wx:if="{{!goods_list[0] && group_list[0] }}">
+                    <!--商家特惠活动  -->
+              <view wx:if="{{activeIndex==1}}">
+                  <block wx:for="{{goods_list}}" wx:key="index">
+                    <vwx-gooditem-sale data="{{item}}"></vwx-gooditem-sale> 
+                  </block>
+                  <!-- 如果特惠列表为空 -->
+                  <view wx:if="{{!goods_list[0]}}">
+                      <vwx-null-data nullData="{{nullData}}"></vwx-null-data>
+                  </view>
+              </view>
+              <view class='home_list2' wx:else>
+                  <block wx:for="{{group_list}}" wx:key="index">
+                    <vwx-gooditem-group data="{{item}}"></vwx-gooditem-group>
+                    
+                  </block>
+                  <!-- 如果特惠列表为空 -->
+                  <view wx:if="{{!group_list[0]}}">
+                      <vwx-null-data nullData="{{nullData1}}" ></vwx-null-data>
+                  </view>
+                  <view style='clear:both'></view>
+              </view>
+         </view>
+         <view  wx:else>
+              <!--商家特惠活动  -->
+              <view wx:if="{{activeIndex==0}}">
+                  <block wx:for="{{goods_list}}" wx:key="index">
+                    <vwx-gooditem-sale data="{{item}}"></vwx-gooditem-sale> 
+                  </block>
+                  <!-- 如果特惠列表为空 -->
+                  <view wx:if="{{!goods_list[0]}}">
+                      <vwx-null-data nullData="{{nullData}}"></vwx-null-data>
+                  </view>
+              </view>
+              <view class='home_list2' wx:else>
+                  <block wx:for="{{group_list}}" wx:key="index">
+                    <vwx-gooditem-group data="{{item}}"></vwx-gooditem-group>
+                    
+                  </block>
+                  <!-- 如果特惠列表为空 -->
+                  <view wx:if="{{!group_list[0]}}">
+                      <vwx-null-data nullData="{{nullData1}}" ></vwx-null-data>
+                  </view>
+                  <view style='clear:both'></view>
+              </view>
+            </view>
+      </view>
+   </view>
+   
+   <!--推荐盟友活动 -->
+      <view wx:if="{{!goods_list[0] && group_list[0] }}">
+          <view wx:if="{{activeIndex==1}}" >
+              <vwx-ally-activity allySpecialsList="{{allySpecialsList}}" goods_list="{{goods_list}}" bootomFlag="{{bottFlag}}" bind:storebutton="storebutton"     specialsAllPaging="{{specialsAllPaging}}"            bind:navStore="navStore"></vwx-ally-activity>
+          </view>
+          <view wx:else>
+               <vwx-ally-activity allySpecialsList="{{allyGroupList}}" goods_list="{{group_list}}" bootomFlag="{{bottFlag}}" bind:storebutton="storebutton"      specialsAllPaging="{{groupAllPaging}}"   bind:navStore="navStore"></vwx-ally-activity>
+           </view>
+      </view>
+      <view wx:else>
+          <view wx:if="{{activeIndex==0}}" >
+              <vwx-ally-activity allySpecialsList="{{allySpecialsList}}"   specialsAllPaging="{{specialsAllPaging}}"  goods_list="{{goods_list}}" bootomFlag="{{bottFlag}}" bind:storebutton="storebutton" bind:navStore="navStore"></vwx-ally-activity>
+          </view>
+          <view wx:else>
+               <vwx-ally-activity allySpecialsList="{{allyGroupList}}"  specialsAllPaging="{{groupAllPaging}}"  goods_list="{{group_list}}" bootomFlag="{{bottFlag}}" bind:storebutton="storebutton" bind:navStore="navStore"></vwx-ally-activity>
+          </view>
+       </view>
+
+     <!-- 首页下方显示拼团趣技术支持 -->
+<vwx-footer is="footer" store_id= "{{store_info.store_id}}"></vwx-footer>  
+<!-- 未关注公众号，点击关注店铺，提示扫码关注 -->
+      <view class="qr_code_mb" bindtap="hideWxAbout" wx:if="{{wxAboutshow}}">
+        <view class="qr_code_mb_in">
+            <view class="qr_code_mb_in_img cenFlex" catchtap="storageWxAbout">
+                <image src="{{miniapps_code}}"></image>
+            </view>
+            <view class="qr_code_mb_in_tit">首次关注店铺仅需四步</view>
+            <view class="qr_code_mb_in_txt ">
+                <view class="qr_code_mb_in_txt_in" wx:for="{{miniapps_codeTxt}}" wx:key="{{index}}">第<view class="qr_code_mb_in_txt_in_r">{{index+1}}</view>步，{{item}}</view>    
+            </view>
+        </view>
+    </view>
+</compage>

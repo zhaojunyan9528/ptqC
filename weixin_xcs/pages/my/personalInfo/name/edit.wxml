@@ -1,0 +1,18 @@
+<compage id="compage">
+  <view class='form_box'>
+    <view class='label'>昵称</view>
+    <view class='cont flex-between'>
+      <view class='cont_txt'>
+        <input class='cont_input' placeholder='请输入您的昵称' value='{{name}}' bindinput='regInput' ></input>
+      </view>
+      <view class='cont_opt' bindtap='clearInput'>
+        <icon class='icon-pq-clean' style='font-size: 34rpx; color: #aaa;'></icon>
+      </view>
+    </view>
+    <view class='tips'>以中文或英文字母开头，限4-16个字符，一个汉字为两个字符</view>
+  </view>
+  <view class='form_opt'>
+    <btn id='btn-m' type='m' text='确定' disabled='{{!canEdit}}' bindtap="saveData"></btn>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

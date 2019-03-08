@@ -1,0 +1,9 @@
+.item-ico{
+  text-align: center;
+}
+.item-text{
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  color: #333333;
+  text-align: center;
+}

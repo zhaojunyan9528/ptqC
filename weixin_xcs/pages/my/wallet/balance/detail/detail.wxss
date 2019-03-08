@@ -1,0 +1,25 @@
+/* pages/my/wallet/balance/detail/detail.wxss */
+@import '../../../base.wxss';
+.block{
+  background-color: #fff;
+  margin-top: 20rpx;
+  font-size: 32rpx;
+  line-height: 1;
+}
+.item{
+  padding: 30rpx;
+}
+/* .sub_item{
+  padding-left: 60rpx;
+} */
+.item_label{
+  color: #666;
+}
+.item_value{
+  max-width: 70%;
+  font-size: 28rpx;
+  word-wrap:  break-word
+}
+.income{
+  color: #3cb500;
+}

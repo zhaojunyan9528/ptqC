@@ -1,0 +1,13 @@
+<!--pages/my/template/topbar/topbar.wxml-->
+<template name="topbar">
+  <view class="relative-box topbar-box {{topbar.system == 0 ? 'topbar-box-ios' : 'topbar-box-android'}}">
+    <view class="topbar-inbox border-b">{{topbar.title}}
+      <!-- 点击按钮：文字 -->
+      <view wx:if="{{!topbar.optType}}" class="topbar-opt-txt fr" bindtap='{{topbar.optFn}}'>{{topbar.optTxt}}</view>
+      <!-- 点击按钮：图标 -->
+      <view wx:if="{{topbar.optType == 1}}" class='fr' bindtap='{{topbar.optFn}}'>
+        <icon class="topbar-opt-icon {{topbar.optTxt}}"></icon>
+      </view>
+    </view>
+  </view>
+</template>

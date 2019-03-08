@@ -1,0 +1,46 @@
+<!--component/allyactivity.wxml-->
+
+<view class="indexAll_bus" wx:if="{{allySpecialsList[0] && (bootomFlag || specialsAllPaging == 1)}}">
+                <view class="indexAll_bus_t cenFlex"  style="margin-top: 0rpx;width:100%">友情推荐</view>
+    <view class="indexAll_bus_m" wx:for="{{allySpecialsList}}" wx:key="{{index}}">
+                    <view class="indexAll_bus_m_t sbFlex" wx:if="{{item}}" style='width:100%' bindtap="storebutton" data-id="{{item.storeId}}">
+                        <view class="indexAll_bus_m_t_l cenFlex">
+                            <view class="indexAll_bus_m_t_l_1 cenFlex">
+                                <image mode='aspectFill' src="{{item.storeLogo}}"></image>
+                            </view>
+                            <view class="indexAll_bus_m_t_l_2">
+                                <view class="indexAll_bus_m_t_l_2_1">{{item.storeName}}</view>
+                                <view class="indexAll_bus_m_t_l_2_2">{{item.distance}}</view>
+                            </view>
+                        </view>
+                        <view class="indexAll_bus_m_t_r cenFlex">
+                            <view class="indexAll_bus_m_t_r_1">查看更多</view>
+                            <view class="indexAll_bus_m_t_r_2">
+                                <icon class='icon-pq-rightarr' style="color:#666;"></icon>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="indexAll_bus_m_b">
+                        <view data-id="{{item.goods_id}}" data-type="{{item.is_group}}" bindtap="navStore" class="indexAll_bus_m_b_in" wx:for="{{item.list}}" wx:key="{{index}}" wx:if="{{ index<3}}">
+                            <view class="indexAll_bus_m_b_in_l">
+                                 <image src="{{item.goods_img}}" mode="aspectFill"></image>                            </view>
+                            <view class="indexAll_bus_m_b_in_r">
+                                <view class="indexAll_bus_m_b_in_r_t twoFontNow">
+                                  {{item.goods_name}}
+                                </view>
+                                <view class="r-b">
+                                  <view class="indexAll_bus_m_b_in_r_b">
+                                    <view class="indexAll_bus_m_b_in_r_b_in2">{{item.is_group==1?'团长价':item.is_group==3?'原价':item.is_group==4?'原价':'最低价'}}:<text style="text-decoration:line-through">¥{{item.goods_price}}</text></view>
+                                    <view class="indexAll_bus_m_b_in_r_b_in1">{{item.price_str}}:¥{{item.bottom_price}}</view>
+                                  </view>
+                                  <view class="gd_pr_t_l_ico" style="border-color:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':'fff'}};">
+                                        <view class="gd_pr_t_l_ico_in" style="background:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':'fff'}};">
+                                            {{item.is_group==1?'拼团立减':item.is_group==3?'多人拼团':item.is_group==4?'限时专享':'暂无状态'}}
+                                        </view>
+                                    </view>
+                              </view>
+                            </view>
+                        </view>
+                    </view>
+    </view>
+</view>

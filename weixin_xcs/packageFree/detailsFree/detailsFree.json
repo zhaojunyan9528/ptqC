@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "刮奖免单",
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-btn": "/component/button/button",
+    "vwx-countdown": "/component/countdown/countdown",
+    "vwx-goods-item": "/component/goodsList/goods_item",
+    "vwx-footer": "/component/footer/footer",
+    "vwx-scroll-num": "/component/scroll/scroll1",
+    "vwx-music": "/component/music/music"
+  }
+}

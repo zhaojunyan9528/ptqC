@@ -1,0 +1,48 @@
+<!--pages/my/address/newAddress/newAddress.wxml-->
+<compage id="compage">
+  <view class="container">
+    <view class="consignee-group">
+      <view class="input-hint">收货人姓名</view>
+      <view >
+        <input placeholder-class="input-class" class="input"  placeholder="请输入姓名" bindinput='consigneeInput'value="{{consignee}}"></input>
+      </view>
+    </view>
+
+     <view class="consignee-group">
+      <view class="input-hint">收货人电话</view>
+      <view >
+        <input placeholder-class="input-class" class="input"  placeholder="请输入手机号" bindinput='telephoneInput' value="{{telephone}}" data-minlen="11"   ></input>
+      </view>
+    </view>
+
+    <view class="consignee-group">
+      <view class="input-hint">地址</view>
+      <view class="section">
+        <picker mode="region" class="input" bindchange="bindRegionChange" >
+        <view class="picker">
+        <block wx:if="{{province.length<=0}}"><text style="color:#999">请选择地址</text></block>
+        <block wx:else>{{province}}-{{city}}-{{country}}</block>
+        </view>
+        </picker>
+      </view>
+    </view>
+    <view class="consignee-group">
+      <view class="input-hint">地址详情</view>
+      <view >
+        <input placeholder-class="input-class" class="input"  placeholder="请填写详细地址" bindinput='placeInput' value="{{place}}" ></input>
+      </view>
+    </view>
+       <view class="consignee-group default" bindtap="isDefault">
+        <view class="icon" wx:if="{{!is_default}}">
+          <icon class="{{'icon-pq-circle sel-img-noselected'}}" style="font-size: 40rpx;display:flex"></icon>
+        </view>
+        <view class="icon" wx:if="{{is_default}}">
+          <icon class="{{'icon-pq-xuanzhong sel-img-selected'}}" style="font-size: 40rpx;display:flex"></icon>
+        </view>
+        <view style="color:#666">默认地址</view>
+        </view>
+    <view class="btn-content">
+      <vwx-button id="vwx-button-save" text="保存" disabled="{{!isClick}}" loading="true" bind:tap-event="saveAddress" style='width: 100%'></vwx-button>
+    </view>
+  </view>
+</compage>

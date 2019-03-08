@@ -1,0 +1,103 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/goodsInfo/goodsGroup/goodsGroup",
+    "pages/goodsInfo/goodsPeople/goodsPeople",
+    "pages/goodsInfo/goodsSale/goodsSale",
+    "pages/goodsInfo/goodsBargain/goodsBargain",
+    "pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail",
+    "pages/aboutshop/aboutshop",
+    "pages/nearShopList/nearShopList",
+    "pages/nearShopList/search/search",
+    "pages/nearShopList/wsq/wsq",
+    "pages/my/index",
+    "pages/my/personalInfo/index",
+    "pages/my/personalInfo/name/edit",
+    "pages/my/collection/index",
+    "pages/my/order/index",
+    "pages/my/order/list/list",
+    "pages/my/order/logistics/detail",
+    "pages/my/order/evaluate/add",
+    "pages/my/order/detail/detail",
+    "pages/my/evaluation/index",
+    "pages/my/wallet/index",
+    "pages/my/wallet/balance/list",
+    "pages/my/wallet/balance/detail/detail",
+    "pages/my/wallet/withdrawDeposit/withdrawDeposit",
+    "pages/my/inSharingActs/index",
+    "pages/my/inSharingActs/share/share",
+    "pages/my/specialCard/index",
+    "pages/my/footprint/index",
+    "pages/my/address/index",
+    "pages/my/applyStoreAccount/index",
+    "pages/my/address/newAddress/newAddress",
+    "pages/my/specialCard/detail/detail",
+    "pages/my/specialCard/cardDetail/cardDetail",
+    "pages/buy/buy",
+    "pages/my/changeRole/index",
+    "pages/my/login/login",
+    "pages/my/authorize/authorize",
+    "pages/my/wxversion/wxversion",
+    "pages/loading/loading",
+    "pages/myStore/index",
+    "pages/oldindex",
+    "pages/recommend/recommend",
+    "pages/my/specialCard/multiCard/multiCard"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于查看附近热门活动"
+    }
+  },
+  "subPackages": [
+    {
+      "root": "packageFree",
+      "pages": [
+        "pay/pay",
+        "pay/paySuccess/paySuccess",
+        "couponList/index",
+        "activitiDetails/index",
+        "detailsFree/detailsFree"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#393a3f",
+    "navigationBarTitleText": "拼团趣",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f3f3f3"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#e60012",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "iconPath": "assets/images/index.png",
+        "selectedIconPath": "assets/images/index-act.png",
+        "pagePath": "pages/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "assets/images/order.png",
+        "selectedIconPath": "assets/images/order-act.png",
+        "pagePath": "pages/my/order/list/list",
+        "text": "订单"
+      },
+      {
+        "iconPath": "assets/images/stroll.png",
+        "selectedIconPath": "assets/images/stroll-act.png",
+        "pagePath": "pages/nearShopList/nearShopList",
+        "text": "逛逛"
+      }
+    ]
+  },
+  "debug": false,
+  "navigateToMiniProgramAppIdList": [
+    "wx429f42a870cd65c0",
+    "wx6de5e3a338bc09e5",
+    "wxd25131b98741c7cb"
+  ]
+}

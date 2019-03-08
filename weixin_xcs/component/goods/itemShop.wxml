@@ -1,0 +1,22 @@
+<!--component/goods/itemShop.wxml-->
+<!--店铺信息  -->
+<view class='weui-flex good_home' data-storeid="{{data.store_id}}" bindtap="storebutton">
+  <view class='good_home_img'>
+    <image  mode="aspectFill" src='{{data.store_logo}}'></image>
+  </view>
+  <view class='weui-flex__item good_home_tit'>
+    <view class='store_name'>{{data.store_name}}</view>
+    <view class='good_home_address twoFontNow'>{{data.store_address}}</view>
+    <view class='good_home_tit_3'>
+			<text class="color6">客粉数:</text>
+      <text class="color3">{{data.customer_fans}}</text> 
+			<text class="color6"> 店铺销量:</text>
+      <text class="color3">{{data.order_num}}</text>
+			<text class="color6"> 当前活动:</text>
+      <text class="color3">{{data.goods_num}}</text>
+    </view>
+  </view>
+  <view class='good_home_rz'>
+    <vwx-user-auth type="{{data.authentication_type}}" auth="{{data.is_authentication}}"></vwx-user-auth>
+  </view>
+</view>

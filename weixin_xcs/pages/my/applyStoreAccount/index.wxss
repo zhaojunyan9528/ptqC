@@ -1,0 +1,148 @@
+/* pages/my/applyStore/index.wxss */
+page{
+  background-color: #fff;
+}
+view{
+  box-sizing: initial;
+}
+
+.header{
+  padding: 40rpx 0 30rpx;
+}
+.header > image{
+  width: 210rpx;
+  height: 60rpx;
+}
+
+.form{}
+.form_item{
+  display: flex;
+  align-items: flex-end;
+  padding: 30rpx 70rpx 0 60rpx;
+  height: 70rpx; 
+  line-height: 70rpx;
+  font-size: 30rpx;
+}
+.form_item_addrDetail{
+  height: 150rpx;
+  line-height: 1.5;
+  overflow: hidden;
+}
+.item_lab{
+  width: 30%;
+  text-align: right;
+}
+.item_lab.item_lab_way{
+  width: 60%;
+}
+.item_val{
+  border-bottom: 1rpx solid #e8e8e8;
+  width: 70%;
+  height: 100%;
+  
+}
+.item_valf{
+  border-bottom: 1rpx solid #e8e8e8;
+  width: 70%;
+  line-height: 60rpx;
+}
+.item_val.item_val_way{
+  width: 40%;
+}
+.item_val input{
+  padding: 0 20rpx;
+  width: 100%;
+}
+.item_input{
+  color: #bdbdbd;
+}
+/* 验证码 */
+.item_idenCode{
+  border: none;
+}
+.idenCode_inp{
+  border-bottom: 1rpx solid #e8e8e8;
+  width: 58%;
+  height: 100%;
+}
+button.idenCode_btn{
+  border-radius: 10rpx;
+  width: 42%;
+  height: 80%;
+  background-color: #bdbdbd;
+  font-size: 26rpx;
+  color: #fff;
+}
+button.idenCode_btn_edit{
+  background-color: #e60012;
+}
+/* 地址 */
+ .item_picker{
+  padding: 5rpx 20rpx 0;
+  width: 100%;
+  height: 100%;
+  color: #bdbdbd;
+}
+.item_picker_val{
+  color: #333;
+}
+.item_addr{
+  border: none;
+  width: 100%;
+}
+.item_addrDetail{
+  padding: 20rpx;
+  width: auto;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.form_btn{
+  margin-top: 70rpx;
+}
+.form_btn > button{
+  border-radius: 20rpx;
+  width: 480rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  background-color: #ccc;
+  border-color: #ccc;
+  color: #fff;
+  font-size: 32rpx;
+}
+.form_btn > .btn_canEdit{
+   background-color: #e60012;
+   border-color: #e60012;
+}
+
+.footer{
+  padding-bottom: 80rpx;
+  margin-top: 60rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+}
+
+
+[class*=flex-]{
+  display: flex;
+}
+.flex-x-center{
+  justify-content: center;
+}
+.flex-y-center{
+  align-items: center;
+}
+.flex-center{
+  align-items: center;
+  justify-content: center;
+}
+.flex-x-between{
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-y-between{
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,341 @@
+<!--packageFree/detailsFree /detailsFree.wxml-->
+<!-- 刮奖免单详情页 -->
+<compage id="compage">
+  <view class='footerRes cssFlex '>
+    <!-- shake -->
+    <view class='cssFlex_st ' animation="{{animationData}}" bindtap='regis'>
+      <image mode="aspectFill" src='/assets/images/cssFlex.png'></image>
+    </view>
+  </view>
+  <view class="freeDetails {{showScratchModal?'noScroll':''}}" wx:if="{{isShowPage}}" style=" background-image:url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj_bg01.jpg');background-repeat:repeat-y;background-size:100% 100%; ">
+    <view class='freeDetails_top' style=" background-image:url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj01.png') ;background-repeat:no-repeat;background-size:100%; ">
+      <!-- 实时刷新刮奖详情 和 音乐 -->
+      <view class='topfree'>
+        <view style="position:relative">
+          <view class="topfree_le">
+            <view class="onFontNow {{scroll == 1?'scroll':''}}" style="transform: translateY(-{{scroll == 1?scrollTopH:0}}px);">{{freeTopOld.nick_name}}刚刚刮到{{freeTopOld.amount}}元</view>
+            <view class="onFontNow {{scroll == 1?'scroll':''}}" style="transform: translateY(-{{scroll == 1?scrollTopH:0}}px);">{{freeTop.nick_name}}刚刚刮到{{freeTop.amount}}元</view>
+          </view>
+        </view>
+        <!-- {{freeDeta.music_url}} -->
+        <view class="shareBtn">
+          <button wx:if="{{!showScratchModal}}" bindtap='shareBox'>
+            <cover-view class='freeShare'>
+              <cover-image class='freeFled_img' src="http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj06.png" />
+            </cover-view>
+          </button>
+        </view>
+        <cover-view wx:if="{{!showScratchModal}}" class='freeFled' bindtap='goFreeJi'>
+          <cover-image class='freeFled_img' src="https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj07.png" />
+        </cover-view>
+      </view>
+      <vwx-music id="vwx-music" music="{{freeDeta.music_url}}" rotate="{{rotate}}" iconOn="/assets/images/music.png" iconOff="/assets/images/music.png">
+      </vwx-music>
+      <!-- 个人中心 -->
+      <view class="back_preson"  bindtap='goIndex'>
+          <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj37.png'></image>
+      </view>
+      <!-- 倒计时 -->
+      <view class='storeAndCount'>
+        <view class='cou_store'>
+          <view class='cou_store_img'>
+            <image mode="aspectFill" src='{{freeDeta.store_intro.store_logo}}'></image>
+          </view>
+        </view>
+        <view class='countDown'>
+            <view class='countDown_top'>
+                {{freeDeta.store_intro.store_name}}<text>-正在派发</text>
+            </view>
+          <view class='countDown_bot'>
+            <view wx:if="{{countEndFlag && freeDeta.act_status == 1}}">
+              距结束
+              <text class='countDown_number'>{{bonus_time.d}}</text>天<text class='countDown_number'>{{bonus_time.h}}</text>时<text class='countDown_number'>{{bonus_time.m}}</text>分<text class='countDown_number'>{{bonus_time.s}}</text>秒
+            </view>
+            <view wx:else class='countEnd'>
+              活动已结束
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='freeDetails_bo' style="background-image:url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj02.png') ;background-repeat:no-repeat;background-size:100%; ">
+      <!-- 奖金池信息 -->
+      <view class='freeDetails_bous'>
+        <view class='bouns_preson_top'>
+          <view class='bouns_preson_peo'>
+            <view class='bouns_preson_peo_img'>
+              <image mode="aspectFill" src="{{freeDeta.bonus.wx_img}}"></image>
+            </view>
+            <view class='bouns_preson_peo_name onFontNow'>({{freeDeta.bonus.wx_name}}) 在【{{freeDeta.bonus.store_name}}】</view>
+          </view>
+          <view class='freeDetails_bouns'>
+            <view>激活奖金池</view>
+            <view class='bouns_m'>{{freeDeta.bonus.bonus_pool}}
+              <text>元</text>
+            </view>
+          </view>
+        </view>
+        <view class='bouns_preson_bom'>
+          <view class='bouns_preson_bom_top'>
+            <view class='bouns_preson_bom_topc'>
+              <view class='bouns_preson_bom_tconle'>已刮奖金
+                <text>{{freeDeta.bonus.get_amount}}</text>元</view>
+              <view class='bouns_preson_bom_tconri'>未刮出奖金
+                <text>{{freeDeta.bonus.has_not_amount}}</text>元</view>
+            </view>
+            <view class='biuns_progr'>
+              <view class='biuns_progr_con'>
+                <progress percent="{{progress}}" activeColor="#ffd012" active="true" stroke-width="8" />
+              </view>
+            </view>
+          </view>
+          <view class='bouns_preson_bom_bom'>
+            <view class='bouns_preson_bom_bom_top'>
+              <view>发起人已免单:
+                <text>{{freeDeta.bonus.has_amount}}元</text>
+              </view>
+              <!-- <view>发起人已获得：
+                <text>{{freeDeta.bonus.get_amount }}元</text>
+              </view> -->
+            </view>
+            <view class='bouns_preson_bom_bom_bom'>
+              <view>参与活动朋友:
+                <text>{{freeDeta.bonus.other_part_num}}人</text>
+              </view>
+              <view>朋友刮出金额:
+                <text>{{freeDeta.bonus.other_amount}}元</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 刮奖战绩横幅-->
+      <view class='record'>
+        <view class='record_top'>宝宝们的
+          <text>刮奖战绩~</text>
+        </view>
+      </view>
+      <!-- 刮奖战绩-->
+      <view class='record_del'>
+        <view class='record_del_top'>
+          参与人数({{part_num}})
+        </view>
+        <view class="record_del_bom {{goldPool.length==0?'cenFlex goldPoola':''}}">
+          <!-- <view wx:if="{{goldPool.length>0}}"   style="transition:{{isSrollFlag==1&& isSroll ==1?srollTime:0}}s linear;transform:translateY(-{{(isSrollFlag==1&& isSroll ==1)?heightSroll:'0'}}px)"> -->
+          <view class='rec_con' wx:if="{{goldPool.length>0}}" style="top:-{{top}}rpx">
+            <view wx:for="{{goldPool}}" wx:key="index">
+              <view class='record_swiper'>
+                <view class='record_swiper_le'>
+                  <image src='{{item.wx_img}}'></image>
+                </view>
+                <view class='record_swiper_ri'>
+                  <view class='record_name'>{{item.wx_name}}</view>
+                  <view class='record_tom'>
+                    <view class='record_tom_top'>刮出
+                      <text>￥{{item.get_amount}}</text>元</view>
+                    <view class='record_tom_bom'>{{item.create_time}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view wx:else class='noPeople'>
+            暂无人参与活动
+          </view>
+        </view>
+      </view>
+
+    </view>
+   
+    <!-- 店铺介绍 -->
+    <view class='store_con'>
+      <view class='store_con_top'>店铺介绍</view>
+      <view class='store_con_bom'>
+        <view class='store_con_img' style="background-image:url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj05.png') ;background-repeat:no-repeat;background-size:100%; ">
+          <view class='store_con_im'></view>
+          <view class='store_con_im_in' bindtap='goPage' data-upage="/pages/myStore/index?store_id={{freeDeta.store_intro.store_id}}">
+            <view class='store_simg'>
+              <image mode="aspectFill" src='{{freeDeta.store_intro.store_logo}}'></image>
+            </view>
+            <view class='store_sname'>{{freeDeta.store_intro.store_name}}</view>
+          </view>
+        </view>
+
+        <view class='store_phone '>
+          <view class='store_phone_in' bindtap='Callphone'>
+            <icon class='icon-pq-phoneYou'></icon> {{freeDeta.store_intro.telephone}}
+          </view>
+          <view class='store_phone_in1' bindtap="storeClick" data-latitude="{{freeDeta.store_intro.latitude}}" data-longitude="{{freeDeta.store_intro.longitude}}">
+            <icon class='icon-pq-map'></icon> {{freeDeta.store_intro.store_address}}
+          </view>
+        </view>
+
+        <view class='store_brie'>
+          <view class='store_brie_line'></view>
+          <view class='store_brie_lcon'> 店铺简介 </view>
+             <view class='store_brie_line'></view>
+
+        </view>
+        <view class='store_brief'>
+          {{freeDeta.store_intro.goods_des }}
+        </view>
+        <view class='store_bgimg' wx:key="index" wx:for="{{freeDeta.store_intro.imgs}}">
+          <image mode="aspectFill" src='{{item}}'></image>
+        </view>
+
+      </view>
+
+    </view>
+		 <!-- 活动介绍 -->
+    <view class='activity'>
+      <view class='activity_top'>
+        活动介绍
+      </view>
+      <view class='activity_bom'>
+        <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj04.jpg'></image>
+      </view>
+    </view>
+    <view class='footer' wx:if="{{!showScratchModal}}">
+      <view class='footer_le' bindtap='goPage' data-upage="/pages/myStore/index?store_id={{freeDeta.store_intro.store_id}}">
+        <image mode="aspectFill" class="store-image" src="/assets/images/store_scratch.png"> </image>
+        <view class="footer-lt">查看店铺其他活动</view>
+      </view>
+      <view  class="footer_ri {{(freeDeta.times == 0   || freeDeta.times == 1) && countEndFlag && freeDeta.act_status==1   ?'':'noScratch'}}" bindtap='goScratch'>{{freeDeta.times==0 && countEndFlag && freeDeta.act_status==1?'刮奖(2次)':freeDeta.times==1 && countEndFlag && freeDeta.act_status==1?'刮奖(1次)':freeDeta.times > 1 && countEndFlag && freeDeta.act_status==1?'刮奖次数用完':'活动已结束'}}</view>
+      
+    </view>
+    <!-- 刮奖弹窗 -->
+    <view class="  {{(recordAcount.type == 1 ||  recordAcount.type == 2) && !isClickFree?'scratchType5 scratch1':recordAcount.type == 3?'scratchType3 scratch': recordAcount.type == 2?'scratchType2 scratch':'scratchType1 scratch'}} " catchtouchmove="true" wx:if="{{showScratchModal}}">
+
+      <!-- 挂到代金券 -->
+      <view class='scratchCoupon' wx:if="{{recordAcount.type == 2 && isClickFree }}">
+        <view class='scratch_top'>
+
+          <view class='scratch_top_in'>
+            <view class='scratch_top_in1'>
+              <view class='scratch_top_in2'>恭喜您！</view>
+              <view class='scratch_top_in3'>获得{{recordAcount.amout}}元代金券</view>
+            </view>
+            <image src='/assets/images/scratch.png'></image>
+
+          </view>
+        </view>
+        <view class='scratch_bom'>
+          <view class='scratch_bo'>
+            <view class='scratch_bom_in'>
+              <!-- <view class='scratch_bom_type1'> -->
+              <view class="item-right">
+                <view class="top">
+                  <text class="t-l">代金券</text>
+                  <text class="t-r">{{recordAcount.amout}}元</text>
+                </view>
+                <view class="bottom">
+                  <view class="b-l">
+                    <text class="b-l-text">有限期至：</text>
+                    <text class="date">{{recordAcount.end_time}}</text>
+                  </view>
+                  <view class="b-r">满{{recordAcount.lowest_amount}}元可使用</view>
+                </view>
+              </view>
+
+              <!-- </view> -->
+            </view>
+            <view class='scratch_bom_in1'>运气爆棚，您为自己刮出{{recordAcount.amout}}元代金券,请在一个月内及时到店使用掉哦。</view>
+            <view class='scratch_bom_in2'>刮出的代金券可到拼团趣小程序代金券中查看</view>
+          </view>
+          <view class='scratch_foot'>
+            <view class='scratch_foot_in'> 分享后可以增加一次刮奖机会。</view>
+          </view>
+          <!-- <view class='scratch_share'>
+            <view class='scratch_share_in'>立即分享</view>
+          </view> -->
+          <!-- <view class='scratch_share'>
+            <button class='scratch_share_in' type='warn' size="30" bindtap='cancel'> 我知道了 </button>
+          </view> -->
+          <view class='scratch_share'>
+            <button class='scratch_share_in' type='warn' size="30" loading="{{loading}}" bindtap='shareBox'> 立即分享 </button>
+          </view>
+        </view>
+      </view>
+      <!-- 挂到现金 -->
+      <view class='scratchCoupon' wx:if="{{recordAcount.type == 1 && isClickFree}}">
+        <view class='scratch_top'>
+          <view class='scratch_top_in'>
+            <view class='scratch_top_in1'>
+              <view class='scratch_top_in2'>恭喜您！</view>
+              <view class='scratch_top_in3'>获得{{recordAcount.amout}}元</view>
+            </view>
+            <image src='http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj08.png'></image>
+          </view>
+        </view>
+        <view class='money-num_bot_lr'>
+          <view class='scratch_type2_content'>
+            <view class="money-num">
+              <view class='money-num_inj'>
+                <image src="http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj18.png"></image>
+              </view>
+              <view class='money-num_iny'>
+                <view class='money-num_iny1'>{{recordAcount.amout}}元</view>
+                <view class='money-num_iny2 onFontNow'>刮出的金额已返还到好友的微信钱包中</view>
+              </view>
+            </view>
+            <view class="money-num_bot">
+              <text>微信钱包</text>
+            </view>
+          </view>
+          <view class='scratch_share'>
+            <button class='scratch_share_in' bindtap='cancel'> 我知道了 </button>
+          </view>
+          <view class='scratch_share'>
+            <button class='scratch_share_in' type='warn' size="30" loading="{{loading}}" open-type="share"> 立即分享 </button>
+          </view>
+        </view>
+      </view>
+      <!-- 很遗憾 -->
+      <view class='scratchCoupon' wx:if="{{recordAcount.type == 3 }}">
+        <view class='scratch_top'>
+          <view class='scratchCoupon_in' style="background-image:url('http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj19.png') ;background-repeat:no-repeat;background-size:100%; ">
+            <view class='scratchCoupon_in_ri' bindtap='cancel'>确定</view>
+          </view>
+        </view>
+
+      </view>
+      <!-- 挂到现金或者代金券 -->
+      <view class='scratchCoupon ' wx:if="{{(recordAcount.type == 1 && !isClickFree) || (recordAcount.type == 2  && !isClickFree )}}">
+        <view class='scratch_top'>
+          <view class='scratchCoupon_in_r'>
+            <image mode='aspectFill' src='http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj22.png'> </image>
+          </view>
+          <!-- <view class=' freeType5and' wx:if="{{!isPhone}}">
+            <input  type="number" bindblur="bindblur" placeholder-class="claInput" placeholder="{{inputPlaceholder}}" class='phoneInput'></input>
+          </view>
+           <view class='Hint'>{{Hint}}</view> -->
+          <view class="{{!isPhone?'freeType4and1':'freeType4and'}}  ">
+            <view class='freeType4an ' bindtap='freeOnclick'> 立即领取 </view>
+          </view>
+          <view class='closeBtn'>
+            <view class='closeBtn_in' bindtap="cancel">x</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+    <!-- 蒙版 -->
+    <view class="mengban" bindtap="cancel" wx:if="{{showScratchModal || showScratchModal8}}"></view>
+  </view>
+  <view class='mariginBot'>
+    <official-account></official-account>
+  </view>
+  <view wx:if="{{shareBoxFlag}}" class='shareBox'>
+    <button class='shareBoxFlag_top' hover-class="none" open-type="share">分享给好友或微信群</button>
+    <view class='shareBoxFlag_bot' bindtap="showCanvasBtn">下载活动图片</view>
+  </view>
+      <!-- 点击分享图片 -->
+    <view class='canvas' style="{{showCanvas?'left:50%':'left:10000%'}}" >
+            <canvas class="posterCanvas" canvas-id="sharingActivities" style="width:{{canvasW}}px;height:{{canvasH}}px;border-radius:20rpx;"  bindtouchstart="startTimeBtn" bindtouchend="endTimeBtn"></canvas>
+            <view class="canvas_box_in cenFlex" bindtap="hideAllBtn" wx:if="{{saveAlbum}}">
+                <view class="canvas_box_in_txt cenFlex" catchtap='saveImgBtn'>保存到相册</view>
+            </view>
+    </view>
+</compage>

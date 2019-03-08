@@ -1,0 +1,106 @@
+/* pages/my/wallet/withdrawDeposit/withdrawDeposit.wxss */
+@import '../../base.wxss';
+
+page {
+  background-color: #fff !important;
+}
+
+.sum_balance {
+  display: flex;
+  background-color: #f8f8f8;
+  padding: 0 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  /* color:#929292; */
+  color: #333;
+}
+
+.sum_balance > icon {
+  margin-left: 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #319d19;
+  font-size: 38rpx;
+}
+
+.sum_input {
+  padding: 36rpx 0 36rpx 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  /* color: #cccccc; */
+  /* color: red; */
+}
+
+.inputBtn {
+  width: 100%;
+  height: 60rpx;
+  font-size: 44rpx;
+  /* color: #333; */
+}
+.phcolor{
+  color: #cccccc
+}
+.account_box {
+  padding: 30rpx 0;
+}
+
+.account_select_alipay_account {
+  padding: 32rpx;
+}
+
+.list-item-ico {
+  width: 50rpx;
+  height: 50rpx;
+  background-size: 100% 100%;
+}
+
+.list-item-txt {
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.lsit-item-opttxt {
+  margin-top: 7rpx;
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.list-item-opt {
+  width: 50rpx;
+  height: 50rpx;
+  background-image: url(https://www.pintuanqu.cn/Public/WeChatApps/image/my3_ico10.png);
+  background-size: 100% 100%;
+}
+
+.account_rule {
+  padding: 30rpx 0 120rpx 0;
+}
+
+.account_rule_header {
+  padding: 20rpx 30rpx;
+  font-size: 30rpx;
+}
+
+.account_rule_cont {
+  padding: 20rpx 30rpx;
+}
+/* 全部提现 */
+
+.allMoney {
+  width: 210rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333;
+  border:none;
+  background-color: #fff;
+}
+.allMoney::after {
+  border:none
+}

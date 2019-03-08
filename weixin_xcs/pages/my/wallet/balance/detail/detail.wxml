@@ -1,0 +1,26 @@
+<!--pages/my/wallet/balance/detail/detail.wxml-->
+<compage id="compage">
+  <view>
+    <view class='block' >
+      <view class='item flex-between'>
+        <view>{{balanceType == 0 ? '入账金额' : '出账金额'}}</view>
+        <view class="{{balanceType == 0 ? 'income' : 'expense'}}">{{balanceType == 0 ? '+' : '-'}}{{info.amount}}</view>
+      </view>
+    </view>
+    <view class='block'>
+      <view class='item sub_item flex-between'>
+        <view class='item_label'>{{typeTxt}}</view>
+        <view>{{balanceType == 0 ? '' : '-'}}{{info.amount}}</view>
+      </view>
+    </view>
+    <view class='block'>
+      <view wx:for="{{items}}" wx:key="{{index}}" wx:if="{{item.value}}" class='relative-box'>
+        <view class='item flex-between border-b'>
+          <view class='item_label'>{{item.label}}</view>
+           <view class='item_value'>{{item.value || ''}}</view> 
+        </view>
+      </view>
+    </view>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

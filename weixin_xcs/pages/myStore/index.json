@@ -1,0 +1,13 @@
+{
+    "navigationBarTitleText": "门店",
+    "component": true,
+    "usingComponents": {
+      "compage": "/vwx/component/template/",
+      "vwx-user-auth": "/component/userauth/userauth",
+      "vwx-tabs":"/component/tabs/tab",
+      "vwx-goods-item":"/component/goodsList/goods_item",
+      "vwx-goods-sale": "/component/goods/itemSale",
+      "vwx-F-re":"/component/allyactivity/allyactivity",
+      "vwx-footer": "/component/footer/footer"
+    }
+}

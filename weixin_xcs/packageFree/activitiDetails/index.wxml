@@ -1,0 +1,47 @@
+<!--packageFree/activitiDetails/index.wxml-->
+<compage id="compage">
+  <view class="container">
+    <!-- 头部免单金额  start -->
+    <view class="top-content">
+      <view class="top-t">
+        <view class="freeText">已免单</view>
+        <view class="freeNum">￥{{hasFree}}</view>
+      </view>
+    </view> 
+    <!-- 头部免单金额  end -->
+
+    <!-- <vwx-tabs tabs="{{tabs}}" bind:myselect="selectTab" data-index="{{actIndex}}"></vwx-tabs> -->
+    <!-- <vwx-tabs tabs="{{tabs}}"></vwx-tabs> -->
+
+    <view class='money'>免单明细 ({{hasFree}}元) </view>
+
+    <!-- 奖励列表  start  -->
+    <view class="rewardsList" wx:if="{{currentIndex == 0 }}">
+      <view wx:if="{{cashList.length}}">
+        <view class="rewards-item"  wx:for="{{cashList}}" wx:key="index">
+            <view class="item-left">
+              <image src="{{item.wx_img}}" mode="aspectFill"></image>
+            </view>
+            <view class="item-right">
+           
+              <view class="item-r-l " >
+    
+                <view class="item-name onFontNow" wx:if="{{item.type == 1}}">"<text class="heavy">{{item.wx_name}}</text>"为你刮出现金红包</view>
+                 <view class="item-name onFontNow" wx:if="{{item.type == 2}}">"<text class="heavy">{{item.wx_name}}</text>"为你刮出消费奖励</view>
+                <view class="item-time" >{{item.create_time}}</view>
+              </view>
+              <view class="item-r-r red" ><text class="bold">{{item.type == 1?item.get_amount:item.voucher_amount}}</text>元</view>
+            </view>
+        </view>
+      </view>
+      <view wx:else class="null-data" >
+        <view class="null-img">
+          <image  mode="aspectFill" src="{{nullData.img}}"></image>
+        </view>
+        <view class="null-text">{{nullData.text}}</view>
+      </view>
+    </view>
+   
+     <!-- 奖励列表  end  -->
+  </view>
+</compage>

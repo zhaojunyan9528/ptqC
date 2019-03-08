@@ -1,0 +1,291 @@
+<!--pages/goodsInfo/goodsGroup/goodsGroup.wxml-->
+<compage id="compage" >
+ <view style="height:{{showCanvas || ptFlage?bHeight:''}}px;overflow:hidden">
+    <view class='footerRes cssFlex ' >
+    <!-- shake -->
+      <view   class='cssFlex_st ' animation="{{animation}}" bindtap='regis'>
+            <image  mode='aspectFit' src='/assets/images/cssFlex.png'></image>
+      </view>
+    <view  >
+    <!-- 拼团立减活动页面 -->
+    <view class='group_page'>
+    <!-- 拼团立减头部信息 -->
+        <view class='group_top'>
+        <view class='headerImgBox '>
+        <!--活动图片轮播图  -->
+          <vwx-swiper-good list="{{goods_info.goods_slide}}" type="{{type}}"></vwx-swiper-good>        
+            <!-- 轮播图上的图片(分享图片以及活动状态) -->
+            <view class="headerImgBox_share cenFlex" bindtap="showCanvasBtn" wx:if="{{goods_info.is_red == 0}}">
+                <image src="/assets/images/in3_ico32.png"></image>
+            </view>
+             <!-- 当赚红包开启的时候 is_red==1-->
+             <!-- <canvas canvas-id="animation" class="animation" wx:if="{{goods_info.is_red == 1}}" bindtap="showCanvasBtn"></canvas> -->
+             <view class="animation" wx:if="{{goods_info.is_red == 1}}" bindtap="showCanvasBtn"><image src="/assets/images/red0.png"></image></view>
+              <view class="f_mb_img" wx:if="{{type!=0}}">
+                <image src="/assets/images/{{type==3?'in3_ico30.png':'in3_ico31.png'}}"></image>
+              </view>
+            </view>
+            <!-- 新增推荐人 （有转红包的条件/开启员工提成）|| goods_info.is_unit-->
+            <view class='topfree' wx:if="{{recommend_people}}">
+              <view style="position:relative">
+                <view class="topfree_le">
+                  <view class='information-img'>
+                    <image src="{{recommend.wx_img}}"></image>
+                  </view>
+                  <view class='information-nickName'>
+                    <view class='name'>推荐人</view>
+                    <view class='nickName'>{{recommend.wx_name}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+
+            <view class="f_mb_img" wx:if="{{type!=0}}">
+                <image src="/assets/images/{{type==3?'in3_ico30.png':'in3_ico31.png'}}"></image>
+            </view>
+            </view>
+            <!--活动的基本信息  -->
+            <view class='group_title'>
+                <view class='group_title_price'>
+                    <view class='tag-yh'>
+                        <!-- <text class='tag-yh_t'>{{goods_info.type_str}}</text>  -->
+                        <view class='tag-yh_t'>拼团立减</view> 
+                    </view>
+                    <!-- 新增红包小图标 （有赚红包的条件）-->
+                <view class='good_packet' wx:if="{{goods_info.is_red == 1}}">
+                  <image src="/assets/images/packet.png"></image>
+                </view>
+                     <view class='good_font'>
+                    <text class='g_price'>￥{{pay_info.pay_fee}}</text>
+                    <text class='r_price'>原价：￥{{goods_info.goods_price}}</text>
+                </view>
+                </view>
+                <view class='zx_card'>
+                    <text class='zx_card_txt'>{{goods_info.goods_name}}</text>
+                </view>
+                <view class="group_title_yxd" >
+                        <view class="group_title_yxd_in"><text>限购：{{goods_info.restriction==0?'不限':goods_info.restriction+'件'}}</text></view>
+                        <view class="group_title_yxd_in"><text>已下单{{goods_info.sales}}件</text></view>
+                        <view class="group_title_yxd_in1" style="color:#999">
+                            <text>仅剩{{goods_info.inventory}}件</text>
+                        </view>
+                </view>
+                <!--几人团  -->
+                <view class="gd_few cenFlex">
+                    <view class="gd_few_in {{group_info.group.length==2?'groupMenMr':''}}" wx:for="{{group_info.group}}" wx:key="{{index}}">
+                        <view class="gd_few_in_img cenFlex">
+                            <view class="gd_few_in_img_in">
+                                <image src="{{item.wx_img}}"></image>
+                            </view>
+                        </view>
+                        <view class="gd_few_in_t {{item.is_vain==1?'gd_few_in_t_hide':''}} cenFlex">
+                            {{item.group_type}}
+                        </view>
+                        <view class="gd_few_in_b {{item.is_vain==1?'gd_few_in_b_hide':''}} cenFlex">
+                            ¥{{item.group_price}}
+                        </view>
+                    </view>
+                </view>
+                <!--取货方式  -->
+                <vwx-good-express genre="{{goods_info.genre}}" is_red="{{goods_info.is_red}}" starttime="{{store_info.start_time}}" endtime="{{store_info.end_time}}"></vwx-good-express>
+              
+            </view>
+            <!-- 新增分享赚现金红包长条 （有赚红包的条件）-->
+          <view class='good_longstrip' wx:if="{{goods_info.is_red == 1}}">
+            <view class='good_longstrip_img' style="background-image: url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/coverage.png'); background-repeat: no-repeat;background-size: 100%;"  bindtap='show_makepacget'>
+              <view class='good_longstrip_font'>
+                <view class='good_income'>
+                  <view class='good_share'>分享赚
+                    <text class='cash'>现金</text>红包
+                    <text class='platform'>(平台补贴)</text>
+                  </view>
+                  <view class='income'>预计收入：
+                    <text>￥{{goods_info.red_amount}}</text>
+                  </view>
+
+                </view>
+                <view class='good_particulars'>
+                  <!-- 要能够点击 -->
+                  <text>详情</text>
+                  <icon class='icon-pq-rightarr'></icon>
+                </view>
+              </view>
+            </view>
+          </view>
+            <!-- 赚红包活动玩法 -->
+          <view class="makepackget_rule" wx:if='{{xsFlag}}'>
+            <view class="rule_title cenFlex">
+              赚红包活动玩法
+            </view>
+            <view class="rule_content">
+                <view class="rule_img cenFlex">
+                  <image src="/assets/images/money_icon1.png"></image>
+                </view>
+                <view class='rule_j'>
+                <image src='/assets/images/money_jiantou.png' class='jiantou'></image>
+                </view>
+                <view class="rule_img cenFlex">
+                  <image src="/assets/images/money_icon2.png"></image>
+                </view>
+                <image src='/assets/images/money_jiantou.png' class='jiantou'></image>
+                <view class="rule_img cenFlex">
+                  <image src="/assets/images/money_icon3.png"></image>
+                </view>
+            </view>
+            <view class='rule_ziti'>
+              <view class="rule_font cenFlex">1 分享</view>
+              <view class="rule_font ">2 好友成功下单</view>
+               <view class="rule_font ">3 赚现金红包</view>
+            </view>
+            <view class='rule_share'>
+              <view class='rule_share_t' wx:for="{{shareArr}}" wx:key="{{index}}">
+                <view class='rule_share_s '>{{item.share_content}}</view>
+              </view>
+            </view>
+            <!-- 两个按钮  赚红包分享 -->
+            <button class='share_packget_btn' bindtap='share_btn' open-type="share">分享赚现金红包<text>(平台补贴)</text></button>
+            <!-- 我知道了 -->
+            <view class='share_packget_Know' bindtap='share_packget_Know'>
+              <view class='share_packget_know'>
+                我知道了
+              </view>
+            </view>
+          </view>
+          <!--拼团立减玩法详情  -->
+            <view class='activity_flow'>
+                <view class='activity_flow_title'  bindtap='show_activity_flow'>
+                    <view class='activity_flow_title_le'>
+                          <text>拼团立减玩法</text>
+                    </view>
+                    <view class='activity_flow_title_r'>
+                          <text>玩法详情</text>
+                          <icon class='icon-pq-rightarr'></icon>
+                    </view>
+                </view>
+                <!--活动流程  -->
+                <view class="gd_play_w cenFlex">
+                    <view class="gd_play_w_in cenFlex" wx:for="{{groupPlay}}" wx:key="{{index}}">
+                        <view class="gd_play_w_in_t cenFlex">
+                            <image src="{{imgUrl}}{{item.img}}"></image>
+                        </view>
+                        <view class="gd_play_w_in_b cenFlex">{{item.name}}</view>
+                    </view>
+                </view>
+                </view>
+            </view>
+            <vwx-shop-item data="{{store_info}}" bind:storebutton="storebutton"></vwx-shop-item>
+                <!--更多活动详情  -->
+                <!-- 加一层判断条件，如果有赚红包状态就循环tabs_status，如果没有就循环tabs ，需要加字段传过去，根据字段决定是否渲染-->
+              <vwx-tab tabs="{{tabs}}" bind:myselect="myselect" act-index="{{activeIndex}}" evaluate_num="{{goods_info.evaluate_num}}" is_red="{{goods_info.is_red}}"></vwx-tab>
+        <vwx-good-more info="{{goods_info}}" monenyRecord="{{makepacget}}" activeIndex="{{activeIndex}}" comments="{{evaluate_list}}"></vwx-good-more>
+
+        </view>
+        <!-- <vwx-modal id="modal" ></vwx-modal> -->
+            <!-- 大家还参加了 -->
+      <view class='rcmd_activ cenFlex' wx:if="{{goods_info.recommend_list[0] }}">大家还参加了</view>
+      <view class='rcmd_activ_in'>
+          <view wx:for="{{goods_info.recommend_list}}"  wx:key="{{index}}" style="background: #fff;">
+              <vwx-gooditem-sale data="{{item}}"></vwx-gooditem-sale>
+      </view>
+      </view>
+
+    <!-- 蒙版 新增xsFlag，显示详情提示框-->
+        <view class="mengban" wx:if='{{showCanvas || ptFlage || xsFlag}}'  bindtap='hideAllBtn'></view>
+    <!-- 点击分享图片 -->
+    <view class='canvas' style="{{showCanvas?'left:50%':'left:10000%'}}" >
+            <canvas class="posterCanvas" canvas-id="sharingActivities" wx:if="{{goods_info.is_red == 0}}" style="width:{{canvasW}}px;height:{{canvasH}}px;"  bindtouchstart="startTimeBtn" bindtouchend="endTimeBtn"></canvas>
+            <!-- 如果有赚红包 -->
+             <canvas class="posterCanvas" canvas-id="sharingActivities" wx:if="{{goods_info.is_red == 1}}" style="width:{{canvasW}}px;height:{{canvasH}}px;" bindtouchstart="startTimeBtn" bindtouchend="endTimeBtn"></canvas>
+            <view class="canvas_box_in cenFlex" bindtap="hideAllBtn" wx:if="{{saveAlbum}}">
+                <view class="canvas_box_in_txt cenFlex" catchtap='saveImgBtn'>保存到相册</view>
+            </view>
+    </view>
+    
+        <!-- 拼团立减规则 -->
+        <view class="group_rule" wx:if='{{ptFlage}}'>
+            <view class="group_rule_t cenFlex">
+                拼团立减
+            </view>
+            <view class="group_rule_m">
+                <view class="group_rule_m_tit">【立减规则】</view>
+                <view class="group_rule_m_con" style="margin-bottom: 0rpx;">{{goods_info.a_start_time}}至{{goods_info.a_end_time}} 购买该团购商品，下单后即可使用，系统会根据参加人数，将差价返现，100%拼团率。</view>
+                <view class="group_rule_m_img" wx:if="{{group_info.group.length<3}}">
+                    <view class="group_rule_m_img_l">
+                        <!-- 左侧的价格 -->
+                        <view class="group_rule_m_img_l_in" wx:for="{{group_info.group }}" wx:key="{{index}}">
+                            <view class="gd_few_in_t cenFlex">
+                                {{index==0?'开团价':(index+1)+'人团'}}
+                            </view>
+                            <view class="gd_few_in_b cenFlex">
+                                ¥{{item.group_price}}
+                            </view>
+                        </view>
+                        <!-- 返现的样式 -->
+                    </view>
+                    <view class="fx_box">返</view>
+                    <view class="fx_box_price">¥{{goods_info.reduce_price}}</view>
+                </view>
+                <view class="grr_3" wx:if="{{group_info.group.length>=3}}">
+                    <view class="group_rule_m_img_l">
+                        <!-- 左侧的价格 -->
+                        <view class="group_rule_m_img_l_in" wx:for="{{group_info.group}}" wx:key="{{index}}">
+                            <view class="gd_few_in_t cenFlex">
+                                {{index==0?'开团价':(index+1)+'人团'}}
+                            </view>
+                            <view class="gd_few_in_b cenFlex">
+                                ¥{{item.group_price}}
+                            </view>
+                        </view>
+                    </view>
+                    <!-- 两级返现的样式 -->
+                    <view class="fx_box1">
+                        <view class="fx_box_in">
+                            <view class="fx_box_in_l">返</view>
+                            <view class="fx_box_in_in">¥{{goods_info.reduce_price}}</view>
+                        </view>
+                        <view class="fx_box_in">
+                            <view class="fx_box_in_l">返</view>
+                            <view class="fx_box_in_in">¥{{goods_info.reduce_price}}</view>
+                        </view>
+                    </view>
+                    <view class="grr_3_last">
+                        <view class="grr_3_last_in1">返</view>
+                        <view class="grr_3_last_in2">¥{{goods_info.reduce_price}}</view>
+                    </view>
+                </view>
+                <view class="group_rule_m_tit">【活动结束时间】</view>
+                <view class="group_rule_m_con">到达活动时间或商品库存数为0</view>
+                <view class="group_rule_m_bg">通过【微信支付】付款，返现金额将返至拼团趣账户余额中，请注意查收；支持提现</view>
+                <!-- <view class="group_rule_m_br cenFlex">建议先去店内消费,后付款使用</view> -->
+            </view>
+            <view class="group_rule_b cenFlex" bindtap='hideAllBtn'>我知道了</view>
+        </view>
+    <!-- 温馨提示 -->
+        <view class="group_rule" wx:if="{{customFlag}}">
+            <view class="group_rule_t cenFlex">
+                温馨提示
+            </view>
+            <view class="prompt_txt">
+                拼团趣作为商家拓客工具，暂不支持线上退款。如购买后需退款，请与商家线下沟通处理，购买前请电话咨询商家。
+            </view>
+            <view class="prompt_radio" bindtap="radiusBtn">
+                <view class="prompt_radio_l" wx:if="{{!radiusFlag}}"></view>
+                <view class="prompt_radio_img" wx:if="{{radiusFlag}}">
+                    <image src="{{imgUrl}}ab_ico1.png"></image>
+                </view>
+                <view class="prompt_radio_r">下次不再提醒</view>
+            </view>
+            <view class="prompt_b">
+                <view class="prompt_b_in1 cenFlex" bindtap="hideAllBtn">取消</view>
+                <view class="prompt_b_in2 cenFlex" bindtap="payMoneyBox" data-is_remind="{{is_remind}}" data-goodsid="{{goods_info.goods_id}}">确定</view>
+            </view>
+        </view>
+    </view>
+            <!-- 首页下方显示拼团趣技术支持 -->
+    <vwx-footer is="footer" store_id= "{{store_info.store_id}}"></vwx-footer>  
+    </view>
+      <!--页面购买bar  -->
+          <vwx-shop-bar store="{{store_info}}" wx:if="{{!showCanvas}}" type="{{type}}" is_group="{{1}}" goods="{{goods_info}}" group="{{group_info}}" user="{{user_info}}" bind:storebutton="storebutton" price="{{pay_info.pay_fee}}"   bind:showPay="showPay" price="{{pay_info.pay_fee}}"  buyTxt="{{group_info.group_id<=0?'发起拼团':'参与拼单'}}" is_collect = "{{user_info.is_collect}}" bind:goBuy="goBuy" ></vwx-shop-bar>
+  <!-- </view> -->
+</compage>
+

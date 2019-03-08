@@ -1,0 +1,9 @@
+<!--pages/recommend/recommend.wxml-->
+<compage id="compage">
+  <view class='recommend_img'>
+    <image src='/assets/images/recentRecommend.png'></image>
+  </view>
+  <view wx:for="{{recommendList}}" wx:key="index">
+    <vwx-goods-item goods_item="{{item}}" bind:goDetail="goDetail"></vwx-goods-item>
+  </view>
+</compage>

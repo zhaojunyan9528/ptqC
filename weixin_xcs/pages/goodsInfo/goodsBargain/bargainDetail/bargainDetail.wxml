@@ -1,0 +1,232 @@
+<!--pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail.wxml-->
+<compage id="compage">
+  <!-- 整个页面 -->
+  <view class='page '  style='background-image:url("https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj25.png");background-repeat:repeat-y;background-size:100%;{{showMengbanModal?"height:"+pageH+"px;overflow:hidden;":";overflow:hidden"}}'>
+    <!-- 页面顶部 -->
+    <view class='pageTop'>
+    <!-- 实时刷新 -->
+      <view class="topfree_le">
+              <view class="onFontNow {{scroll == 1?'scroll':''}}" style="transform: translateY(-{{scroll == 1?scrollTopH:0}}px);padding:5rpx;">{{allBargainInfoLoopOld.nick_name}}刚刚
+              <view class='topfree_le1'>砍掉{{allBargainInfoLoopOld.amount}}元</view>
+              </view>
+               <view class="onFontNow  {{scroll == 1?'scroll':''}}" style="transform: translateY(-{{scroll == 1?scrollTopH:0}}px);padding:5rpx;">{{allBargainInfoLoop.nick_name}}刚刚
+              <view class='topfree_le1'>砍掉{{allBargainInfoLoop.amount}}元</view>
+              </view>
+    
+      </view>
+         <!-- 音乐 -->
+      <vwx-music id="vwx-music"   music="{{music_id}}" rotate="{{rotate}}" iconOn="/assets/images/music.png" iconOff="/assets/images/music.png">
+    </vwx-music>
+        <!-- 个人中心 -->
+      <view class="back_preson"  bindtap='goIndex'>
+          <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj37.png'></image>
+      </view>
+      <!-- 砍价活动详情 -->
+      <view class='bgNoRepeat' style='background-image:url("https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj26.png");background-repeat:no-repeat;background-size:100%;'>
+        <image class='goodsDetail_bgImg' src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj27.png'></image>
+        <view class='goodsDetail'>
+          <view class='goodsDetail_img'>
+            <image src='{{bargain_detail.wx_img}}'> </image>
+          </view>
+          <view class='goodsDetail_wxName'>
+            <text>{{bargain_detail.wx_name}}</text>
+          </view>
+          <view class='goodsDetail_image'>
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj28.png'></image>
+          </view>
+          <view class='dotted_Line'></view>
+          <!-- 活动信息 -->
+          <view class='goodsDetail_cont' bindtap='goPage' data-upage="/pages/goodsInfo/goodsBargain/goodsBargain?goods_id={{bargain_detail.goods_id}}">
+            <view class='goodsDetail_cont_left' >
+              <image src='{{bargain_detail.goods_slide}}'></image>
+            </view>
+            <view class='goodsDetail_cont_right'>
+              <view class='goodsDetail_cont_right1 onFontNow'>{{bargain_detail.goods_name}}</view>
+              <view class='goodsDetail_cont_right2 '>
+                <text>仅剩：{{bargain_detail.inventory}}件</text>
+              </view>
+              <view class='goodsDetail_cont_right3'>底价：￥{{bargain_detail.reserve_price}}
+                <text>原价：<text class='line_through'>￥{{bargain_detail.original_price}}</text></text>
+              </view>
+            </view>
+          </view>
+          <view class='hole_left'></view>
+          <view class='hole_right'></view>
+          <view class='line_left'></view>
+          <view class='line_right'></view>
+        </view>
+        <!-- 砍价详情 -->
+        <view class='bargainDetail'>
+          <view class='hole_left1'></view>
+          <view class='hole_right1'></view>
+          <view class='bargainDetail_speed' wx:if="{{bargain_status_page[bargain_status].bargain_detail_top_text_classType == 1}}">
+         <text>已砍{{bargain_detail.cut_amount}}元</text> 
+            <text class='speed'>还差{{bargain_detail.surplus_money}}元</text>
+          </view>
+          <view class='bargainDetail_speed_su' wx:else>{{bargain_status_page[bargain_status].bargain_detail_top_text}}</view>
+          <!-- <view class='bargainDetail_speed_su' wx:else>{{bargain_detail.now_people == 1 && bargain_detail.is_pay == 1 ? "已支付":bargain_detail.now_people == 1 && bargain_detail.is_pay != 1 ?"恭喜您，已砍到底价":"好友已砍价成功"}}</view> -->
+          <view class='biuns_progr'>
+            <progress id="process" percent="{{progress}}" activeColor="#ffd012" active="true" stroke-width="5" />
+            <view class="re_process">
+              <view class="tranigle" style="left:{{progress-12/6.3}}%"></view>
+            </view>
+          </view>
+          <view class='down_account'>砍价还剩：
+            <text>{{bargain_time.d}}</text> 天
+            <text>{{bargain_time.h}}</text> 时
+            <text>{{bargain_time.m}}</text> 分
+            <text>{{bargain_time.s}}</text> 秒
+
+          </view>
+          <view class='bargain_BottonTwo'>
+              <view wx:if="{{bargain_status_page[bargain_status].bargain_detail_bot_text_classType ==  1 || bargain_status_page[bargain_status].bargain_detail_bot_text_classType ==  4  }}"  class="bargain_Botton_yellow" bindtap='goBargainDetail'  data-goods_id="{{bargain_detail.goods_id}}">我也要砍价</view>
+              <button wx:if="{{bargain_status_page[bargain_status].bargain_detail_bot_text_isShare}}" open-type='share' class='classType2'>{{bargain_status_page[bargain_status].bargain_detail_bot_text}}</button>
+              <button wx:else data-goods_id="{{bargain_detail.goods_id}}"  bindtap='{{bargain_status_page[bargain_status].bargain_detail_bot_text_funcName}}' class='{{bargain_status_page[bargain_status].bargain_detail_bot_text_classType == 1 ? "classType1" :bargain_status_page[bargain_status].bargain_detail_bot_text_classType == 2 ?  "classType2" :bargain_status_page[bargain_status].bargain_detail_bot_text_classType == 3 ? "classType3":"classType4" }} '>{{bargain_status == 5 ?  bargain_detail.reserve_price + "元底价购买":bargain_status_page[bargain_status].bargain_detail_bot_text }}</button>
+            
+          </view>
+          
+        </view>
+      </view>
+    </view>
+    <!-- 页面底部 -->
+    <view class='pageBottom'>
+      <!-- 亲友团 -->
+      <view class='hats'></view>
+      <view class='friends_group'>
+      <!-- 分享按钮 -->
+        <view class='shareBotton' bindtap='showCanvasBtn'>
+            <view class='shareBotton_in1'>分享</view>
+            <view class='shareBotton_in2'>图片</view>
+        </view>
+        <view class='friends_group_to'>
+          <view class='friends_group_top'>
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image1'></image>亲友团
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image2'></image>
+          </view>
+          <view class='friends_group_bot'>
+            <text>已有{{bargain_detail.friends_rank.length}}位亲友为TA助力</text>
+          </view>
+        </view>
+        <view  class='bargainDetail_list'>
+            <view class='bargainDetail_list_in' style="top:-{{top}}rpx">
+                <view class='bargainDetail_list_in_item' wx:for="{{bargainList}}" wx:key="index" >
+                    <view class='bargainDetail_list_in_item_imgAndNmae'>
+                        <view class='bargainDetail_list_in_item_img'>
+                          <image src='{{item.wx_img}}'></image>
+                        </view>
+                        <view class='bargainDetail_list_in_item_name'>{{item.wx_name}}</view>
+                    </view>
+                    <view class='bargainDetail_list_in_item_walletAndTime'>
+                        <view class='bargainDetail_list_in_item_wallet'>砍掉<text>￥{{item.cut_amount}}</text>元</view>
+                        <view class='bargainDetail_list_in_item_time'>{{item.create_time}}</view>
+                    </view>
+                </view>
+                
+            
+            </view>
+        </view>
+      </view>
+      <view class='hats1'></view>
+      <view class="bargain_rule">
+          <view class='bargain_rule_top'>
+            <view class='bargain_rule_top_in'>
+              <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image1'></image>活动规则
+              <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image2'></image>
+            
+            </view>
+            
+          </view>
+          <view class='bargain_rule_bot'>
+              <view class='bargain_rule_bot_cont1'>1、用户参与活动后，分享给好友，邀请好友帮忙砍价，从而达到底价购的目的。</view>
+              <view class='bargain_rule_bot_cont2'>2、被分享的好友只可以砍价一次，且价格随机</view>
+              <view class='bargain_rule_bot_cont3'>3、邀请多个好友可以更快的帮您完成砍价任务。</view>
+          </view>
+      </view>
+      <!-- 店铺详情 -->
+      <view class='hats1'></view>
+      <view class='store_detail'>
+          <view class='store_detail_top'>
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image1'></image>店铺详情
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image2'></image>
+          </view>
+          <view class='store_detail_bot' bindtap='goPage' data-upage="/pages/myStore/index?store_id={{bargain_detail.store_id}}" >
+              <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj30.png' ></image>
+              <view class='store_detail_img'>
+                <image src="{{bargain_detail.storelogo}}"></image>
+              </view>
+              <view class='store_detail_name onFontNow'>{{bargain_detail.storename}}</view>
+            
+          </view>
+            <view class='store_detail_addrAndphone'>
+                  <view class='store_detail_addr' bindtap='Callphone'>
+                      <icon class='icon-pq-phoneYou'> </icon> <text>{{bargain_detail.telephone}}</text>
+                  </view>
+                  <view class='store_detail_phone' bindtap='storeClick'>
+                      <icon class='icon-pq-map' ></icon><text>{{bargain_detail.address}}</text>
+                  </view>
+              </view>
+      </view>
+      <!-- 排行榜 -->
+       <view class='hats1'></view>
+      <view class='ranking_list'>
+          <view class='ranking_list_top'>
+              <view class='ranking_list_topIn'>
+               <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image1'></image>排行榜
+            <image src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj29.png' class='friends_group_top_image2'></image>
+              </view>
+            <view class='ranking_list_top_in'>
+              <view class='ranking_list_top_in1'>
+                  排名
+              </view>
+              <view class='ranking_list_top_in2'>
+                  当前价格
+              </view>
+            </view>
+          </view>
+           <scroll-view class='ranking_list_bot' scroll-y>
+              <view class='ranking_list_item' wx:for="{{bargain_detail.rank}}"  wx:key="index">
+                  <view class='ranking_list_item_le'>
+                  <view class='ranking_list_item_rank'  ><image  wx:if="{{index <=2}}" src='{{index == 0 ?"/assets/images/first.png":index == 1 ?"/assets/images/second.png":index == 2 ?"/assets/images/thirst.png":""}}'></image>{{index > 2 ? index + 1 :''}}</view>
+                  <view class='ranking_list_item_img'><image src="{{item.wx_img}}"></image></view>
+                  <view class='ranking_list_item_name'>{{item.wx_name}}</view>
+                  </view>
+                  <view class='ranking_list_item_ri'>
+                      <view class='ranking_list_item_ri1'>{{item.status==1?'已砍至底价':item.cut_amount + "  元"}}</view>
+                      <view class='ranking_list_item_time' wx:if="{{item.status == 1}}"   >{{item.end_time}}   </view>
+                  </view>  
+              </view>
+              <view class='footer_list'>没有更多了</view>
+            </scroll-view>
+      </view>
+    </view>
+    <view class='footer'>
+        <view class='footer_le' bindtap='goMyindex'>
+         <image  mode="aspectFill" class="store-image" src="/assets/images/store_scratch.png"> </image>查看店铺其他活动
+        </view>
+        <view class='footer_ri' data-goods_id="{{bargain_detail.goods_id}}" bindtap="{{bargain_status_page[bargain_status].bargain_detail_footer_funcName}}" style="background:{{bargain_status_page[bargain_status].bargain_detail_footer_text_colorType == 1 ?'#e60012':bargain_status_page[bargain_status].bargain_detail_footer_text_colorType == 2 ?'#CCCCCC':'#FFAC35'}}  ">
+        <image class='goodsDetail_bmg'   wx:if="{{bargain_status_page[bargain_status].bargain_detail_footer_text_classType == 1}}" src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj33.png'></image> {{bargain_status == 2 ? "￥" + bargain_status2_money + "  购买" : bargain_status == 1 || bargain_status == 5 ? "￥" + bargain_detail.reserve_price + "元购买( 底价 )": bargain_status_page[bargain_status].bargain_detail_footer_text}}
+        </view>
+        <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>  -->
+    </view>
+    <!-- 蒙版 -->
+    <view class="mengban" bindtap="cancel" wx:if="{{showMengbanModal || showCanvas}}"></view>
+    <view class='barfainModal' wx:if="{{showMengbanModal}}" style="{{showResult ? '':'top: 0;'}}"><!-- style="left: {{showMengbanModal ? '0':'-1000rpx;'}}" -->
+        <!-- <image wx:if="{{showAnimation && !startAnimation}}" src='https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/sequence1.png' style="width: 300px;height:500px;" bindtap='startAnimation'></image> -->
+        <canvas wx:if="{{!showResult}}" canvas-id="animation" class="animation" bindtap='startAnimation'></canvas>
+        <view class='barfainModal_top' wx:if="{{showResult}}">
+            <image src='{{bargain_detail.now_people == 0 ? "https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj32.png":"https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj31.png"}}'></image>
+            <view class='barfainModal_top_money'>￥{{bargain_money}}</view>
+        </view>
+        <view wx:if="{{showResult}}" class='barfainModal_bop' bindtap='cancel'>
+            确认
+        </view>
+    </view>
+    <!-- 点击分享图片 -->
+    <view class='canvas' style="{{showCanvas?'left:50%':'left:10000%'}}" >
+      <canvas class="posterCanvas" canvas-id="sharingActivities" style="width:{{canvasW}}px;height:{{canvasH}}px;border-radius:20rpx;"  bindtouchstart="startTimeBtn" bindtouchend="endTimeBtn"></canvas>
+        <view class="canvas_box_in cenFlex" bindtap="hideAllBtn" wx:if="{{saveAlbum}}">
+                <view class="canvas_box_in_txt cenFlex" catchtap='saveImgBtn'>保存到相册</view>
+        </view>
+    </view>
+  </view>
+</compage>

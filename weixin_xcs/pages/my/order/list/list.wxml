@@ -1,0 +1,41 @@
+<!--pages/my/order/list/list.wxml-->
+<import src='../../template/order-list-item/list-item'/>
+<import src='../../template/no-list/no-list'/>
+
+<compage id="compage">  
+  <view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+
+            <scroll-view scroll-x class="weui-navbar">
+                <view class='nav_item flex' wx:for="{{navTabs}}" wx:key="{{index}}">
+                    <view id="{{item.key}}" class="weui-navbar__item {{type == item.key ? 'nav_item_box' : ''}} flex-center" bindtap="tabClick">
+                        <view id='nav_item_txt' class="weui-navbar__title">{{item.value}}</view>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="weui-tab__panel">
+              <view class="weui-tab__content">
+                <!-- <template wx:if="{{noList}}" is='no-list' data='{{noListInfo, noBtn}}'></template> -->
+                <view wx:if="{{noList}}" style='height:570px' class="no-data" >
+                  <view style="padding-top:200rpx;">
+                    <view wx:if='{{noListInfo.img}}' class='flex-center'>
+                      <image class='tip-img' src='{{noListInfo.img}}'></image>
+                    </view>
+                    <view class='tip-txt1'>{{noListInfo.txt1}}</view>
+                    <view class='tip-txt'>{{noListInfo.txt}}</view>
+                  </view>
+                </view>
+                <view class='list' wx:if="{{!noList}}">
+                  <view class='list_item' wx:for='{{list}}' wx:key='{{index}}'>
+                    <template is='opt-list-item'  data='{{item, type, isDetail, ActsType,store_id,index}}'></template>
+                  </view>
+                </view>
+
+              </view>
+            </view>
+        </view>
+    </view>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

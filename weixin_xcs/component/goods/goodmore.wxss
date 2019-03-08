@@ -1,0 +1,123 @@
+/* component/goods/goodmore.wxss */
+@import "../../css/weui.wxss";
+
+/*商品详情  */
+
+.good_more {
+   background-color: #fff;
+   margin-bottom: 30rpx;
+}
+
+.good_more_gz {
+   margin: 0rpx 30rpx;
+   padding: 20rpx 15rpx;
+   background-color: #f5f5f5;
+   font-size: 24rpx;
+   
+}
+
+/* .good_more_sp {
+   padding: 30rpx 30rpx;
+} */
+
+.good_more_img {
+   line-height: 0;
+}
+.good_more_con {
+   position: relative;
+}
+.h3{
+   font-size: 26rpx;
+   line-height: 2;
+   font-weight: bold;
+}
+image{
+   width: 100%;
+}
+.gd_foot_info_warp_t_in2{
+    padding: 0 30rpx 30rpx 30rpx;
+    line-height: 40rpx;
+    font-size: 26rpx;
+    color: #333333;
+}
+.goodsDetail_bmg{
+ width:39rpx;
+  height:36rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+ 
+.headerImgBox_share_img{
+  height: 100%;
+  width: 100%
+}
+/* 新增赚红包记录 */
+/* 无数据 */
+.null_good_box {
+  background: #ffffff;
+}
+.bull_data{
+  padding: 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.null_data {
+  font-size: 30rpx;
+  color: #666;
+}
+.null_img image {
+  max-width: 100%;
+  width: 239rpx;
+  height: 246rpx;
+}
+
+.null_font {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+/* 有数据 */
+.good_box_array{
+  display: flex;
+  justify-content: space-between;
+}
+.good_box_array{
+  display: flex;
+  height: 108rpx;
+  padding:  30rpx;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+}
+.good_box_left{
+  display: flex;
+  align-items: center;
+}
+.good_box_left_img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.good_box_left_img image{
+  width: 100%;
+  height: 100%;
+}
+.good_box_left_name{
+  padding-left: 16rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 24rpx;
+}
+.good_box_right_get{
+  font-size: 24rpx;
+  color: #333333;
+}
+.good_box_right_money{
+  font-size: 24rpx;
+  color: #E60012;
+}

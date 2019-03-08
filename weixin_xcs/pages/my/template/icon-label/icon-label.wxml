@@ -1,0 +1,4 @@
+<template name='icon-label'>
+  <icon class='item-ico {{item.iconClass}}' style='font-size: {{item.iconSize}}; color: {{item.iconColor}}'></icon>
+  <view class='item-text' style='font-size: {{item.textSize}}'>{{item.text}}</view>
+</template>

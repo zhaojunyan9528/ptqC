@@ -1,0 +1,291 @@
+<!--pages/my/template/acts-list-item/list-item.wxml-->
+<import src='../acts-type/acts-type' />
+
+<!-- 1、收藏活动列表、、分享活动活动信息 -->
+<template name="list-item">
+  <view class='relative-box'>
+    <view class="item-info-box {{listType == 2 ? '' : 'border-b'}} flex-between">
+      <view wx:if="{{isEdit}}" class='item-sel item-sel-edit flex-center'>
+        <view class='item-sel-box'>
+          <icon class="{{!!item.noSelected ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 45rpx;"></icon>
+        </view>
+      </view>
+      <view class='item-info flex-between' bindtap="{{isEdit?'':'goPage'}}" data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup' : item.is_group == 3 ? 'goodsPeople/goodsPeople' : item.is_group == 4 ? 'goodsSale/goodsSale' :item.is_group == 6 ? 'goodsBargain/goodsBargain' :''}}?goods_id={{item.goods_id}}&group_id={{item.group_id}}">
+      
+        <view class='item-logo'>
+          <image class='item-logo-img' src='{{item.goods_img || item.goods_slide}}' mode='aspectFill'></image>
+        </view>
+        <view class="item-cont {{isEdit ? 'item-cont-edit' : ''}}">
+          <view class='item-name'>{{item.goods_name}}</view>
+          <view class='item-other'>
+            <!-- 收藏 -40 -->
+            <view wx:if='{{listType == 0}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_price}}</view>
+              </view>
+              <view class='item-discount'>{{ActsType[item.is_group].priceLabel}}：￥{{item.bottom_price}}</view>
+            </view>
+            <!-- 待分享活动、分享 -->
+            <view wx:if='{{listType == 1 || listType == 2}}' class='item-price'>
+              <view class='item-origin'>{{item.original_price_str}}
+                <view class='inline-blockT'>{{item.original_price}}</view>
+              </view>
+              <view class='item-discount'>{{item.price_str}}</view>
+            </view>
+            <!-- 足迹 -->
+            <view wx:if='{{listType == 3}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_oprice}}</view>
+              </view>
+              <view class='item-discount'>{{item.goods_price}}</view>
+            </view>
+
+            <view wx:if="{{listType != 2}}" class="item-type {{isEdit ? 'item-type-edit' : ''}}">
+              <template is='act-type' data='{{item, ActsType}}'></template>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 待分享活动 -->
+  <view wx:if='{{listType == 1}}' class='item-opt-box flex-between'>
+    <view wx:if="{{item.is_group == 1}}">现有人数：{{item.now_number}}</view>
+    <view wx:if="{{item.is_group == 1}}">成团总人数：{{item.group_headcount}}</view>
+    <view wx:if="{{item.is_group == 3}}" class='item-opt-txt'>还差
+      <text>{{item.short_num}}</text>人拼团成功</view>
+    <vwx-button type="mi" text="分享" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="share/share?is_share=0&order_id={{item.order_id}}"></vwx-button>
+  </view>
+</template>
+<!-- 收藏列表 -->
+<template name="list-item5">
+  <!-- 去掉class='relative-box' -->
+<view>
+    <view class="item-info-box {{listType == 2 ? '' : 'border-b'}} flex-between">
+      <view wx:if="{{isEdit}}" class='item-sel item-sel-edit flex-center'>
+        <view class='item-sel-box'>
+          <icon class="{{!!item.noSelected ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 45rpx;"></icon>
+        </view>
+      </view>
+      <view class='item-info flex-between' bindtap="{{isEdit?'':'goPage'}}" data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup?aa=1' : item.is_group == 3 ? 'goodsPeople/goodsPeople?aa=1' : item.is_group == 4 ? 'goodsSale/goodsSale?aa=1' :item.is_group == 6 ? 'goodsBargain/goodsBargain?bargain_id='+ item.bargain_id: ''}}&goods_id={{item.goods_id}}&group_id={{item.group_id}}">
+        <view class='item-logo'>
+          <image class='item-logo-img' src='{{item.goods_img || item.goods_slide}}' mode='aspectFill'></image>
+        </view>
+        <view class="item-cont {{isEdit ? 'item-cont-edit' : ''}}">
+          <view class='item-name'>{{item.goods_name}}</view>
+          <view class='item-other'>
+            <!-- 收藏 -->
+            <view wx:if='{{listType == 0}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_price}}</view>
+              </view>
+              <view class='item-discount'>{{ActsType[item.is_group].priceLabel}}：￥{{item.bottom_price}}</view>
+            </view>
+            <!-- 待分享活动、分享 -->
+            <view wx:if='{{listType == 1 || listType == 2}}' class='item-price'>
+              <view class='item-origin'>{{item.original_price_str}}
+                <view class='inline-blockT'>{{item.original_price}}</view>
+              </view>
+              <view class='item-discount'>{{item.price_str}}</view>
+            </view>
+            <!-- 足迹 -->
+            <view wx:if='{{listType == 3}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_oprice}}</view>
+              </view>
+              <view class='item-discount'>{{item.goods_price}}</view>
+            </view>
+            <!-- 活动类型图标 -->
+            <view wx:if="{{listType != 2}}" class="item-type {{isEdit ? 'item-type-edit' : ''}}">
+              <!-- <template is='act-type' data='{{item, ActsType}}'></template> -->
+              <view class="gd_pr_t_l_ico" style="border-color:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">
+                <view class="gd_pr_t_l_ico_in" style="background:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">{{item.is_group==1?'拼团立减':item.is_group==3?'多人拼团':item.is_group==4?'限时专享':item.is_group==6?'砍价':'暂无状态'}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 待分享活动 -->
+  <view wx:if='{{listType == 1}}' class='item-opt-box flex-between'>
+
+		<!-- 拼团立减 -->
+    <view wx:if="{{item.is_group == 1}}" style="width:265rpx">现有人数：{{item.now_number}}</view>
+		<view wx:if="{{item.is_group == 1}}" style="width:275rpx">成团总人数：{{item.group_headcount}}</view>
+		<!-- 拼团立减 -->
+
+		<!-- 砍价 -->
+		<view wx:if="{{item.is_group == 6}}" style="width:265rpx">参与活动人数：{{item.now_number}}</view>
+    <view wx:if="{{item.is_group == 6}}" style="width:275rpx">已砍金额：{{item.cut_price}}</view>
+		<!-- 砍价 -->
+
+		<!-- 多人拼团 -->
+    <view wx:if="{{item.is_group == 3}}" class='item-opt-txt'>还差
+      <text>{{item.short_num}}</text>人拼团成功
+		</view>
+		<!-- 多人拼团 -->
+		
+    <vwx-button type="mi" text="分享" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="{{item.is_group == 6 ?'/pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail?bargain_id=' + item.bargain_id + '&goods_id='+ item.goods_id:'share/share?is_share=0&order_id=' + item.order_id}}"></vwx-button>
+  </view>
+</template>
+
+<!-- 待分享活动列表 -->
+<template name="list-item4">
+  <view class='relative-box'>
+    <view class="item-info-box {{listType == 2 ? '' : 'border-b'}} flex-between">
+      <view wx:if="{{isEdit}}" class='item-sel item-sel-edit flex-center'>
+        <view class='item-sel-box'>
+          <icon class="{{!!item.noSelected ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 45rpx;"></icon>
+        </view>
+      </view>
+      <view class='item-info flex-between' bindtap="{{isEdit?'':'goPage'}}" data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup?bargain_id=1' : item.is_group == 3 ? 'goodsPeople/goodsPeople?bargain_id=1' : item.is_group == 4 ? 'goodsSale/goodsSale?bargain_id=1' :item.is_group == 6 ? 'goodsBargain/bargainDetail/bargainDetail?bargain_id=' + item.bargain_id: ''}}&goods_id={{item.goods_id}}&group_id={{item.group_id}}">
+        <view class='item-logo'>
+          <image class='item-logo-img' src='{{item.goods_img || item.goods_slide}}' mode='aspectFill'></image>
+        </view>
+        <view class="item-cont {{isEdit ? 'item-cont-edit' : ''}}">
+          <view class='item-name'>{{item.goods_name}}</view>
+          <view class='item-other'>
+            <!-- 收藏 -->
+            <view wx:if='{{listType == 0}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_price}}</view>
+              </view>
+              <view class='item-discount'>{{ActsType[item.is_group].priceLabel}}：￥{{item.bottom_price}}</view>
+            </view>
+            <!-- 待分享活动、分享 -->
+            <view wx:if='{{listType == 1 || listType == 2}}' class='item-price'>
+              <view class='item-origin'>{{item.original_price_str}}
+                <view class='inline-blockT'>{{item.original_price}}</view>
+              </view>
+              <view class='item-discount'>{{item.price_str}}</view>
+            </view>
+            <!-- 足迹 -->
+            <view wx:if='{{listType == 3}}' class='item-price'>
+              <view class='item-origin'>原价：
+                <view class='inline-blockT'>￥{{item.goods_oprice}}</view>
+              </view>
+              <view class='item-discount'>{{item.goods_price}}</view>
+            </view>
+            <!-- 活动类型图标 -->
+            <view wx:if="{{listType != 2}}" class="item-type {{isEdit ? 'item-type-edit' : ''}}">
+              <!-- <template is='act-type' data='{{item, ActsType}}'></template> -->
+              <view class="gd_pr_t_l_ico" style="border-color:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">
+                <view class="gd_pr_t_l_ico_in" style="background:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">
+                  {{item.is_group==1?'拼团立减':item.is_group==3?'多人拼团':item.is_group==4?'限时专享':item.is_group==6?'砍价':'暂无状态'}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 待分享活动 -->
+  <view wx:if='{{listType == 1}}' class='item-opt-box flex-between'>
+
+		<!-- 拼团立减 -->
+    <view wx:if="{{item.is_group == 1}}" style="width:265rpx">现有人数：{{item.now_number}}</view>
+		<view wx:if="{{item.is_group == 1}}" style="width:275rpx">成团总人数：{{item.group_headcount}}</view>
+		<!-- 拼团立减 -->
+
+		<!-- 砍价 -->
+		<view wx:if="{{item.is_group == 6}}" style="width:265rpx">参与活动人数：{{item.now_number}}</view>
+    <view wx:if="{{item.is_group == 6}}" style="width:275rpx">已砍金额：{{item.cut_price}}</view>
+		<!-- 砍价 -->
+
+		<!-- 多人拼团 -->
+    <view wx:if="{{item.is_group == 3}}" class='item-opt-txt'>还差
+      <text>{{item.short_num}}</text>人拼团成功
+		</view>
+		<!-- 多人拼团 -->
+		
+    <!-- <vwx-button type="mi" text="分享" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="{{item.is_group == 6 ?'/pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail?bargain_id=' + item.bargain_id + '&goods_id='+ item.goods_id:'share/share?is_share=0&order_id=' + item.order_id}}"></vwx-button> -->
+    <view class='share' bindtap="{{isEdit?'':'goPage'}}" data-upage="{{item.is_group == 6 ?'/pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail?bargain_id=' + item.bargain_id + '&goods_id='+ item.goods_id:'share/share?is_share=0&order_id=' + item.order_id}}">分享</view>
+  </view>
+</template>
+<!-- 2、评价活动 -->
+<template name='list-item1'>
+  <view class='item-logo1'>
+    <image class='item-logo-img1' src='{{item.goods_img}}' mode='aspectFill'></image>
+  </view>
+  <view class='item-cont1'>
+    <view class='item-name1'>{{item.goods_name}}</view>
+    <view class='item-other1'>
+      <view class='item-price1'>
+        <view class='item-num1'>×{{item.nums}}</view>
+        <view class='item-discount1'>{{item.goods_price}}</view>
+      </view>
+      <view class='item-type1'>
+        <template is='act-type' data='{{item, ActsType}}'></template>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 3、大图活动列表：门店、分享-大家还参加了 -->
+<template name='list-item2'>
+  <view bindtap='goPage' data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup' : item.is_group == 3 ? 'goodsPeople/goodsPeople' : item.is_group == 4 ? 'goodsSale/goodsSale' : ''}}?goods_id={{item.goods_id}}">
+    <view class='item-logo2'>
+      <image class='item-logo-img2' src='{{item.goods_img}}' mode='aspectFill'></image>
+    </view>
+    <view class='item-cont2'>
+      <view class='item-name2'>{{item.goods_name}}</view>
+      <view class='item-other2 flex-between'>
+        <view class='item-price2 flex-y-end'>
+          <view class='item-discount2'>
+            {{item.price_str}}:
+            <text>￥{{item.bottom_price}}</text>
+          </view>
+          <view class='item-original2'>
+            <text>原价:￥{{item.goods_price}}</text>
+          </view>
+        </view>
+        <view class='item-btn flex-center'>
+          立即抢购
+          <icon class='icon-pq-rightarr'></icon>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 待分享活动 --刮奖免单类型 -->
+<template name="list-item3">
+  <view class='relative-box'>
+    <view class="item-info-box {{listType == 2 ? '' : 'border-b'}} flex-between">
+
+      <view wx:if="{{isEdit}}" class='item-sel item-sel-edit flex-center'>
+        <view class='item-sel-box'>
+          <icon class="{{!!item.noSelected ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 45rpx;"></icon>
+        </view>
+      </view>
+     <!-- 跳转地址 -->
+      <view class='item-info flex-between' bindtap="{{isEdit?'':'goPage'}}" data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{item.initiator_id}}">
+        <view class='item-logo'>
+          <image class='item-logo-img' src='/assets/images/gjFree.png' mode='scaleToFill'></image>
+        </view>
+        <view class="item-cont {{isEdit ? 'item-cont-edit' : ''}}">
+          <view class='item-name'>刮奖免单</view>
+          <view class='item-other'>
+            <!-- 待分享活动、分享 -->
+            <!-- <view  class='item-price'> -->
+              <view class='item-discount rewards'>消费金额：￥{{item.pay_fee}}</view>
+              <vwx-button id="active" type="s" text="活动明细" bubbles="false" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="/packageFree/activitiDetails/index?initiator_id={{item.initiator_id}}"></vwx-button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 待分享活动 -->
+
+  <view  class='item-opt-box flex-between'>
+    <view>参与人数：<text class="red">{{item.now_num}}</text>人</view>
+    <view>已免单：<text class="red">{{item.all_cash}}</text>元</view>
+    <vwx-button id="beShare" type="s" text="分享" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{item.initiator_id}}"></vwx-button>
+  </view>
+</template>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "收支详情",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "btn": "/component/button/button"
+  }
+}

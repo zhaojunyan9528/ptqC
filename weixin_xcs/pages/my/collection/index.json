@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的收藏",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "btn": "/component/button/button"
+  }
+}

@@ -1,0 +1,62 @@
+<!--pages/my/applyStore/index.wxml-->
+<compage id="compage">
+  <view class='header flex-center'>
+    <image src='/assets/images/logo.png'></image>
+  </view>
+  <form class='form' bindsubmit='submitInfo'>
+    <view class='form_item'>
+      <view class='item_lab'>商户名称：</view>
+      <view class='item_val flex-y-center'>
+        <input placeholder-class='item_input' placeholder='请输入商户名称' bindinput='setName' name='storeName' value='{{name}}'></input> 
+        <!-- bindblur='validateFormData' -->
+      </view>
+    </view>
+    <view class='form_item'>
+      <view class='item_lab'>联系人姓名：</view>
+      <view class='item_val flex-y-center'>
+        <input placeholder-class='item_input' placeholder='请输入联系人姓名' name='name' value='{{realName}}' bindinput='setRealName'></input>
+         <!-- bindblur='validateFormData' -->
+      </view>
+    </view>
+    <view class='form_item'>
+      <view class='item_lab'>手机号码：</view>
+      <view class='item_val flex-y-center'>
+        <input placeholder-class='item_input' type='number' placeholder='请输入手机号码' bindinput='validatePhone' name='telephone' value='{{phone}}'></input>
+         <!-- bindblur='validateFormData' -->
+      </view>
+    </view>
+    <view class='form_item'>
+      <view class='item_lab'>验证码：</view>
+      <view class='item_val item_idenCode flex-x-between'>
+        <view class='idenCode_inp flex-y-center'>
+          <input placeholder-class='item_input' type='number' placeholder='请输入验证码' bindinput='setIdenCode' name='idenCode' value="{{isActive ? idenCode : ''}}"></input>
+           <!-- bindblur='validateFormData' -->
+        </view>
+        <!-- <view class="idenCode_btn flex-center {{canGetIdenCode ? 'idenCode_btn_edit' : ''}}"  bindtap="{{canGetIdenCode ? 'getIdenCode' : ''}}">{{countDown ? (countDown == 0 ? '重新获取' : countDown + 's') : '点击获取'}}</view> -->
+        <button type='primary' hover-class='none' class="idenCode_btn flex-center {{isActive ? 'idenCode_btn_edit' : ''}}"  bindtap="{{canGetIdenCode ? 'getIdenCode' : ''}}">{{countDown != undefined ? (countDown == 0 ? '重新获取' : countDown + 's') : '点击获取'}}</button>
+      </view>
+      
+    </view>
+    <view class='form_item'>
+      <view class='item_lab'>商户所在地：</view>
+      <view class='item_valf flex-y-center'>
+        <picker class="item_picker {{addr && addr.length == 3 ? 'item_picker_val' : ''}}" mode='region' bindchange='setAddr' name='addr' value="{{addr}}">{{(addr && addr.length == 3) ? addr : '点击选择'}}</picker><!-- (addr[0]+'，'+addr[1]+'，'+addr[2]) -->
+      </view>
+    </view>
+    <view class='form_item form_item_addrDetail'>
+      <view class='item_val item_addr'>
+        <textarea class="item_addrDetail" wx:if="{{showText}}" placeholder-class='item_input' placeholder='请输入详细地址' bindinput='setAddrDetail' name='address' value='{{addrDetail}}'></textarea>
+      </view>
+    </view>
+    <view class='form_item'>
+      <view class='item_lab item_lab_way flex-x-between'>您是从哪里知道拼团趣的：</view>
+      <view class='item_val item_val_way'>
+        <picker class="item_picker {{way ? 'item_picker_val' : ''}}" mode='selector' bindchange='setWay' name='way' value="{{way}}" range='{{wayArr}}'>{{way ? wayText : '点击选择'}}</picker>
+      </view>
+    </view>
+    <view class="form_btn flex-center">
+      <button formType='submit' class="btn btn_canEdit">立即提交</button>
+    </view>
+  </form>
+  <view class='footer'>让每一位商家成为营销大师</view>
+</compage>

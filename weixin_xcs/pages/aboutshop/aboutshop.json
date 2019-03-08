@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "我关注的店铺",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "btn": "/component/button/button",
+    "vwx-null-data": "/component/nulldata/nulldata"
+  }
+}

@@ -1,0 +1,8 @@
+<template name="nullPage">
+    <view class='nullPage'>
+        <view class='nullPage_img'>
+          <image src='{{nullData.img}}'></image>
+        </view>
+        <view class='nullPage_text'>{{nullData.text}}</view>
+    </view>
+</template>

@@ -1,0 +1,18 @@
+<!--component/nulldata/nulldata.wxml-->
+<!-- 如果为空出现的 -->
+
+    <view class="{{nullData.shortFlag?'nD_i':'nD_s'}}">
+        <view class="nD_i_in cenFlex">
+            <view class="nD_i_in_t cenFlex">
+                <view class="nD_i_in_t_img cenFlex">
+                    <image  mode="aspectFill" src="{{nullData.img}}"></image>
+                </view>
+                <view class="nD_i_in_t_txt cenFlex">{{nullData.txt}}</view>
+            </view>
+            <view wx:if="{{nullData.nearFlag}}"   bindtap="goPage" >
+                <view class="nD_i_in_b cenFlex">
+                    逛逛
+                </view>
+            </view>
+        </view>
+    </view>

@@ -1,0 +1,28 @@
+<template name="multi-specialcard">
+  <view class="specard-item" bindtap="gocardDetail" data-id="{{item.card_id}}" data-gcid="{{item.goods_card_id}}" data-id1="{{item.id}}">
+    <view class="item-content flex {{flag==1 && myText?'item-myl':flag==1 ?'item-l':flag==0?'item-u':'item-u'}}" >
+      <view class="i-l Flexb colFlex">
+        <view class="i-l-t Flexb">
+          <view class="i-l-t-l">
+            <image src='{{item.card_img || item.card_detail_imgs}}' mode="aspectFill"></image>
+          </view>
+          <view class="i-l-t-r Flexb colFlex">
+            <view class="i-l-t-r-t twoFontNow">{{item.card_name}}</view>
+            <view class="i-l-t-r-b flex" wx:if="{{showTFlag}}">
+              <view class="i-use txtCenter {{flag==1?'i-lose':'i-can'}}">已用{{item.yet_use_num}}次</view>
+              <view class="i-use i-left txtCenter {{flag==1?'i-lose':'i-can'}}">剩余{{item.card_use_num}}次</view>
+            </view>
+          </view>
+        </view>
+        <view class="i-l-b flexColc">
+          <view class="i-l-b-l txtCenter {{flag==1?'gray':'orange'}}"><text class="donate txtCenter {{flag==1?'donate-lose':'donate-can'}}" wx:if="{{item.is_exclusive==2}}">赠</text>专享卡</view>
+          <view class="i-l-b-r">{{item.time_str || '有效期至：'+item.validity_period}}</view>
+        </view>
+      </view>
+      <view class="i-r flexC">
+        <view class="i-r-c i-r-red txtCenter" wx:if="{{flag==0}}">{{myText || '查看'}}</view>
+				<view class="i-r-c i-r-lose txtCenter" wx:if="{{flag==1 && myText}}">{{myText}}</view>
+      </view>
+    </view>
+  </view>
+</template>

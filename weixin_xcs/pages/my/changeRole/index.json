@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "身份选择",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "rate": "/component/rate/rate",
+    "btn": "/component/button/button"
+  }
+}

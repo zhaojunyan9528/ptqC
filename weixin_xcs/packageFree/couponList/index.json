@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "代金券",
+    "usingComponents": {
+      "compage": "/vwx/component/template/",
+      "vwx-tabs": "/component/tabs/tab"
+    }
+}

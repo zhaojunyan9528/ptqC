@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-evaluation-list": "/component/evaluationlist/evaluationlist",
+    "vwx-shop-bar": "/component/shopbar/shopbar",
+    "vwx-gooditem-sale": "/component/goods/itemSale",
+    "vwx-tab": "/component/tabs/tab",
+    "vwx-shop-item": "/component/goods/itemShop",
+    "vwx-good-more": "/component/goods/goodmore",
+    "vwx-countdown": "/component/countdown/countdown",
+    "vwx-swiper-good": "/component/goods/goodswiper",
+    "vwx-good-express": "/component/goods/goodexpress",
+    "vwx-select":"/component/select/select",
+    "vwx-footer": "/component/footer/footer"
+  }
+}

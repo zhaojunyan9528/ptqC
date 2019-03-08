@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "拼团趣-用户版",
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-btn": "/component/button/button",
+    "vwx-countdown": "/component/countdown/countdown",
+    "vwx-goods-item": "/component/goodsList/goods_item",
+    "vwx-goods-index": "/component/goodsIndex/goods_item",
+    "vwx-footer": "/component/footer/footer",
+    "vwx-scroll-num": "/component/scroll/scroll1"
+  }
+}

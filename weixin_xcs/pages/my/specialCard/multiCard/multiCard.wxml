@@ -1,0 +1,6 @@
+<import src='../../template/multi-specialcard/multi-specialcard'/>
+<compage id="compage">
+	<block wx:for="{{card_info}}" wx:key="index">
+		<template is="multi-specialcard" data="{{showTFlag,flag,item}}"></template>
+	</block>
+</compage>

@@ -1,0 +1,4 @@
+<!--component/rate/rate.wxml-->
+<view class='rate-box'>
+  <icon class="rate-item icon-pq-wjx {{index > rate ? 'grey-star' : 'yellow-star'}}" style="font-size:{{fontSize}};margin-right:{{marginRight}};" wx:for='{{[0,1,2,3,4]}}' wx:key='{{index}}' data-index='{{index}}' bindtap="{{edit ? 'setRate' : ''}}"></icon>
+</view>

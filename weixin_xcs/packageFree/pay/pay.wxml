@@ -1,0 +1,95 @@
+<!--packageFree/pay/pay.wxml-->
+<compage id="compage">
+  <official-account></official-account>
+  <view class="container" style="height:{{fixed==1?height:''}}">
+
+    <!-- 顶部商家信息 start -->
+    <view class="top-content">
+      <view class="top-img">
+        <image src="/assets/images/payTop.png" mode="aspectFill"></image>
+      </view>
+      <view class="store-info">
+        <view class="store-logo">
+          <image src="{{storelogo}}" mode="aspectFill"></image>
+        </view>
+        <view class="store-name">
+          <text class="sname">{{storename}}</text>
+          <text class="hint">—— 诚挚欢迎您</text>
+        </view>
+      </view>
+      <view class="personal" bindtap='goIndex'>
+        <icon class="icon-pq-personal"></icon>
+        <view>个人中心</view>
+      </view>
+    </view>
+    <!-- 顶部商家信息 end -->
+
+    <view class="no-single">
+      {{nosingle_text}}
+    </view>
+
+    <!-- 输入金额  start -->
+    <view class="pay-content">
+      <view class="input-num">
+        <text class="money-sign">￥</text>
+        <!-- bindblur="blurMoney" -->
+        <input type="digit" bindinput='bindMoneyInput' focus="{{focus}}" onpaste="return false" bindblur="blurMoney" placeholder='询问商家后输入金额' placeholder-class='place-style' cursor-spacing='210' value="{{money}}"></input>
+      </view>
+      <view class="cash-coupon" bindtap="choiceCouponShow" wx:if="{{redFlag==1}}">
+        <view class="cash-text {{choiceFlag==1?'red':''}}">{{couponText}}</view>
+        <icon class="icon-pq-rightarr"></icon>
+      </view>
+      <view class="pay-mode">
+        <view class="pay-left">支付方式</view>
+        <view class="pay-right">
+          <icon class="icon-pq-WeChat" style="color:#259B24"></icon>
+          <text class="pay-left">微信支付</text>
+        </view>
+      </view>
+      <view class="payBtn {{redFlag==1?'payActive':'paynoActive'}}" bindtap="goPay">立即支付
+        <text wx:if="{{money && redFlag ==1}}">￥{{currentMoney}}</text>
+      </view>
+      <view class="pay-bottom">{{pay_text}}</view>
+      <view class="pay-bottom-b" wx:if="{{return_rate}}">不使用代金券，单笔消费
+        <text class="pay-b-m">{{secs_price}}</text>元以上才能发起刮奖免单</view>
+    </view>
+    <!-- 输入金额  end -->
+
+    <!-- 付款前用户协议  start -->
+    <view class="protocol-content">
+      <view class="" wx:for="{{protocol}}" wx:key="index">
+        <view class="protocol-title">{{item.title}}</view>
+        <block wx:for="{{item.text}}" wx:key="index" wx:for-item="itemText">
+          <view class="protocols">{{itemText}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- 付款前用户协议  end -->
+
+    <vwx-modal-input id="couponList" bind:goBuyt="hidecouponList" bind:noUse="cancel" title="{{title}}" titleColor="{{titleColor}}" maskCancel="{{maskCancel}}" showCancel="{{showCancel}}" titleStyle="{{titleStyle}}" canceltext="{{canceltext}}">
+      <view class="containerList" wx:if="{{activity_voucher.length>0}}">
+        <view class="item" bindtap="choiceCoupon" data-index="{{index}}" data-item="{{item}}" wx:for="{{activity_voucher}}" wx:key="index">
+          <view class="item-left">
+            <icon wx:if="{{item.type}}" class="{{currentIndex == index && item.type?'icon-pq-xuanzhong':'icon-pq-circle'}}"></icon>
+            <icon wx:else class="icon-pq-xuanzhong" style="color:#fff"></icon>
+          </view>
+          <view class="item-right {{item.type == 1?'item-right-y':'item-right-g'}}">
+            <view class="top">
+              <text class="t-l">{{title}}</text>
+              <text class="t-r">{{item.voucher_amount}}元</text>
+            </view>
+            <view class="bottom">
+              <view class="b-l">
+                <text class="b-l-text">有限期至：</text>
+                <text class="date">{{item.end_time}}</text>
+              </view>
+              <view class="b-r">满{{item.lowest_amount}}元可使用</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:else class="noCoupon">暂无可用代金券</view>
+    </vwx-modal-input>
+  </view>
+
+</compage>

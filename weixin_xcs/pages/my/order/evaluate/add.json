@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品评价",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "rate": "/component/rate/rate",
+    "modal": "/component/modal/modal",
+    "vwx-button": "/component/button/button"
+  }
+}

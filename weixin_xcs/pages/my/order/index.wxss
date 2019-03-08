@@ -1,0 +1,64 @@
+/* pages/my/order/index.wxss */
+@import '../base.wxss';
+@import '../template/order-list-item/list-item.wxss';
+
+.header{
+  padding: 30rpx 20rpx 30rpx 30rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  line-height: 1;
+  font-size: 32.5rpx;
+}
+.header_opt{
+  color: #999;
+}
+.header_opt_btn{
+  margin-left: 20rpx;
+}
+
+.order_type{
+  padding: 50rpx 80rpx 30rpx;
+  border-bottom: 20rpx solid #f0f0f0;
+}
+.order_item_ico{
+  width: 100%;
+  height: 70rpx;
+}
+
+.order_item_txt{
+  line-height: 2;
+  text-align: center;
+  font-size: 32.5rpx;
+}
+
+.current_order_title{
+  padding: 30rpx;
+  font-size: 32.5rpx;
+}
+.current_order_list{
+  padding: 0 30rpx;
+}
+.list_item{
+  padding: 20rpx 0;
+  border-top: 2rpx solid #f0f0f0;
+}
+.list_item:last-child{
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20rpx 30rpx;
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+}
+/* .footer_btn{
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  background-color: #e60012;
+  color: #fff;
+} */
+#btn-s{
+  height: 60rpx;
+}

@@ -1,0 +1,79 @@
+<!--pages/my/order/detail/detail.wxml-->
+<import src='../../template/order-list-item/list-item'/>
+
+<compage id="compage">
+  <view class='base_info'>
+    <template is='opt-list-item' data='{{item, type, isDetail, ActsType}}'></template>
+  </view>
+     <view class='userPrompts' wx:if="{{item.hexiao_status == 3}}">
+    <view class='user'>用户提示：该订单商家已自主核销，您可以自动确认核销，或48小时后，系统将自动确认通过此次核销。若对本次核销存在疑问，请您联系商家。</view>
+  </view>
+  <view class='empty' wx:if="{{item.hexiao_status == 3}}"></view>
+  <view class='box contact_info'>
+    <view class='contact_seller flex-between' bindtap='callSellerBtn'>
+      <view>联系卖家</view>
+      <icon class='contact_icon'></icon>
+    </view>
+    <!-- 送货上门 -->
+    <view class='contact_detail' wx:if='{{express == 0}}'>
+      <view class='block'>
+        <view>收货人：<text>{{orderInfo.consignee}}</text></view>
+        <view>联系手机号：<text>{{orderInfo.telephone}}</text></view>
+        <view>收货地址：<text>{{orderInfo.address}}</text></view>
+      </view>
+      <view class='block'>
+        <view>我的留言：<text>{{orderDetail.remark || '暂无留言'}}</text></view>
+        <view>订单编码：<text>{{orderInfo.order_no}}</text></view>
+        <view>下单时间：<text>{{orderInfo.add_time}}</text></view>
+      </view>
+    </view>
+    <!-- 上门自取 -->
+    <view class='contact_detail' wx:if='{{express == 1}}'>
+      <view class='block'>
+        <view>店铺地址：<text>{{storeInfo.store_address}}</text></view>
+        <view>营业时间：<text>{{storeInfo.start_time}} ~ {{storeInfo.end_time}}</text></view>
+      </view>
+      <view class='block'>
+        <view>联系人姓名：<text>{{orderDetail.hx_name}}</text></view>
+        <view>联系手机号：<text>{{orderDetail.hx_tel}}</text></view>
+      </view>
+      <view class='block'>
+        <view>我的留言：<text>{{orderDetail.remark || '暂无留言'}}</text></view>
+        <view>订单编码：<text>{{orderInfo.order_no}}</text></view>
+        <view>下单时间：<text>{{orderInfo.add_time}}</text></view>
+      </view>
+      <!-- express=（0 送货上门，1 上门取货）；is_cancel_time=（0 未核销，1 已核销） -->
+      <view class='block' wx:if='{{order_info.is_exclusive == 0 && orderInfo.is_cancel_time == 1}}'>
+        <view>核销时间：<text>{{orderInfo.cancel_time}}</text></view>
+      </view>
+    </view>
+  </view>
+  <!-- 
+    核销二维码信息
+    express=（0 送货上门，1 上门取货）；is_cancel_time=（0 未核销，1 已核销）
+  -->
+  <!-- <view class='box confirm_pickup' wx:if='{{orderInfo.status == 3 && express == 1 && orderInfo.is_cancel_time == 0 && !(orderInfo.is_group == 3 && (orderInfo.group_status == 0 || orderInfo.group_status == 3))}}'> -->
+    <view class='box confirm_pickup' wx:if="{{orderDetail.status == 3 && express == 1 && orderStatus.status_str!='待成团'}}">
+    <view class='confirm_txt flex-between'>
+      <view>消费码</view>
+      <view>{{orderDetail.verification}}</view>
+    </view>
+    <view class='confirm_QRcode flex-center'>
+      <view class='conifrm_QRcode_inbox'>
+        <view class='QRcode'>
+          <image src='{{orderDetail.storepng}}'></image>
+        </view>
+        <view class='QRcode_tip'>请向商家出示以上二维码</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class='order_opts'   >
+    <vwx-btn id="vwx-btn" text='确认收货' class='order_opts_btn'   wx:if='{{item.status == 3 && item.genre == 0 && (item.group_status != 0 || item.group_status != 3)}}' bindtap='orderConfirmReceive'></vwx-btn>
+    <vwx-btn  text='立即评价' class='order_opts_btn'  wx:if='{{orderInfo.status == 4 }}' bindtap='goPage' data-upage='/pages/my/order/evaluate/add?order_id={{item.order_id}}'></vwx-btn>
+    <vwx-btn  text='前往专享卡' class='order_opts_btn' wx:if="{{orderInfo.is_exclusive == 1}}" bindtap='goPage' data-upage='/pages/my/specialCard/detail/detail?card_id={{item.card_id}}'></vwx-btn>
+  </view>
+  
+  <modal id="modal"></modal>
+</compage>

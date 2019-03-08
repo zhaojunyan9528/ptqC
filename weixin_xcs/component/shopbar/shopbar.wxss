@@ -1,0 +1,130 @@
+/* component/shopBar/shopBar.wxss */
+
+@import "../../css/weui.wxss";
+.icon-pq-stores:before {
+   content: "\e731";
+}
+
+.icon-pq-collection:before { content: "\e709"; }
+.icon-pq-phone:before { content: "\e78d"; }
+
+.icon-pq-shoucang:before {
+   content: "\e72f";
+}
+
+.shopBarPage {
+   height: 100rpx;
+   background: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: fixed;
+   bottom: -2rpx;
+   width: 100%;
+   overflow: hidden;
+   z-index: 999;
+   border-top: 1rpx solid #e8e8e8;
+}
+.shop_buy_out{
+   height: 101%;
+    width: 47%;
+    min-height: 88rpx;
+    background: #e60012;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 30rpx;
+    position: relative;
+    top: -2rpx;
+    border-top: 2rpx #e60012 solid;
+
+}
+.shopBarPage .shopBar {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   width: 54%;
+
+}
+
+.shopBar_store {
+   width: 50%;
+   height: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   font-size: 24rpx;
+}
+
+.shopBar_store_txt {
+   width: 100%;
+   text-align: center;
+   margin-top: 8rpx;
+   color: #626262;
+   font-size: 24rpx;
+}
+
+.shopBar_goods_info {
+   width: 50%;
+   height: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   font-size: 24rpx;
+}
+
+.shopBar_store_Phone {
+   width: 50%;
+   height: 80%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   font-size: 24rpx;
+}
+
+.shop_buy {
+   height: 101%;
+   width: 47%;
+   min-height: 88rpx;
+   background: #e60012;
+   color: #fff;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   font-size: 32rpx;
+   position: relative;
+   top: -2rpx;
+   border-top: 2rpx #e60012 solid;
+}
+/* 报名按钮 */ 
+button::after{
+  border: none;
+}
+button{
+  width: 356rpx;
+  border: none;
+  height: 100%;
+  background: #e60012;
+  color: #fff;
+}
+.cenFlex {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.icon-pq-collection {
+   color: #ffa626;
+}
+.icon-pq-circle:before { content: "\e6fa"; }
+.shop_buy_price{
+  font-weight: bold;
+}
+.shop_buy_txt{
+	font-size:28rpx;
+	font-weight:500;
+}

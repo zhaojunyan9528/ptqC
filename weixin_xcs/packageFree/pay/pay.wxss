@@ -1,0 +1,313 @@
+/* packageFree/pay/pay.wxss */
+
+page{
+  color:#333;
+  font-size: 26rpx;
+}
+.container{
+  background-color:#fff;
+  width:100%;
+  overflow: hidden;
+}
+/* 顶部商家信息   start*/
+.top-content{
+  width:100%;
+  position: relative;
+}
+.top-img{
+  width:100%;
+  height:135rpx;
+}
+.top-img > image{
+  width:100%;
+  height:100%;
+}
+.store-info{
+  width:100%;
+  height:135rpx;
+  display:flex;
+  position:absolute;
+  top:0; 
+  padding:0 30rpx;
+  align-items:center;
+}
+.store-logo{
+  width:78rpx;
+  height:78rpx;
+  border-radius:50%;
+  overflow:hidden;
+  border:4rpxsolid #fff;
+}
+.store-name{
+  display:flex;
+  flex-direction:column;
+  padding-left:20rpx;
+}
+.sname{
+  font-weight: bold;
+  font-size: 28rpx;
+}
+.hint{
+  color:#EAAF49;
+  font-weight: bold;
+}
+.personal{
+	width:180rpx;
+	height:52rpx;
+	background:rgba(0,0,0,0.5);
+	border-radius:26rpx 0 0 26rpx;
+	font-size: 26rpx;
+	color:#fff;
+	font-weight: 500;
+	display: flex;
+	position:absolute;
+	top:20rpx;
+	right:0;
+	align-items:center;
+	justify-content:center;
+}
+.icon-pq-personal{
+	font-size: 28rpx;
+	/* background:rgba(0,0,0,0.5); */
+	color:#fff;
+	margin-right:5rpx;
+}
+/* 顶部商家信息   end*/
+
+.no-single{
+  width:100%;
+  height:82rpx;
+  background-color:#f7f7f7;
+  padding:10rpx 30rpx;
+  box-sizing:border-box;
+  line-height:1.2;
+}
+
+/* 支付输入  start */
+.pay-content{
+  width:100%;
+  background-color:#fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom:20rpx;
+  box-sizing: border-box;
+}
+.input-num{
+  display: flex;
+  align-items: center;
+  margin-top:50rpx;
+  width:100%;
+  padding:0 30rpx;
+}
+.input-num > input {
+  width:100%;
+  margin-left:10rpx;
+  font-size: 76rpx;
+  height:80rpx;
+  font-weight: bold;
+}
+/* input:focus::-webkit-input-placeholder {
+  font-weight: 500;
+} */
+.money-sign{
+  font-size: 60rpx;
+  font-weight: 500;
+}
+.place-style{
+  font-size: 46rpx;
+  color:#ccc;
+  font-weight: bold;
+}
+.cash-coupon{
+  width:100%;
+  height:80rpx;
+  display: flex;
+  align-items:center;
+  justify-content: flex-end;
+  background-color:#FFFCE9;
+  padding-right:20rpx;
+}
+.cash-text{
+  font-size: 28rpx;
+  margin-right:10rpx;
+}
+.red{
+  color:#e60012;
+}
+.icon-pq-rightarr{
+  color:#999;
+}
+.pay-mode{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  width:100%;
+  padding:20rpx 30rpx 0 30rpx;
+}
+.icon-pq-WeChat{
+  color:#259B24;
+  font-size:50rpx;
+  margin-right:10rpx;
+}
+.pay-left{
+  font-size: 28rpx;
+}
+.payBtn{
+  width:480rpx;
+  height:92rpx;
+  line-height:92rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  margin-top:90rpx;
+  font-size:32rpx;
+}
+.paynoActive{
+  background-color:#f4c0c4;
+  color:#FBEBED;
+}
+.payActive{
+  background-color:#e60012;
+  color:#fff;
+}
+.pay-bottom{
+  color:#999;
+  font-weight: 400;
+  margin:50rpx 0 10rpx 0;
+}
+.pay-b-m{
+  color:#e60012;
+}
+/* 支付输入  end */
+
+/* 协议  start */
+.protocol-content{
+  width:100%;
+  padding:30rpx;
+  box-sizing: border-box;
+  background-color:#f7f7f7;
+}
+.protocol-title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.protocols{
+  color:#666;
+  font-size: 26rpx;
+  margin-bottom: 40rpx;
+  margin-top:10rpx;
+}
+.protocols:nth-child(7){
+  color:#e60012;
+}
+/* 协议  end */
+
+
+/* 代金券列表--start */
+.containerList{
+  width:100%;
+  height:620rpx;
+  overflow-y: scroll;
+}
+.noCoupon{
+  height:500rpx;
+  text-align:center;
+  width:100%;
+  line-height:500rpx;
+  font-size:32rpx;
+}
+.containerList::-webkit-scrollbar {
+  display: none;
+}
+.item{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx 0;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fff;
+}
+.item:last-child{
+  margin-bottom:20rpx;
+}
+.item-left{
+  margin-right: 20rpx;
+}
+.item-right{
+  width: 100%;
+  height: 125rpx;
+  border-radius: 20rpx;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.item-right-y{
+  background:linear-gradient(-55deg,rgba(255,184,31,1),rgba(255,202,41,1));
+}
+.item-right-g{
+  background:linear-gradient(265deg,rgba(197,197,197,1),rgba(216,216,216,1));
+}
+.item-right::after{
+  content: '';
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50rpx;
+  left: -8rpx;
+}
+.item-right::before{
+  content: '';
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50rpx;
+  right: -8rpx;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50rpx;
+  line-height: 1.2;
+}
+.t-l{
+  font-size: 36rpx;
+  font-weight: 800;
+  
+}
+.t-r{
+  font-size: 40rpx;
+  font-weight: 800;
+}
+.bottom{
+  display: flex;
+  align-items: flex-end;
+  line-height: 1.2;
+  justify-content: space-between;
+}
+.b-l{
+  font-size: 20rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.b-r{
+  font-size: 26rpx;
+  font-weight: 800;
+}
+.icon-pq-circle,.icon-pq-xuanzhong{
+  font-size: 40rpx;
+}
+.icon-pq-xuanzhong{
+  color:#e60012;
+}
+.icon-pq-circle{
+  color:#999;
+}
+/* 代金券列表--end */

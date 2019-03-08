@@ -1,0 +1,175 @@
+/* component/goods/itemSale.wxss */
+@import "../../css/weui.wxss";
+@import "../../css/com.wxss";
+.icon-pq-rightarr:before { content: "\e734"; }
+/*活动列表  */
+
+.home_active {
+   position: relative;
+}
+
+/*活动列表  */
+
+.home_act_item {
+   padding:30rpx 30rpx 10rpx 30rpx;
+   background: #fff;
+   border-bottom: 15rpx #f0f0f0 solid;
+   position: relative;
+}
+.home_act_item_img >image{
+  width: 100%;
+  height: 100%
+}
+.cenFlex{
+  align-items: center
+}
+.zhezhao{
+width:100%;
+height:100%;
+background:#000;
+z-index:100;
+opacity:0.6;
+left:0rpx;
+top:0rpx;
+position: absolute
+
+}
+.home_act_item_img {
+   width: 100%;
+   height: 460rpx;
+   position: relative;
+   overflow: hidden;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.home_act_item_img::before {
+   position: absolute;
+   content: '加载中.';
+   top: 45%;
+   text-align: center;
+   width: 100%;
+   z-index: -1;
+}
+
+.home_btn_a {
+   /* width: 200rpx;
+   text-align: right; */
+}
+
+.h_yh_txt {
+   color: #e60012;
+   font-size: 32rpx;
+   font-weight: 500;
+}
+
+.h_yh_txt text {
+   color: #999;
+   font-size: 22rpx;
+   text-decoration: line-through;
+}
+
+.home_btn_a button {
+   background-color: #e60012;
+   padding: 0 0.4em 0 0.7em;
+}
+
+.home_btn_a1 button {
+   background-color: #e60012;
+   padding: 0 0.3em;
+}
+.home_btn_a button:active, .home_btn_a button:hover {
+   background-color: #e60012;
+}
+
+.home_yhlx {
+   color: #fff;
+   position: absolute;
+   transform: rotate(-45deg);
+   top: 50rpx;
+   height: 50rpx;
+   width: 300rpx;
+   left: -70rpx;
+   font-size: 24rpx;
+   text-align: center;
+   background-color: #ffa625;
+   line-height: 50rpx;
+}
+.home_list2{
+   margin-top: 20rpx;
+}
+.indexGoodItem2 {
+   float: left;
+   width: 50%;
+   box-sizing: border-box;
+   padding-bottom: 16rpx;
+   position: relative;
+}
+.indexGoodItem2:nth-child(2n){
+   padding-left: 8rpx;
+}
+.indexGoodItem2:nth-child(odd){
+   padding-right: 8rpx;
+}
+.indexGoodItem2 .img{
+   width: 100%;
+   height: 30vw;
+   background-color: #fff;
+}
+.indexGoodItem2 .img image{
+   width: 100%;
+   height: 100%;
+}
+.indexGoodItem2 .h5{
+   background-color: #fff;
+   padding: 10rpx 15rpx;
+}
+.indexGoodItem2 .weui-flex{
+   background-color: #fff;
+   padding: 2rpx 15rpx 10rpx 15rpx;
+   color: #999;
+}
+.indexGoodItem2 .weui-flex .weui-flex__item{
+   color: #e60012;
+}
+.home_yhlx.people {
+    background-color: #ff5581;
+}
+.not_inv {
+   width: 336rpx;
+   height: 278rpx;
+   position: absolute;
+   right: 180rpx;
+   bottom: 80rpx;
+   z-index: 999;
+}
+.flexb{
+  display:flex;
+  align-items:center;
+  font-size:28rpx;
+}
+.icon-pq-rightarr {
+  padding-bottom:3rpx
+}
+
+.goods-name{
+  font-size: 32rpx;
+  padding-top:20rpx;
+  color:#333;
+}
+
+.buyBtn{
+  width:178rpx;
+  height:54rpx;
+  display: flex;
+  align-items: center;
+  background-color: #E60012;
+  font-size:500;
+  color:#fff;
+  border-radius: 10rpx;
+  justify-content: center;
+}
+.valignCenter{
+  display: flex;
+  align-items: center;
+}

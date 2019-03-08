@@ -1,0 +1,12 @@
+{
+   "usingComponents": {
+      "compage": "/vwx/component/template/",
+      "vwx-tab": "/component/tabs/tab",
+      "vwx-gooditem-sale":"/component/goods/itemSale",
+      "vwx-user-auth": "/component/userauth/userauth",
+      "vwx-gooditem-group": "/component/goods/itemGroup",
+      "vwx-ally-activity": "/component/allyactivity/allyactivity",
+      "vwx-null-data": "/component/nulldata/nulldata",
+      "vwx-footer":"/component/footer/footer"
+   }
+}   

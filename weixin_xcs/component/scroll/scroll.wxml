@@ -1,0 +1,8 @@
+<!--component/scroll/scroll.wxml-->
+<view class="scroll">
+    <view wx:for="{{valueArr}}" wx:key="{{index}}" class="scroll-item">
+      <view wx:if="{{node <= index}}" wx:for="{{data}}" wx:key="{{index}}" wx:for-item="item1" wx:for-index="index1" class="{{index == node ? 'scroll-' + index1 : ''}}" style="">{{item1}}</view>
+      <view class="{{index == node ? 'scroll-' + data.length : ''}}">{{item}}</view>
+    </view>
+    <view class="clear"></view>
+</view>

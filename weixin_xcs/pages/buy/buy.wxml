@@ -1,0 +1,231 @@
+<compage id="compage">
+<view class="index_all_box">
+    <scroll-view class="goodsInfoBox" scroll-top='{{goodsInfoTop}}' scroll-y="{{true}}" enable-back-to-top='true' style="height:{{scrollScroll}}px" scroll-with-animation="true">
+          <view class="buy_t">
+            <view class="buy_t_in" bindtap="patternBtn" wx:if="{{genre==3 || genre==0}}" data-patternFlage="{{0}}">
+                    <icon class="{{patternFlage ==0 ?'icon-pq-xuanzhong':'icon-pq-circle'}}" style="font-size:40rpx"></icon>
+                <view class="buy_t_in_r">送货上门</view>
+            </view>
+            <view class="buy_t_in" bindtap="patternBtn1" wx:if="{{genre==3 || genre==1}}" data-patternFlage="{{1}}" >
+                <icon class="{{patternFlage == 1 ?'icon-pq-xuanzhong':'icon-pq-circle'}}" style="font-size:40rpx"></icon>
+                <view class="buy_t_in_r">到店自取</view>
+            </view>
+        </view>
+        <!-- 送货上门没有的情况 -->
+        <view class="buy_gohome_out" wx:if="{{is_genre==0}}" bindtap="addressbut" data-goodsid="{{goods_info.goods_id}}" data-bonusid="{{bonus_info.id}}" data-type="{{type}}" data-groupid="{{group_id}}">
+            <view class="buy_gohome_no" wx:if="{{!address_info.id}}">
+                <view class="cenFlex">
+                    <view class="buy_gohome_no_l_img">
+                        <image src="{{imgUrl}}index3_ico5.png"></image>
+                    </view>
+                    <view class="buy_gohome_no_l_txt">点击选择收货地址</view>  
+                </view>
+                <view class="buy_gohome_no_r">
+                    <image src="{{imgUrl}}goods3_ico6.png"></image>
+                </view>
+            </view>
+       
+            <view class="buy_gohome_no" wx:if="{{address_info.id}}">
+                <view class="cenFlex" style="margin-right: 10rpx;">
+                    <view class="buy_gohome_no_l_img">
+                       <icon class='icon-pq-map'></icon>
+                    </view>
+                </view>
+                <view class="buy_gohome_have">
+                    <view class="buy_gohome_have_t">
+                        <view class="buy_gohome_have_t_l">
+                            <text style="color:#666">收货人：</text>{{address_info.consignee}}</view>
+                        <view class="buy_gohome_have_t_r">{{address_info.telephone}}</view>
+                    </view>
+                    <view class="buy_gohome_have_b">
+                        <text style="color: #999999">地址：</text>{{address_info.province}}-{{address_info.city}}-{{address_info.country}}{{address_info.place}}
+                    </view>
+                </view>
+                <view class="buy_gohome_no_r" style="margin-left: 20rpx;">
+                      <icon class='icon-pq-rightarr'></icon>
+                </view>
+            </view>
+        </view>
+        <!-- 到店自取 -->
+        <view class="toStore" wx:if="{{is_genre!=0}}">
+            <view class="toStore_t">
+                <view class="toStore_t_l cenFlex">
+                    <view class="toStore_t_l_in cenFlex">
+                        <view class="toStore_t_l_in_t cenFlex">
+                            <image src="{{imgUrl}}buy3_ico1.png"></image>
+                        </view>
+                        <view class="toStore_t_l_in_b cenFlex">店铺</view>
+                    </view>
+                </view>
+                <view class="toStore_t_r">
+                    <view class="toStore_t_r_b">
+                        <view class="toStore_t_r_b_in">店铺名称：{{store_info.store_name}}</view>
+                        <view class="toStore_t_r_b_in">店铺地址：{{store_info.province}} {{store_info.city}} {{store_info.district}} {{store_info.store_address}}</view>
+                        <view class="toStore_t_r_b_in">商家联系方式：{{store_info.telephone}}</view>
+                        <view class="toStore_t_r_b_in">营业时间：{{store_info.start_time}}~{{store_info.end_time}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="toStore_user" wx:if="{{is_genre==1}}">
+                <view class="toStore_user_in cenFlex1" style="margin-bottom: 15rpx;">
+                    <view class="toStore_user_in_l">联系人姓名</view>
+                    <view class="toStore_user_in_r">
+                        <input type="text" placeholder="请输入联系人姓名" placeholder-class="aaF" bindinput="messageBtn" value="{{member_info.hx_name}}" />
+                    </view>
+                </view>
+                <view class="toStore_user_in cenFlex1">
+                    <view class="toStore_user_in_l">联系手机号</view>
+                    <view class="toStore_user_in_r">
+                        <input type="text" placeholder="请输入联系手机号" placeholder-class="aaF" bindinput="messageBtn1"  value="{{member_info.hx_tel}}" />
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 商品详情 -->
+        <view class="buy_gd">
+            <view class="buy_gd_t" data-storeid="{{store_info.store_id}}" bindtap="storeNavBtn">
+                <view class="buy_gd_t_l cenFlex">
+                    <view class="buy_gd_t_l_in1">
+                        <image src="{{imgUrl}}buy3_ico2.png"></image>
+                    </view>
+                    <view class="buy_gd_t_l_in2">{{store_info.store_name}}</view>
+                </view>
+                <view class="buy_gd_t_r cenFlex" wx:if="{{store_info.is_authentication==1}}">
+                    <view class="buy_gd_t_r_in1">
+                        <image src="{{imgUrl}}{{store_info.auth_type==1?'goods3_ico1.png':'index3_ico3.png'}}"></image>
+                    </view>
+                    <view class="buy_gd_t_r_in2" style="color:#f7a20e">{{store_info.auth_type==1?'个人认证':'店铺认证'}}</view>
+                </view>
+                <view class="buy_gd_t_r cenFlex" wx:if="{{store_info.is_authentication==0}}">
+                    <view class="buy_gd_t_r_in1">
+                        <image src="{{imgUrl}}index3_ico7.png"></image>
+                    </view>
+                    <view class="buy_gd_t_r_in2" style="color:666">未认证</view>
+                </view>
+            </view>
+            <view class="buy_gd_m">
+                <view class="buy_gd_m_l">
+                    <image src="{{goods_info.goods_img}}" mode="aspectFill"></image>
+                </view>
+                <view class="buy_gd_m_r">
+                    <view class="buy_gd_m_r_t">
+                        <view class="buy_gd_m_r_t_l twoFontNow">
+                            {{goods_info.goods_name}}
+                        </view>
+                        <view class="buy_gd_m_r_t_r">
+                            <view class="buy_gd_m_r_t_r_in">¥{{goods_info.bottom_price}}</view>
+                            <view class="buy_gd_m_r_t_r_in" style="margin-top: 10rpx;">x{{nums}}</view>
+                        </view>
+                    </view>
+                    <view class="buy_gd_m_r_b">
+                        <view class="buy_gd_m_r_b_l">{{goods_info.is_group==1?'团长':''}}</view>
+                        <view class="gd_pr_t_l_ico" style="border-color:#{{goods_info.is_group==1?'ff4949':goods_info.is_group==3?'ff5581':goods_info.is_group==4?'ffa625':goods_info.is_group==6?'E971D7':'fff'}};margin-right: 0rpx;">
+                            <view class="gd_pr_t_l_ico_in" style="background:#{{goods_info.is_group==1?'ff4949':goods_info.is_group==3?'ff5581':goods_info.is_group==4?'ffa625':goods_info.is_group==6?'E971D7':'fff'}};">
+                                {{goods_info.is_group==1?'拼团立减':goods_info.is_group==3?'多人拼团':goods_info.is_group==4?'限时专享':goods_info.is_group==6?'砍价':'暂无状态'}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 推荐员工 -->
+            <!-- <view class="buy_gd_f" bindtap="userShowBtn" wx:if="{{staff_list[0] }}">
+                <view class="buy_gd_f_l">推荐人</view>
+                <view class="buy_gd_f_r {{userShowF?'buy_gd_f_r_act':''}}">
+                    <image src="{{imgUrl}}buy3_ico3.png"></image>
+                </view>
+            </view>
+            <view class="buy_staff" wx:if="{{userShowF && staff_list[0] }}">
+                <view class="buy_staff_in" wx:for="{{staff_list}}" wx:key="{{index}}" data-id="{{item.account_id}}" data-index="{{index}}" bindtap="staffChangeBtn">
+                    <view class="buy_staff_in_l cenFlex">
+                        <view class="buy_staff_in_l_l">
+                            <image src="{{item.wx_img}}"></image>
+                        </view>
+                        <view class="buy_staff_in_l_txt">
+                            {{item.remark}}({{item.wx_name}})
+                        </view>
+                    </view>
+                    <view class="buy_staff_in_r">
+                        <view class="buy_t_in_l" wx:if="{{!staffFlag[index]}}"></view>
+                        <view class="buy_t_in_img" wx:if="{{staffFlag[index]}}">
+                            <image src="{{imgUrl}}ab_ico1.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view> -->
+     
+            <view class='bug_people' wx:if="{{buy_status}}">
+              <view class='buy_nick'>
+              推荐人
+              </view>
+              <view class='buy_name'>
+               <view class='name'>{{params.rec_datas.wx_name}}</view>
+                <view class='buy_image'><image src='{{params.rec_datas.wx_img}}'></image></view>
+              </view>
+            </view>
+        </view>
+        <!-- 支付方式 -->
+        <view class="buy_pay">
+            <view class="buy_pay_t">支付方式</view>
+            <!-- <view class="buy_pay_in" bindtap="paybut">
+                <view class="cenFlex">
+                    <view class="buy_pay_in_l_img">
+                       <icon  class='icon-pq-wallett' style='font-size:20px'></icon>
+                    </view>
+                    <view class="buy_pay_in_l_txt">余额支付</view>
+                </view>
+                <view class="buy_pay_in_r">
+                      <icon class="{{!payway?'icon-pq-xuanzhong':'icon-pq-circle'}}" style="font-size:20px"></icon>
+                </view>
+            </view> -->
+            <view class="buy_pay_in" bindtap="paybut1">
+                <view class="cenFlex">
+                    <view class="buy_pay_in_l_img">
+                        <image src="{{imgUrl}}buy3_ico5.png"></image>
+                    </view>
+                    <view class="buy_pay_in_l_txt">微信支付</view>
+                </view>
+                <view class="buy_pay_in_r">
+                   <icon class="{{payway?'icon-pq-xuanzhong':'icon-pq-circle'}}" style="font-size:20px"></icon>
+                </view>
+            </view>
+        </view>
+        <!-- 运费留言板块 -->
+        <view class="buy_frg">
+            <view class="buy_pay_in" wx:if="{{type==0}}">
+                <view>
+                    数量
+                </view>
+                <view class="cenFlex">
+                    <view class="buy_frg_num1 cenFlex" bindtap="foodAddBtn2">-</view>
+                    <view class="buy_frg_num2 cenFlex">
+                        <input type="text" placeholder-class="aaF" value="{{nums}}" type="number"  bindblur="{{subtractionFlag?'blurNumsBtn':''}}" />
+                    </view>
+                    <view class="buy_frg_num1 cenFlex" bindtap="foodAddBtn1">+</view>
+                </view>
+            </view>
+            <view class="buy_pay_in" wx:if="{{patternFlage ==0 && is_genre == 0}}">
+                <view>运费</view>
+                <view style="color:#999">
+                    <text wx:if="{{postage != 0 }}">¥{{postage}}</text>
+                    <text wx:else>包邮</text>
+                </view>
+            </view>
+            <view class="buy_marker">
+                <view class="buy_marker_t">给卖家留言</view>
+                <view class="buy_marker_b">
+                    <input type="text" placeholder="请输入您的留言" placeholder-class="aaF" bindinput="remark" />
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="buy_bottom" style="width:100%;bottom:-2rpx;height:100rpx;">
+        <view class="buy_bottom_l cenFlex">
+            <view class="buy_bottom_l_in">共{{nums}}件商品</view>
+            <view class="buy_bottom_l_in" style="margin-left: 20rpx;">合计 <text style='color:#333333'>¥{{all_price}}</text> </view>
+        </view>
+        <view class="buy_bottom_r cenFlex" bindtap="makeorder">确认</view>
+        
+    </view>
+</view>
+    
+</compage>

@@ -1,0 +1,32 @@
+<!--pages/my/specialCard/cardDetail/cardDetail.wxml-->
+<compage id="compage">
+  <view class="container">
+    <view class="top">
+      <view class="top-t"></view>
+      <view class="top-b"></view>
+      <view class="top-card">
+        <view class="card-info">
+          <view class="card-t">专享卡</view>
+          <view class="card-title twoFontNow">{{card_info.card_name}}</view>
+          <view class="card-price-date">
+            <view class="card-price">￥{{card_info.card_price}}</view>
+            <view class="card-date">{{card_info.card_is_time==0?'有效期不限':card_info.time_str}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card-content">
+      <view class="card-top">专享卡详情</view>
+      <view class="card-des" wx:key="index" wx:for="{{card_info.card_detail1}}">{{item}}</view>
+      <view class="card-img">
+        <view class="img-content" >
+          <image class="act-img" src="{{item}}" mode="aspectFill" wx:for="{{card_info.card_detail_imgs}}" wx:key="index"></image>
+        </view>
+      </view>
+    </view>
+		<view class="no-more">
+			<view class="no-img"><image src="https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/no_more.png"></image></view>
+			<view class="no-text">没有更多了~</view>
+		</view>
+  </view>
+</compage>

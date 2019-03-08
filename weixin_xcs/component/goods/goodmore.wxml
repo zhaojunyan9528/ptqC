@@ -1,0 +1,65 @@
+<!--component/goods/goodmore.wxml-->
+
+<view class='good_more'>
+  <!--切换菜单  -->
+  <view style='padding-top:20rpx' wx:if="{{activeIndex==0}}">
+    <view class='good_more_gz'>
+      <view class='h3'>温馨提示</view>
+      <view class="gd_foot_info_rule_in_in_txt">拼团趣作为商家活动营销工具，暂不支持线上退款功能，请悉知。</view>
+      <view class='h3'>活动规则</view>
+      <view class="gd_foot_info_rule_in_in">
+        <view class="gd_foot_info_rule_in_in_txt">活动在线时间</view>
+        <view class="gd_foot_info_rule_in_in_txt">{{info.a_start_time}} 至 {{info.a_end_time}}</view>
+      </view>
+      <view class="gd_foot_info_rule_in_in" wx:if="{{info.is_time==1}}">
+        <view class="gd_foot_info_rule_in_in_txt">使用有效时间</view>
+        <view class="gd_foot_info_rule_in_in_txt">{{info.use_start_time}} 至 {{info.use_end_time}}</view>
+      </view>
+      <view class="gd_foot_info_rule_in_in" wx:if="{{info.is_subscribe==1}}">
+        <view class="gd_foot_info_rule_in_in_txt">预约信息</view>
+        <view class="gd_foot_info_rule_in_in_txt">{{info.subscribe}}</view>
+      </view>
+    </view>
+    <view class='good_more_sp'>
+      <view class='h4' style='padding:30rpx 30rpx 15rpx 30rpx;font-size:30rpx;color:#999999'>商品详情</view>
+      <view class="gd_foot_info_warp_t_in2">
+        <view wx:for="{{info.goods_detail1}}" wx:key="{{index}}" style="min-height: 40rpx;line-height: 40rpx;">{{item}}</view>
+      </view>
+    </view>
+    <view class='good_more_img' wx:for="{{info.goods_detail_imgs}}" wx:key="index">
+      <image mode='widthFix' bindload="imgload" src='{{item}}'></image>
+    </view>
+  </view>
+  <!-- 宝贝评价 -->
+  <view wx:if="{{info.is_red == 0 && activeIndex == 1 || info.is_red == 1 && activeIndex == 2}}">
+    <vwx-evaluation-list eval_list="{{comments}}"></vwx-evaluation-list>
+  </view>
+  <!-- 赚红包记录 根据状态来控制显示-->
+  <view class='box' wx:if="{{info.is_red == 1 && activeIndex == 1}}">
+    <!-- 有数据 -->
+    <view class='good_box' data-id="{{monenyRecord}}">
+      <!-- 循环一个数组 -->
+      <view class='good_box_array'  wx:if="{{monenyRecord.length}}" wx:for="{{monenyRecord}}" wx:key="index">
+        <view class='good_box_left'>
+          <view class='good_box_left_img'>
+            <image src='{{item.wx_img}}'></image>
+          </view>
+          <view class='good_box_left_name'>{{item.wx_name}}</view>
+        </view>
+        <view class='good_box_right'>
+          <text class='good_box_right_get'>获得红包</text>
+          <text class='good_box_right_money'>￥{{item.red_amount}}</text>
+        </view>
+      </view>
+      <!-- 无数据 -->
+      <view class='null_good_box' wx:if="{{monenyRecord.length == 0}}">
+        <view class='bull_data'>
+          <view class='null_img cenFlex'>
+            <image src='/assets/images/null.png'></image>
+          </view>
+          <view class='null_font'>暂无信息</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

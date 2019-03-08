@@ -1,0 +1,71 @@
+/* pages/my/address/newAddress/newAddress.wxss */
+ /* @import "../../template/acts-/list-item/list-item.wxss"; */
+ 
+.item-sel-edit {
+  display: flex;
+}
+
+.item-cont-edit {
+  width: 335rpx;
+}
+
+.item-type-edit {
+  display: none;
+}
+
+.sel-img-selected {
+  color: #e60012;
+}
+
+.sel-img-noselected {
+  color: #999;
+}
+.container{
+  font-size:32rpx;
+  color:#333;
+}
+page{
+  background-color:#fff;
+}
+.consignee-group{
+  width:750rpx;
+  display: flex;
+  flex-direction: row;
+  height:105rpx;
+  border-bottom:0.5px solid #eee;
+  align-items:center;
+  font-size:28rpx;
+}
+.consignee-group:first-child{
+   margin-top:25rpx;
+}
+
+.input-hint{
+  width:215rpx;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  text-align:right;
+}
+.input{
+  padding-left:15rpx;
+  width:535rpx;
+  box-sizing: border-box;
+}
+.input-class{
+  color:#aaa;
+}
+.default{
+  padding-left:30rpx;
+  border-bottom:none;
+}
+.icon{
+  margin-right:30rpx;
+  color:#c2c2c2;
+}
+.btn-content{
+  margin-top:220rpx;
+  height:100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

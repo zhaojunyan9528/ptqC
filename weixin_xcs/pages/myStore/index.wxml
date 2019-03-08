@@ -1,0 +1,141 @@
+<!--pages/myStore/index.wxml-->
+<compage id="compage" wx:if="{{errStore}}">
+  <view class="store-content">
+    <view class='absolute'>
+      <!-- 头部 -->
+      <view class="store-content">
+        <view class="home-top-b">
+          <image src="{{store_img}}"></image>
+        </view>
+        <view class="store-b-t centerFlex" bindtap="goIndex">
+          <image src="{{scanImg}}" mode="aspectFill"></image>
+          <text>个人中心</text>
+        </view>
+        <view class="store-bottom">
+          <view class='weui-flex__item'>
+            <view class="storelogo">
+              <image src="{{store_info.store_logo}}"></image>
+            </view>
+            <view class="store-name-auth">
+              <view class='storename'>{{store_info.store_name}}</view>
+              <view class='home_top_rz'>
+                <!-- type : 1 个人认证 2.店铺认证 -->
+                <!-- auth : 1 已认证 0.未认证 -->
+                <vwx-user-auth type="{{store_info.auth_type}}" auth="{{store_info.is_authentication}}"></vwx-user-auth>
+                <text>客粉数：{{store_info.customer_fans}}</text>
+              </view>
+            </view>
+          </view>
+          <button class='tv_btn' bindtap='tapPoint'>
+            <icon class="{{store_info.is_attention == 1?'icon-pq-heart':'icon-pq-follow'}}" style="color:#{{store_info.is_attention == 1?'ff4352':'fff'}}"></icon>
+            <view style="color:#{{store_info.is_attention == 1?'ff4352':'fff'}}">{{store_info.is_attention == 1?'已关注':'未关注'}}</view>
+          </button>
+          <button class='tv_btn' hover-class="none" open-type="share">
+            <icon class='icon-pq-fx'></icon>
+            <view>分享</view>
+          </button>
+        </view>
+        <view class='home_address'>
+          <view class='weui-flex__item home_address_in flex' bindtap="storeClick" data-latitude="{{store_info.latitude}}" data-longitude="{{store_info.longitude}}">
+            <view class="valign-center">
+              <icon class='icon-pq-map' style='color:#bdbdbd'></icon>
+            </view>
+            <view class="store_address">
+              {{store_info.address}}
+            </view>
+          </view>
+          <view class='home_tel' bindtap='Callphone'>
+            <icon class='icon-pq-phoneYou' style='color:#999999'></icon>
+          </view>
+        </view>
+      </view>
+
+      <!-- 第二：活动类型导航 -->
+      <view class="{{isFixed?'navFixed1':'navFixed'}}">
+        <!-- <vwx-tabs tabs="{{tabs}}" isBorderBottom="{{isBorderBottom}}" bindmyselect="selectTab" actIndex="{{activeIndex}}"></vwx-tabs> -->
+        <view class="scroll-view">
+          <view class="tab-item " wx:for="{{tabs}}" wx:key="index" data-index="{{index}}" data-type="{{item.type}}" bindtap="selectTab">
+            <view class="{{index == activeIndex ?'activetab':''}}">
+              <view class="item-value">{{item.value}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 第三：活动列表 -->
+      <view class="activtList " wx:if="{{activitiList.length>0}}">
+        <view wx:if="{{activitiList.length > 6 && currentType != 1}}">
+          <view class="goods_list_content" wx:for="{{activitiList}}" wx:key="index">
+            <vwx-goods-item goods_item="{{item}}" bind:goDetail="goDetail"></vwx-goods-item>
+          </view>
+        </view>
+        <view wx:if="{{activitiList.length <= 6 && currentType != 1}}">
+          <vwx-goods-sale wx:for="{{activitiList}}" wx:key="index" data="{{item}}"></vwx-goods-sale>
+        </view>
+        <!-- 拼团立减 -->
+        <view wx:if="{{currentType == 1}}" >
+        <view class='groupStyle'>
+            <view wx:for="{{activitiList}}"  wx:key="index" class='recommend_li' style='{{index%2==0 ?" margin-right: 2.4vw;":""}} {{index== activitiList.length - 1 ?"margin-bottom:20rpx;":""}} {{ (index== activitiList.length - 1 )&& (activitiList.length % 2 ==1) ?"float:left":"float:left" }}'>
+            <view class='recommend_list' data-id="{{item.goods_id}}" data-type="{{item.is_group}}" bindtap="goDetailI" data-groupid="{{item.group_id}}">
+              <view class='recommend_list_img'>
+                 <view class="{{item.inventory == 0 ? 'zhezhao':''}}"></view>
+                <image src="{{item.goods_img}}" mode="aspectFill"></image>
+                 <view class="home_yhlx {{item.is_group==3?'people':item.is_group==4 ? 'sale' :item.is_group==1?'group':'sale'}}">
+              <text>{{item.is_group == 1 ? '拼团立减' : item.is_group == 3 ? '多人拼团' : item.is_group == 4 ? '限时专享' : '未知类型'}}</text>
+            </view>
+                 <view class="not_inv" wx:if="{{item.inventory==0}}">
+                    <image src="/assets/images/in3_ico30.png" mode="aspectFill"></image>    
+                </view>
+              </view>
+              <view class='recommend_list_dat'>
+                <view class='recommend_list_name twoFontNow'><text>【拼团立减】</text>{{item.goods_name}}</view>
+                <view class='recommend_list_pri twoFontNow'>{{item.is_group==1?'团长价':item.is_group==3?'原价':item.is_group==4?'原价':'最低价'}}:
+                  <text class='recommend_list_pr'>{{item.goods_price }}</text>
+                </view>
+                <view class='recommend_list_bot twoFontNow'>{{item.is_group==1?'最低价':item.is_group==3?'拼团价':item.is_group==4?'优惠价':'最低价'}}:
+                  <text style="font-weight:bold">￥{{item.bottom_price}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          </view>
+        </view>
+
+        <!--友情推荐 -->
+        <view wx:if="{{allySpecialsList.length>0}}">
+          <vwx-F-re allySpecialsList="{{allySpecialsList}}" bootomFlag="{{bootomFlag}}" bind:storebutton="storebutton" bind:navStore="goDetail" specialsAllPaging="{{allpaging}}"></vwx-F-re>
+        </view>
+
+
+
+
+      </view>
+      <!-- 空白页面 -->
+      <view wx:if="{{length==0}}" class="{{isFixed?'null-data1':'null-data'}} centerFlex" style="height:{{isFixed?NullPageH:NullPageH11}}px">
+        <view class="null-img">
+          <image src="{{null_data.null_img}}" mode="aspectFill"></image>
+        </view>
+        <view class="no_activity">{{null_data.no_activity}}</view>
+        <view class="go_g">{{null_data.go_g}}</view>
+      </view>
+      <view class='empty' style='clear:both'></view>
+      
+    </view>
+
+
+    <!-- 未关注公众号，点击关注店铺，提示扫码关注 -->
+    <view class="qr_code_mb" bindtap="hideWxAbout" wx:if="{{wxAboutshow}}">
+      <view class="qr_code_mb_in">
+        <view class="qr_code_mb_in_img cenFlex" catchtap="storageWxAbout">
+          <image src="{{miniapps_code}}"></image>
+        </view>
+        <view class="qr_code_mb_in_tit">首次关注店铺仅需四步</view>
+        <view class="qr_code_mb_in_txt ">
+          <view class="qr_code_mb_in_txt_in" wx:for="{{miniapps_codeTxt}}" wx:key="{{index}}">第
+            <view class="qr_code_mb_in_txt_in_r">{{index+1}}</view>步，{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <vwx-footer is="footer" store_id="{{store_info.store_id}}"></vwx-footer>
+  <official-account></official-account>
+</compage>

@@ -1,0 +1,139 @@
+/* component/allyactivity.wxss */
+
+/*友情推荐*/
+
+.icon-pq-rightarr:before {
+  content: "\e734";
+}
+
+.indexAll_bus_m_b {
+  padding: 0rpx 30rpx;
+  background: #fff;
+}
+
+.indexAll_bus_m_b_in {
+  padding: 20rpx 0rpx;
+  border-bottom: 1rpx #f0f0f0 solid;
+  display: flex;
+}
+
+.indexAll_bus_m_b_in_l {
+  width: 226rpx;
+  height: 150rpx;
+  min-width: 226rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.indexAll_bus_m_b_in_r {
+  padding-left: 20rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.indexAll_bus_m_b_in_r_t {
+  line-height: 40rpx;
+}
+
+.indexAll_bus_m_b_in_r_t_l {
+  padding: 4rpx 10rpx;
+  color: #fff;
+  margin-right: 10rpx;
+  display: inline-block;
+  border-radius: 8rpx;
+}
+
+.indexAll_bus_m_b_in_r_b_in1 {
+  color: #e60012;
+  font-size: 26rpx;
+}
+
+.indexAll_bus_m_b_in_r_b_in2 {
+  color: #999;
+  font-size: 22rpx;
+  margin-top: 5rpx;
+}
+
+.indexAll_bus_m_t_r_1 {
+  color: #666;
+}
+
+.cenFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sbFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gd_pr_t_l_ico_in {
+  padding: 0rpx 15rpx;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  background-color: #eee;
+  min-width: 118rpx;
+  height: 30rpx;
+  max-height: 30rpx;
+}
+
+.gd_pr_t_l_ico {
+  padding: 6rpx 0rpx;
+  border-top: 2rpx #eee dashed;
+  border-bottom: 2rpx #eee dashed;
+  border-left: 2rpx #eee solid;
+  border-right: 2rpx #eee solid;
+  border-radius: 5rpx;
+  display: inline-block;
+  /* height: 44rpx; */
+  /* position: absolute;
+  right: 0;
+  bottom: 4rpx; */
+	min-width:118rx;
+	text-align: center;
+}
+
+.twoFontNow {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.r-b {
+  display: flex;
+  justify-content: space-between;
+  /* position: relative; */
+
+  align-items: flex-end;
+}
+
+.not_inv {
+  width: 150rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  z-index: 101;
+}
+
+.zhezhao {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  z-index: 100;
+  opacity: 0.6;
+  left: 0rpx;
+  top: 0rpx;
+  position: absolute;
+}

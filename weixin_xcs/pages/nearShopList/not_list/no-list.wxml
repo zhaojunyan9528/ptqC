@@ -1,0 +1,9 @@
+
+<template name='no_list'>
+  <view class='no_list'>
+    <view wx:if='{{noListInfo.img}}' class='flex-_enter'>
+      <image class='tip_img' src='{{noListInfo.img}}'></image>
+    </view>
+    <view class='tip_txt'>{{noListInfo.txt}}</view>              
+  </view>
+</template>

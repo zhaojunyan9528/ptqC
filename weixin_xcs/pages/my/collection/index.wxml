@@ -1,0 +1,49 @@
+<!--pages/my/collection/index.wxml-->
+<import src="../template/topbar/topbar"/>
+<import src="../template/no-list/no-list"/>
+<import src="../template/acts-list-item/list-item"/>
+
+<compage id="compage">
+  <view wx:if='{{noList}}'>
+    <!-- <template is='no-list' data='{{noListInfo}}'></template> -->
+     <view class='no-list'>
+    <view wx:if='{{noListInfo.img}}' class='flex-center'>
+      <image class='tip-img' src='{{noListInfo.img}}'></image>
+    </view>
+    <view class='tip-txt1'>{{noListInfo.txt1}}</view>
+    <view class='tip-txt'>{{noListInfo.txt}}</view>
+    <!-- <vwx-button wx:if="{{!noBtn}}" class="tip-btn" type="ms" text="{{btn.text || '逛逛'}}" bind:tap-event='goPage' data-upage="{{btn.fn || 'switchTab:///pages/nearShopList/nearShopList'}}"></vwx-button> -->
+    <view class="btn-footer">
+          <button class="btn-stroll" bindtap='redirect'>逛逛</button>
+        </view>
+  </view>
+    <!-- <btn id='btn-m' type='m' text='逛逛' class='no_list_opt' bindtap='goPage' data-upage='switchTab:///pages/nearShopList/nearShopList'></btn> -->
+  </view>
+
+  <view wx:if='{{!noList}}'>
+    <!-- <template is='topbar' data='{{topbar}}'></template> -->
+    <view class='header flex-center'>
+      <view class='title'>我的收藏</view>
+      <view class='opt fr' bindtap='editCol'>{{isEdit?'取消':'编辑'}}</view> 
+    </view>
+
+    <view class='list'>
+    <!-- 去掉class='relative-box' -->
+      <view wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.goods_id}}' data-index='{{index}}' bindtap="{{isEdit ? 'selCol' : ''}}">
+        <view class='list_item border-b'><!--页面跳转-->
+          <template is='list-item5' data='{{listType, item, ActsType, isEdit}}'></template>
+        </view>
+      </view>
+    </view>
+    <view class='footer flex-between' hidden='{{!isEdit}}'>   
+      <view class='sel_box' bindtap='selAll'>
+        <view class='sel_img flex-y-center'>
+          <icon class="{{selectedAll ? 'icon-pq-xuanzhong sel_img_selected' : 'icon-pq-circle sel_img_noselected'}}" style='font-size: 45rpx;'></icon>
+        </view>
+        <view class='sel_txt fl'>{{selectedAll ? '反选' : '全选'}}</view>
+      </view>
+      <view class='del_opt' style="background: #{{judgeNum>0?'e60012':'ccc'}}"   bindtap="{{judgeNum>0?'delCol':''}}">删除</view>
+    </view>
+  </view>
+  <modal id="modal"></modal>
+</compage>

@@ -1,0 +1,18 @@
+.nullPage{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center
+}
+.nullPage_img{
+  width: 233rpx;
+  height: 240rpx;
+}
+.nullPage_text{
+  padding-top: 30rpx;
+  text-align: center;
+  font-size:30rpx;
+  color: #333333;
+font-weight:500;
+padding-bottom: 33rpx;
+}

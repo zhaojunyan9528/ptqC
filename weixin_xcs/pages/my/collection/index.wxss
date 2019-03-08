@@ -1,0 +1,150 @@
+/* pages/my/collection/index.wxss */
+@import "../base.wxss";
+@import "../template/topbar/topbar.wxss";
+/* @import "../template/no-list/no-list.wxss"; */
+@import "../template/acts-list-item/list-item.wxss";
+
+.no-list {
+  margin-top: 200rpx;
+}
+
+.tip-img {
+  width: 312rpx;
+  height: 246rpx;
+}
+
+/* width: 300rpx; height: 300rpx; */
+
+.tip-txt {
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  /* color: #999; */
+  color: #333;
+}
+
+.tip-btn {
+  display: block;
+  margin-top: 70rpx;
+}
+
+.tip-txt1 {
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+  /* margin: 20rpx 0 10rpx 0; */
+  margin: 98rpx 0 0 0;
+}
+
+page {
+  background-color: #f7f7f7;
+}
+
+
+.tip-txt{
+  font-size: 32rpx;
+}
+.no_list_opt{
+  display: block;
+  margin-top: 180rpx;
+}
+
+
+
+.header{
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-bottom: 2rpx solid #f0f0f0;
+  width: 100%;
+  background-color: #fff;
+  line-height: 3;
+  font-size: 35rpx; */
+  box-sizing:initial;
+position:fixed;
+top:0;
+left:0;
+z-index:999;
+width:100%;
+background-color:#fff;
+text-align:center;
+color:#333;
+height:88rpx;
+line-height:88rpx;
+font-size:32rpx;
+/* border-color: #dcdcdc; */
+border: 1rpx solid #f5f5f5
+}
+.title{
+  padding:0 30rpx;
+width:100%;
+}
+.opt{
+  position: absolute;
+  right: 0;
+  padding: 0 30rpx;
+  /* color: #6e6e6e; */
+  color: #333;
+  font-size: 30rpx;
+}
+
+.list{
+  margin: 90rpx 0;
+}
+.list_item{
+  /*新写下边框 */
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: #fff;
+  line-height: 3;
+}
+.sel_box{
+  display: flex;
+  align-items: center;
+  padding-left: 35rpx;
+  width: 450rpx;
+}
+.sel_img_selected{
+  color: #e60012;
+}
+.sel_img_noselected{
+  color: #999;
+}
+.sel_txt{
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+.del_opt{
+  width: 300rpx;
+  background-color: #e60012;
+  font-size: 35rpx;
+  color: #fff;
+  text-align: center;
+}
+.btn-footer{
+  width:750rpx;
+  height:92rpx;
+  position: absolute;
+  bottom:180rpx;
+}
+.btn-stroll{
+  width:480rpx;
+  height:92rpx;
+  background-color: #e60012;
+  color:#fff;
+  font-size:32rpx;
+  text-align: center;
+  line-height: 92rpx;
+  border-radius: 20rpx;
+}
+.btn-stroll::after{
+  border:0;
+}

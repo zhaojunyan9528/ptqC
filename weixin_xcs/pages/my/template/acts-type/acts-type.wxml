@@ -1,0 +1,9 @@
+<!--pages/my/template/acts-type/type.wxml-->
+<template name="act-type">
+  <!-- <icon class="act-type-box {{ActsType[item.is_group].iconClass}}" style="color: {{ActsType[item.is_group].iconColor}};margin-left:-6rpx"></icon> -->
+  <view class="pic" style="border-color:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">
+            <view class="pic-one" style="background:#{{item.is_group==1?'ff4949':item.is_group==3?'ff5581':item.is_group==4?'ffa625':item.is_group==6?'E971D7':'fff'}};">
+              {{item.is_group==1?'拼团立减':item.is_group==3?'多人拼团':item.is_group==4?'限时专享':item.is_group==6?'砍价':'暂无状态'}}
+            </view>
+          </view>
+</template>

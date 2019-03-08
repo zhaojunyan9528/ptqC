@@ -1,0 +1,79 @@
+<import src='../../template/acts-type/acts-type'/>
+
+<template name='list-item'>
+
+  <view class='item-logo fl'>
+    <image class='item-logo-img' src='{{item.goods_img}}' mode='aspectFill'></image>
+  </view>
+
+  <view class='item-cont fr'>
+    <view class='item-name'>{{item.goods_name}}</view>
+    <view class='item-time'>下单时间：{{item.add_time}}</view>
+    <view class='item-num'>数量：{{item.nums}}</view>
+    <view class='item-price'>总价：{{item.total_price}}</view>
+    <view class='item-type'>{{item.order_status}}</view>
+  </view>
+
+  <view class='clear'></view>
+
+</template>
+
+<template name='opt-list-item'>
+  <!-- store -->
+ <view class='store flex-between' bindtap='goPage' data-upage="/pages/myStore/index?store_id={{item.store_id || store_id }}" >
+     <view class='store-info flex-center' >
+      <icon class='store-info-icon'></icon>
+      <view class='store-info-name'>{{item.storename}}</view>
+    </view>
+    <view class='order-status'>{{item.order_status}}</view>
+  </view>
+
+  <!-- activity -->
+  <view class='act flex-between' bindtap='goPage' data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup' : item.is_group == 3 ? 'goodsPeople/goodsPeople' : item.is_group == 4 ? 'goodsSale/goodsSale' : ''}}?goods_id={{item.goods_id}}&group_id={{item.group_id}}"><!-- 跳转活动详情页 -->
+    <view class='act-logo'>
+      <image class='act-logo-img' src='{{item.goods_img}}' mode="aspectFill"></image>
+    </view>
+    <view class='act-info'>
+      <view class='act-info-t flex-between'>
+        <view class='act-info-name'>{{item.goods_name}}</view>
+        <view class='act-info-other'>
+          <view class='act-info-price'>￥{{item.total_price}}</view>
+          <view class='act-info-nnum'>×{{item.nums}}</view>
+        </view>
+      </view>
+      <view class='act-info-b flex-y-end'>
+        <view class='act-info-time'>下单时间：{{item.add_time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- order -->
+  <view class='order flex-between'>
+    <!-- <view class='order-type'  data='{{item.is_group}}'> -->
+      <template is='act-type' data='{{item, ActsType}}'></template>
+    <!-- </view> -->
+    <view class='order-info'>共1件商品，合计￥{{item.total_price}}</view>
+  </view>
+
+  <!-- options -->
+  <view class='opts'   wx:if="{{(!isDetail && item.is_group == 3 &&  item.group_status == 0) || (isDetail && item.is_group == 3) || item.status == 3 && item.genre == 1 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) || !isDetail && item.status == 3 && item.genre == 0 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) || !isDetail && item.status == 3 && item.genre == 0 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) ||  item.status == 3 && item.genre == 0 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) ||  !isDetail && item.status == 4  ||item.status == 5 || !isDetail }}" >
+    <view class='remark fl' wx:if="{{ item.is_group == 3 && item.group_status == 0 }}">还差<text class='short_num'>{{item.group_num}}</text>人拼团成功</view>
+    <view class='opts_btns fr'>
+      <view wx:if="{{ (!isDetail && item.is_group == 3 &&  item.group_status == 0) || (isDetail && item.is_group == 3) }}" bindtap='goPage' data-upage="/pages/goodsInfo/{{item.is_group == 1 ? 'goodsGroup/goodsGroup' : item.is_group == 3 ? 'goodsPeople/goodsPeople' : item.is_group == 4 ? 'goodsSale/goodsSale' : ''}}?goods_id={{item.goods_id}}&group_id={{item.group_id}}">拼团详情</view>
+
+      <view wx:if="{{ item.status == 3 && item.genre == 1 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) }}" data-id='{{item.order_id}}' bindtap='orderPickUp'>自主核销</view>
+
+      <view wx:if="{{ !isDetail && item.status == 3 && item.genre == 0 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) }}" data-id='{{item.order_id}}' bindtap='orderReceive'>确认收货</view>     
+
+      <view wx:if="{{ item.status == 3 && item.genre == 0 && !(item.is_group == 3 && (item.group_status == 0 || item.group_status == 3)) }}" bindtap='goPage' data-upage='/pages/my/order/logistics/detail?order_id={{item.order_id}}'>物流详情</view>
+
+      <view wx:if="{{ !isDetail && item.status == 4 }}" bindtap='goPage' data-upage='/pages/my/order/evaluate/add?order_id={{item.order_id}}'>评价订单</view>
+
+      <view wx:if="{{ item.status == 5 }}" data-id='{{item.order_id}}' bindtap='orderDelete'>删除订单</view>
+
+      <view wx:if="{{ !isDetail }}" bindtap='goPage' data-upage='/pages/my/order/detail/detail?order_id={{item.order_id}}'>查看详情</view>
+
+    </view>
+  </view>
+
+</template>

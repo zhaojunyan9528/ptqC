@@ -1,0 +1,20 @@
+<!--component/modal/modalinput.wxml-->
+<!--components/diyMoadel.wxml-->
+
+<view class='wx_dialog_container' wx:if="{{show}}">
+   <view class='wx-mask' wx:if="{{!maskCancel}}" bindtap="cancel"></view>
+   <view class='wx-mask' wx:if="{{maskCancel}}"></view>
+   <view class='wx-dialog'>
+      <view class='wx-dialog-title cenFlex' wx:if="{{title!=''}}" style="color:{{titleColor}};{{titleStyle}}">{{title}}</view>
+      <view class="wx-dialog-content">
+         <slot></slot>
+      </view>
+      <view class="wx-dialog-footer" wx:if="{{showCancel}}" >
+          <view class='wx-dialog-btn' bindtap="cancelFlag">{{canceltext}}</view>
+          <view class='wx-dialog-btn' bindtap="success">{{confirmtext}}</view>
+      </view>
+      <view class="wx-dialog-footer" wx:if="{{confirmtext && !showCancel}}" bindtap="success">
+         <view class="wx_dialog_once">{{confirmtext}}</view>
+      </view>
+   </view>
+</view>

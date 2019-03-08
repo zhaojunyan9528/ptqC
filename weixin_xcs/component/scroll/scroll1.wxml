@@ -1,0 +1,5 @@
+<!--component/scroll/scroll1.wxml-->
+<view class="scroll">
+    <text wx:for="{{valueArr}}" wx:key="index" class="scroll-item {{scroll == 1 ? 'letter' : ''}}">{{item}}</text>
+</view>
+

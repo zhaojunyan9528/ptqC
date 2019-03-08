@@ -1,0 +1,290 @@
+<!--pages/businessHomePage.wxml-->
+<import src="../template/indexNull" />
+<!-- 商家首页 -->
+<compage id="compage">
+
+  <view class='page'>
+    <!-- 个人中心 -->
+    <view class='personalCenter'>
+      <!-- 多少商家发布活动 start-->
+      <view style="position:relative">
+        <view class='personalCenter_top'>
+          <image src="/assets/images/top_bus.png" mode="aspectFill"></image>
+        </view>
+        <view class="wrapper">
+          <vwx-scroll-num value="{{storeNum}}" scroll="{{rollFlag}}"></vwx-scroll-num>
+          <view class="t-text">个商家正在通过拼团趣发布活动</view>
+        </view>
+      </view>
+      <!-- 多少商家发布活动 end-->
+
+      <!-- 个人信息 start-->
+      <view class='personalData'>
+        <view class='personalData_img' bindtap='goPage' data-upage="/pages/my/personalInfo/index">
+          <image src='{{user.wx_img}}'></image>
+        </view>
+
+        <view class='personalData_in'>
+          <view class='personalData_ino'>
+            <view class='personalData_name' bindtap='goPage' data-upage="/pages/my/personalInfo/index">
+              {{user.wx_name}}
+            </view>
+            <view class='personalData_in_le'>
+              您是第
+              <text class='personalData_in_le_in'>{{user.sort_num}}</text> 位参与用户
+            </view>
+          </view>
+          <view class='personalData_in_ri' bindtap='goPage' data-upage='/pages/my/index'>
+            <text>更多</text>
+            <icon class='icon-pq-rightarr' style='font-size:24rpx;margin-left:5rpx;'></icon>
+          </view>
+        </view>
+
+      </view>
+      <!-- 个人信息 end-->
+
+
+      <!-- 钱包和专享卡 start-->
+      <view class='walletAndCard'>
+        <view class='walletAndCard_wallet' bindtap='goPage' data-upage="/pages/my/wallet/index">
+          <view class="back-img">
+            <image src="/assets/images/wallet_back.png"></image>
+          </view>
+          <view class='wallet_wa'>{{user.amount}}</view>
+          <view class='wallet_wal'>钱包</view>
+        </view>
+        <view class='walletAndCard_card' bindtap='goPage' data-upage="/pages/my/specialCard/index">
+          <view class="back-img">
+            <image src="/assets/images/wallet_back1.png"></image>
+          </view>
+          <view class='wallet_wa'>{{specialCard}}</view>
+          <view class='wallet_wal'>专享卡</view>
+        </view>
+
+        <view class='coupon-list' bindtap='goPage' data-upage="/packageFree/couponList/index">
+          <view class="back-img">
+            <image src="/assets/images/wallet_back2.png"></image>
+          </view>
+          <view class='wallet_wa'>{{voucherCount}}</view>
+          <view class='wallet_wal'>代金券</view>
+        </view>
+      </view>
+      <!-- 钱包和专享卡 end-->
+    </view>
+
+    <!-- 感兴趣的活动 附近热门 start  -->
+    <view class='interested' wx:if="{{firstFlag == 1 && nearList}}">
+      <view class='interested_con'>
+        <view class='interested_conle'>你可能感兴趣的活动</view>
+        <view class='interested_conri'>附近热门</view>
+      </view>
+      <view wx:if="{{index<3}}" wx:for="{{nearList}}" wx:key="index">
+        <vwx-goods-index goods_item="{{item}}" bind:goDetail="goDetail"></vwx-goods-index>
+      </view>
+    </view>
+    <!-- 感兴趣的活动 end-->
+
+
+    <!-- 待分享活动 start-->
+    <view class='sharingActivities'>
+      <view class='sharingActivities_tex'>待分享活动</view>
+
+      <!-- 拼团立减   多人拼团  砍价 start -->
+      <view wx:if="{{shareFlag==0 && share_goods.is_group !=5}}">
+        <view class="activities_data" bindtap='goPage' data-upage="/pages/goodsInfo/{{share_goods.is_group == 1 ? 'goodsGroup/goodsGroup?aa=1' : share_goods.is_group == 3 ? 'goodsPeople/goodsPeople?aa=1' : share_goods.is_group == 4 ? 'goodsSale/goodsSale?aa=1' :share_goods.is_group == 6 ? 'goodsBargain/bargainDetail/bargainDetail?bargain_id='+ share_goods.bargain_id: ''}}&goods_id={{share_goods.goods_id}}&group_id={{share_goods.group_id}}">
+          <view class='activities_img'>
+            <image src='{{share_goods.goods_img}}' mode="aspectFill"></image>
+            <view class="home_yhlx {{share_goods.is_group==3?'people':share_goods.is_group==4 ? 'sale' :share_goods.is_group==1?'group':share_goods.is_group==6?'bargain':'sale'}}">
+              <text>{{share_goods.is_group == 1 ? '拼团立减' : share_goods.is_group == 3 ? '多人拼团' : share_goods.is_group == 4 ? '限时专享' :share_goods.is_group == 6?'砍价': '未知类型'}}</text>
+            </view>
+          </view>
+          <view class="flex-center-y">
+            <view class='activities_name twoFontNow '>{{share_goods.goods_name}}</view>
+            <view class='activities_cont'>
+              <view class="flex-y">
+                <view class="priceOld">{{share_goods.original_price_str}}
+                  <text class='activities_pri'>{{share_goods.original_price}}</text>
+                </view>
+                <view class='activities_yhpri'>{{share_goods.price_str}}</view>
+              </view>
+              <view class='share'>
+                <view class='share_btn' data-orderid="{{share_goods.order_id}}" data-groupid="{{share_goods.group_id}}" catchtap='goPage' data-upage="{{share_goods.is_group == 6 ? '/pages/goodsInfo/goodsBargain/bargainDetail/bargainDetail?bargain_id=' + share_goods.bargain_id  + '&goods_id=' + share_goods.goods_id : '/pages/my/inSharingActs/share/share?is_share=0&order_id=' + share_goods.order_id}}">立即分享</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='regiment' wx:if="{{share_goods.is_group== 1 || share_goods.is_group == 3}}">
+          <view class='regiment_imgf' wx:for="{{wx_imgs}}" wx:key="index" wx:if="{{share_goods.is_group== 1 || share_goods.is_group == 3}}">
+            <view class='regiment_img_in' wx:if="{{index<3}}" style="{{}}">
+              <image class='regiment_img' src='{{item}}'></image>
+            </view>
+          </view>
+          <view class='regiment_t'>
+            <!-- 多人拼团和拼团立减 -->
+            <view class='regiment_tw' wx:if="{{share_goods.is_group == 3 || share_goods.is_group == 1}}">
+              还差
+              <text class='regiment_tw_con'>{{share_goods.joinnum - share_goods.now_number}} </text>人拼团成功
+            </view>
+            <!-- 多人拼团和拼团立减 -->
+
+            <!-- 多人拼团显示剩余时间 -->
+            <view class='regiment_tw' wx:if="{{share_goods.is_group == 3}}">
+              剩余
+              <text>{{period_time.h}}:{{period_time.m}}:{{period_time.s}}</text>
+            </view>
+            <!-- 多人拼团显示剩余时间 -->
+          </view>
+        </view>
+        <!-- 砍价 -->
+        <view class='item-opt-box flex-between' wx:if="{{share_goods.is_group == 6}}">
+          <view>参与人数:
+            <text class="red">{{share_goods.now_number}}</text>人</view>
+
+          <view>已砍金额:
+            <text class="red">{{share_goods.cut_price}}</text>元</view>
+          <view class='item-opt-txt'>剩余金额:
+            <text class="red">{{share_goods.re_price}}</text>元</view>
+        </view>
+        <!-- 砍价 -->
+        <view class='seeMore' bindtap='goPage' data-upage="/pages/my/inSharingActs/index">
+          查看更多
+          <icon class='icon-pq-rightarr' style="margin-top:-4rpx"></icon>
+        </view>
+      </view>
+      <!-- 拼团立减   多人拼团  砍价 end -->
+
+      <!-- 刮奖免单 start -->
+      <view wx:if="{{shareFlag==0 && share_goods.is_group==5}}">
+        <view class="activities_datas">
+          <view class='activities_img' bindtap='goPage' data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{share_goods.initiator_id}}">
+            <image src='/assets/images/gjFree.png'></image>
+          </view>
+          <view class='activities_con'>
+            <view class="activiti-left">
+              <view class='activities_name'>刮奖免单</view>
+              <view class='activities_money'>消费金额：￥{{share_goods.pay_fee}}</view>
+            </view>
+            <view class="btn-content">
+              <view class='share_btn' data-orderid="{{share_goods.order_id}}" data-groupid="{{share_goods.group_id}}" bindtap='goPage' data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{share_goods.initiator_id}}">立即分享</view>
+            </view>
+          </view>
+        </view>
+        <view class='item-opt-box flex-between'>
+          <view>参与人数：
+            <text class="red">{{share_goods.now_num}}</text>人</view>
+          <!-- <view>已免单：<text class="red">{{share_goods.real_all_cash}}</text>元</view> -->
+          <view style='margin-right:45rpx;'>已免单：
+            <text class="red">{{share_goods.all_cash}}</text>元</view>
+          <view class='detail_btn' data-orderid="{{share_goods.order_id}}" data-groupid="{{share_goods.group_id}}" bindtap='goPage' data-upage="/packageFree/activitiDetails/index?initiator_id={{share_goods.initiator_id}}">活动明细</view>
+        </view>
+        <view class='seeMore' bindtap='goPage' data-upage="/pages/my/inSharingActs/index">
+          查看更多
+          <icon class='icon-pq-rightarr' style="margin-top:-4rpx"></icon>
+        </view>
+      </view>
+      <!-- 刮奖免单 end -->
+
+      <template wx:if="{{shareFlag==1}}" is="nullPage" data="{{nullData}}"></template>
+    </view>
+    <!-- 待分享活动 end-->
+
+    <!-- 上次浏览的店铺 start-->
+
+    <!-- 上次浏览的店铺 限时专享 拼团立减 多人拼团 砍价 start-->
+
+    <view class='footprint'>
+      <view class='footprint_str'>{{firstFlag ==1 ? '你还没有浏览过店铺':'你上次浏览的店铺'}}</view>
+      <view class='footprint_store' bindtap='goPage' data-upage="/pages/myStore/index?store_id={{store_id}}" wx:if="{{recentStore.storelogo}}">
+        <view class='footprint_strimg'>
+          <image src="{{recentStore.storelogo}}"></image>
+          <view class='footprint_strname'>{{recentStore.storename}}</view>
+        </view>
+        <view class='footprint_gostr'>进店
+          <icon class='icon-pq-rightarr' style='font-size:24rpx;margin-left:5rpx;'></icon>
+        </view>
+      </view>
+      <view>
+        <view wx:if="{{index<3}}" wx:for="{{recentStore.goods}}" wx:key="index">
+          <vwx-goods-index goods_item="{{item}}" bind:goDetail="goDetail"></vwx-goods-index>
+        </view>
+      </view>
+    </view>
+    <view class='interspace'></view>
+    <!-- 上次浏览的店铺 限时专享 拼团立减 多人拼团 砍价 end>
+         
+
+    <!--近期推荐 限时专享 拼团立减 多人拼团 砍价 start-->
+    <view class='recommend' wx:if="{{recommendList.length>0}}">
+      <view class='recommend_con' bindtap='goPage' data-upage="/pages/recommend/recommend">
+        <view class='recommend_conle'>关注商家推荐活动</view>
+        <view class='recommend_conri'>近期推荐
+          <icon class='icon-pq-rightarr'></icon>
+        </view>
+      </view>
+      <scroll-view scroll-x style="height: 389rpx;">
+        <view class='recommend_in'>
+          <view wx:for="{{recommendList}}" wx:if="{{index<8}}" wx:key="index" class='recommend_li'>
+            <view class='recommend_list' data-id="{{item.goods_id}}" data-type="{{item.is_group}}" bindtap="goDetailI" data-groupid="{{item.group_id}}">
+              <view class='recommend_list_img'>
+                <view class="{{item.inventory == 0 ? 'zhezhao':''}}"></view>
+                <image src="{{item.goods_img}}" mode="aspectFill"></image>
+                <view class="home_yhlx {{item.is_group==3?'people':item.is_group==4 ? 'sale' :item.is_group==1?'group':item.is_group==6?'bargain':'sale'}}">
+                  <text>{{item.is_group == 1 ? '拼团立减' : item.is_group == 3 ? '多人拼团' : item.is_group == 4 ? '限时专享' :item.is_group == 6?'砍价': '未知类型'}}</text>
+                </view>
+                <view class="not_inv" wx:if="{{item.inventory==0}}">
+                  <image src="/assets/images/in3_ico30.png" mode="aspectFill"></image>
+                </view>
+              </view>
+              <view class='recommend_list_dat'>
+                <view class='recommend_list_name twoFontNow'>{{item.goods_name}}</view>
+                <view class='recommend_list_pri twoFontNow'>{{item.is_group==1?'团长价':item.is_group==3?'原价':item.is_group==4?'原价':item.is_group==6?'原价':'最低价'}}:
+                  <text class='recommend_list_pr'>{{item.goods_price }}</text>
+                </view>
+                <view class='recommend_list_bot twoFontNow'>{{item.is_group==1?'最低价':item.is_group==3?'拼团价':item.is_group==4?'优惠价':item.is_group==6?'底价':'最低价'}}:
+                  <text style="font-weight:bold">￥{{item.bottom_price}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <!--近期推荐 限时专享 拼团立减 多人拼团 砍价 end>
+
+
+    <!-- 感兴趣的活动 限时专享 拼团立减 多人拼团 砍价 start-->
+    <view class='interested' wx:if="{{nearList && firstFlag == 2}}">
+      <view class='interested_con'>
+        <view class='interested_conle'>你可能感兴趣的活动</view>
+        <view class='interested_conri'>附近热门</view>
+      </view>
+      <view wx:if="{{index<3}}" wx:for="{{nearList}}" wx:key="index">
+        <vwx-goods-index goods_item="{{item}}" noShowCon="{{noShowCon}}" bind:goDetail="goDetail"></vwx-goods-index>
+      </view>
+      <view wx:if="{{nullNearFlag==1}}">
+        <view class='nullPage'>
+          <view class='nullPage_img'>
+            <image src='{{nullnearData.img}}'></image>
+          </view>
+          <view class='nullPage_text'>{{nullnearData.text}}</view>
+          <view style="padding-bottom:30rpx;" bindtap='goOpenLocation'>去开启</view>
+        </view>
+      </view>
+    </view>
+      <view class='interspace'></view>
+    <!-- 感兴趣的活动 end-->
+
+    <!-- 感兴趣的活动 限时专享 拼团立减 多人拼团 砍价 end-->
+
+
+
+    <!-- 底部 start-->
+    <vwx-footer is="footer" show="{{-1}}" store_id="{{store_info.store_id}}"></vwx-footer>
+
+
+  </view>
+  <view class='mariginBot'>
+
+  </view>
+  <official-account></official-account>
+</compage>

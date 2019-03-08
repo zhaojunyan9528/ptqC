@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择专享卡",
+	"component": true,
+	"usingComponents": {
+		"compage": "/vwx/component/template"
+	}
+}

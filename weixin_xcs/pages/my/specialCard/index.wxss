@@ -1,0 +1,223 @@
+/* pages/my/specialCard/index.wxss */
+@import '../template/multi-specialcard/multi-specialcard.wxss';
+
+.content {
+  width: 750rpx;
+  height: 100%;
+  position: relative;
+  /* background-color:#fff; */
+}
+
+page {
+  background: #f0f0f0;
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 0 110rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #e8e8e8;
+  background: #fff;
+  z-index: 999;
+  height: 98rpx;
+  line-height: 98rpx;
+  justify-content: space-around;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.default, .red {
+  padding: 0 30rpx;
+}
+
+.tab1 {
+  margin-right: 90rpx;
+}
+
+.red {
+  color: #e60012;
+  border-bottom: 2rpx solid #e60012;
+}
+
+.tab-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.show, hidden {
+  text-align: center;
+  width: 100%;
+}
+
+.show {
+  display: block;
+  padding-top: 100rpx;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 可用专享卡 --start*/
+
+.card-content {
+  width: 750rpx;
+  height: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.card-list {
+  width: 690rpx;
+  height: 255rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  margin-top: 30rpx;
+}
+
+.card-top {
+  height: 181rpx;
+  width: 590rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px dashed #fff;
+}
+
+.card-left {
+  width: 208rpx;
+  height: 100%;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.card-left > image {
+  background-color: #000;
+  box-sizing: border-box;
+  border: 4rpx solid #fff;
+}
+
+.card-right {
+  width: 480rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  width: 100%;
+  height: 115rpx;
+  line-height: 42rpx;
+  padding: 25rpx 0 0 20rpx;
+  text-align: left;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-count {
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20rpx;
+}
+
+.use, .remaining {
+  width: 50%;
+  text-align: left;
+  font-size: 28rpx;
+}
+
+.card-bottom {
+  width: 590rpx;
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+}
+
+.bottom-left {
+  width: 210rpx;
+  text-align: left;
+  color: #ffdc39;
+  font-weight: 600;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+}
+
+.gray {
+  color: #666;
+}
+
+.bottom-right {
+  /* padding-left:20rpx; *//* font-weight:200; */
+  color: #fff;
+  font-size: 26rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dot {
+  color: #fff;
+  font-size: 36rpx;
+  margin-right: 5rpx;
+}
+
+.fail {
+  width: 53rpx;
+  height: 53rpx;
+  line-height: 53rpx;
+  background-color: #fff;
+  color: #ccc;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5rpx;
+  margin-right: 15rpx;
+}
+
+/* 可用专享卡 --end*/
+
+.hint-text {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.img-card {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 100rpx 0 30rpx 0;
+}
+
+.btn-footer {
+  width: 750rpx;
+  height: 92rpx;
+  position: absolute;
+  bottom: 180rpx;
+}
+
+.btn-stroll {
+  width: 480rpx;
+  height: 92rpx;
+  background-color: #e60012;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 95rpx;
+  border-radius: 10px;
+}
+
+.btn-stroll::after {
+  border: 0;
+}

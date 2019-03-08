@@ -1,0 +1,182 @@
+@import '../acts-type/acts-type.wxss';
+
+/* 基础订单列表：订单首页最近订单列表 */
+.item-logo{
+  width: 180rpx;
+  height: 116rpx;
+}
+.item-logo-img{
+  width: 100%;
+  height: 100%;
+}
+.item-cont{
+  position: relative;
+  width: 500rpx;
+  height: 100%;
+}
+.item-name{
+  margin-bottom: 15rpx;
+  line-height: 1;
+  font-size: 28rpx;
+  word-break: break-all;
+  text-overflow:ellipsis;
+overflow:hidden;
+-webkit-line-clamp:1;
+white-space: nowrap
+
+}
+.item-time, .item-num, .item-price{
+  line-height: 40rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.item-type{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #e60012;
+  font-size: 28rpx;
+}
+
+
+/* 订单列表：全部订单列表 */
+
+.store{
+  padding: 0 30rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+.store-info{
+  font-size: 28rpx;
+}
+.store-info-icon{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  background-image: url(https://www.pintuanqu.cn/Public/WeChatApps/image/buy3_ico2.png);
+  background-size: 100% 100%;
+}
+.store-info-name{
+  display: inline-block;
+  padding-left: 20rpx;
+}
+.order-status{
+  color: #e60012;
+}
+
+.act{
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.act-logo{
+  width: 255rpx;
+  height: 150rpx;
+}
+.act-logo-img{
+  width: 100%;
+  height: 100%;
+}
+.act-info{
+  width: 420rpx;
+}
+.act-info-t{
+  height: 80rpx;
+}
+.act-info-name{
+  height: 100%;
+  font-size: 28rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.act-info-other{
+  font-size: 24rpx;
+  color: #666;
+}
+.act-info-other > view{
+  text-align: right;
+}
+.act-info-b{
+  height: 80rpx;
+  color:#999;
+}
+.act-info-time{
+  font-size: 24rpx;
+  color: #666;
+}
+
+
+.order{
+  padding: 0 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.order-info{
+  font-size: 28rpx;
+}
+
+
+.opts{
+  padding: 0 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.remark{
+  color: #888;
+}
+.short_num{
+  margin: 0 10rpx;
+  color: #e20004;
+}
+.opts_btns > view{
+  margin-left: 20rpx;
+  display: inline-block;
+  padding: 13rpx 20rpx;
+  border: 2rpx solid #999;
+  border-radius: 10rpx;
+  line-height: 1;
+}
+
+.gd_pr_t_l_ico_in {
+    padding: 0rpx 15rpx;
+    color: #fff;
+    font-size: 22rpx;
+    max-height: 30rpx;
+    line-height: 30rpx;
+    background-color: #eee;
+    height:30rpx;
+    min-width:118rpx;
+}
+.gd_pr_t_l_ico {
+  padding: 6rpx 0rpx;
+  border-top: 2rpx #eee dashed;
+  border-bottom: 2rpx #eee dashed;
+  border-left: 2rpx #eee solid;
+  border-right: 2rpx #eee solid;
+  border-radius: 5rpx;
+  margin-right: 5rpx;
+  display: inline-block;
+  min-width:118rpx;
+  text-align:center;
+}
+/* 提示框 */
+.userPrompts{
+/* background:rgba(247,247,247,1); */
+  background-color: #fff;
+}
+.user{
+  margin: 0 30rpx;
+  padding:15rpx;
+  background:rgba(247,247,247,1);
+  font-size: 22rpx;
+}
+.empty{
+  height: 20rpx;
+  background-color: #fff
+}

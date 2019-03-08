@@ -1,0 +1,29 @@
+/* pages/my/wallet/balance/list.wxss */
+@import '../../base.wxss';
+@import "../../template/no-list/no-list.wxss";
+.relative-box{
+  position: relative;
+}
+
+.blist_item{
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+.blist_item_l{
+  width: 80%;
+}
+.blist_item_title{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.blist_item_time{
+  color: #999;
+}
+.income{
+  color: #3cb500;
+}
+/* .expenses{
+  color: #e60012;
+} */

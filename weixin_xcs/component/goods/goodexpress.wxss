@@ -1,0 +1,31 @@
+/* component/goods/goodexpress.wxss */
+.good_title_all{
+  display: inline-block
+}
+.exp{
+   padding-bottom: 14rpx;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.good_title_sm{
+   display: inline-block;
+   margin-right: 20rpx;
+   font-size: 24rpx;
+   line-height: 2;
+   color: #e60012;
+}
+.yyy{
+     color: #999;
+
+
+}
+.xxxx{
+    text-decoration:line-through;
+}
+.good-packet{
+  display: inline-block;
+  color: #E60012;
+  font-size: 24rpx;
+  text-align: right;
+}

@@ -1,0 +1,11 @@
+{
+    "component": true,
+  "navigationBarTitleText": "权限设置",
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "btn": "/component/button/button",
+    "modal":"/component/modal/modal",
+    "vwx-null-data": "/component/nulldata/nulldata"
+  }
+
+}

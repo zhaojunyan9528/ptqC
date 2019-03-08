@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "提现",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "select": "/component/select/select",
+    "vwx-btn": "/component/button/button"
+  }
+}

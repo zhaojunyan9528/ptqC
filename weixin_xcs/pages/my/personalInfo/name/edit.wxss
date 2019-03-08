@@ -1,0 +1,43 @@
+@import "../../base.wxss";
+
+page{
+  background-color: #fff;
+}
+.form_box{
+  padding: 50rpx;
+}
+.label{
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+.cont{
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #e8e8e8;
+  font-size: 30rpx;
+}
+.cont_txt{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.cont_input{
+  height: 100%;
+}
+.cont_opt{
+  display: inline-block;
+  width: 42rpx;
+  height: 42rpx;
+}
+.tips{
+  margin-top: 30rpx;
+  font-size: 26rpx;
+  color: #757575;
+}
+
+.form_opt{
+  margin-top: 80rpx;
+}
+#save_btn{
+  /*background-color: #e70012;*/
+  font-size: 35rpx;
+}

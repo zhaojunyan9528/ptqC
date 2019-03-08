@@ -1,0 +1,11 @@
+<!--pages/my/index.wxml-->
+
+<compage id="compage">
+    <view class="otherFun {{index%2 == 0 ? 'haveMar' : '' }}" wx:for="{{tabItem}}" wx:key="index"  bindtap='goPage' data-upage="{{item.goPage}}">
+        <view class='otherFun_le'>{{item.id}}</view>
+        <view class='otherFun_ri'><icon class='icon-pq-rightarr'></icon> </view>
+    </view>
+
+
+    
+</compage>

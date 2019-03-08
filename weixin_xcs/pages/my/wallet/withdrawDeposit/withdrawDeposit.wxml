@@ -1,0 +1,39 @@
+<!--pages/my/wallet/withdrawDeposit/withdrawDeposit.wxml-->
+<compage id="compage">
+  <view class='sum_balance'>
+    <view>可提现金额：￥{{balance}}</view>
+    <icon class='icon-pq-question' bindtap='showTipCont'></icon>
+  </view>
+  <view class='relative-box'>
+    <view class='sum_input border-b'>
+        <input placeholder='请输入提现金额(不小于10元) ' class='inputBtn' bindinput='inputSum' type="digit" value='{{sum}}' placeholder-class="phcolor"></input>
+        <button class='allMoney' bindtap='allMoney' style="display:{{balance > 10 ? 'inline-block' : 'none'}}">全部提现</button>
+    </view>
+  </view>
+
+  <view class='account_box'>
+    <view class='account_select'>
+
+      <select id='select' type='single' title='提现到' data='{{WithdrawDepositWay}}' bind:select='setWithDepWay'></select>
+
+      <view class='account_select_alipay_account flex-between' wx:if='{{curWithDepWay == 1}}' bindtap='goPage' data-upage='/pages/my/wallet/alipayAccount/list?curWithDepWay=true'>
+        <view>
+          <view class="weui-cell__hd inline-block color-lg">账号信息：</view>
+          <view class="weui-cell__bd inline-block">{{defaultAlipayAccount.real_name}} {{defaultAlipayAccount.account_number}}</view>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+    <view class='account_rule'>
+      <view class='account_rule_header relative-box'>
+        <view class='border-b'>提现规则</view>
+      </view>
+      <view class='account_rule_cont'>{{WithdrawDepositWay[curWithDepWay].rule}}</view>
+    </view>
+  </view>
+
+  <view class='opt_box'>
+    <vwx-btn id='btn-m' type='m' text='确认提现' loading="true"  disabled='{{!canWithdrawDeposit}}' bind:tap-event="{{canWithdrawDeposit ? 'withdrawDeposit' : ''}}"></vwx-btn>
+  </view>
+  <modal id="modal"></modal>
+</compage>

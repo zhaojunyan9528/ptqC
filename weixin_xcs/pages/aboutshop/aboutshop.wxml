@@ -1,0 +1,87 @@
+<view class="page">
+  <compage id="compage">
+    <view  class="abs_h cenFlex" style="height: 100rpx">
+        <view class="abs_h_in">我关注的店铺</view>
+        <view  class="abs_h_Fiex cenFlex" bindtap="{{lth==0?'':'eidtAbsBtn'}}" >{{eidtFlage?'取消':'编辑'}}</view>  
+    </view>
+    <view wx:if="{{store_listForNullS}}">
+        <text>您还没有关注店铺，请前往关注店铺</text>
+        <input value="点击我前往关注店铺"></input> 
+    </view>
+    <view class="abs_con {{eidtFlage ? 'abs_con_bottom' : ''}}">
+        <view class="abs_box"  wx:for="{{list}}" wx:key="{{index}}" data-index="{{index}}" wx:for-item="item" data-id="{{item.store_id}}" bindtap="{{eidtFlage?'selectEidtBtn':'storebutton'}}"> 
+            <view class="abs_box_eidt cenFlex" wx:if="{{eidtFlage}}">
+                <icon class="icon-pq-circle" style="font-size:42rpx; color: #aaa;" wx:if="{{!eidtRArr[index]}}"></icon>
+                <icon class="icon-pq-xuanzhong" style="font-size:42rpx;color: #e60012;" wx:if="{{eidtRArr[index]}}">
+ </icon>
+            </view>
+            <view class="abs_box_l cenFlex">
+                 <image src="{{item.storelogo}}" style="width:90px; height:90px;"></image>   
+            </view>
+            <view class="abs_box_r">
+                <view class="abs_box_r_t">
+                    <view class='abs_box_r_t_1'>
+                         <view class="abs_box_r_t_l_in1">{{item.storename}}</view> 
+                        <view class="abs_box_r_t_r" style="color:#f7a20e"  wx:if="{{!eidtFlage &&item.is_auth==1}}">
+                            <icon class="{{item.auth_type==1?'icon-pq-ggrz':'icon-pq-dprz'}} cenFlex" style="margin-right: 10rpx;"></icon>
+                        <view class="abs_box_r_t_r_txt" >{{item.auth_type==1?'个人认证':'店铺认证'}}</view>                                              
+                    </view> 
+                         <view class="abs_box_r_t_r" wx:if="{{!eidtFlage && item.is_auth==0}}">
+                      <view class="abs_box_r_t_r_img cenFlex">
+                            <image src='{{imgUrl}}index3_ico7.png' ></image>
+                        </view>
+                       <view class="abs_box_r_t_r_txt">未认证</view>                       
+                    </view>
+                    </view>                                                         
+                </view>
+                 <view class="abs_box_r_t_l_in2 fColor999 twoFontNow">{{item.storeaddress}}</view>
+
+                <view class="abs_box_r_b" wx:if="{{!eidtFlage}}" >
+                      <view class="abs_box_r_b_in"><text class='fColor999'>客粉数:</text>
+                          {{ item.customer_fans }}
+                      </view>
+                      <view class="abs_box_r_b_in cenFlex">
+                          <text class='fColor999'>店铺销量:</text>
+                              {{ item.order_number }}
+                      </view>
+                      <view class="abs_box_r_b_in cenFlex">
+                          <text class='fColor999'>当前活动:</text>
+                              {{ item.goods_number }}
+                      </view>
+                </view>
+                <view class="abs_box_r_b_aut" wx:if="{{eidtFlage}}">
+                    <view class="abs_box_r_t_r" wx:if="{{item.is_auth==0}}">
+                    <!-- <image src='{{imgUrl}}index3_ico7.png'class="cenFlex" style="margin-right:10rpx;font-size:"></image> -->
+                        <!-- <icon class="icon-pq-wrz cenFlex" style="margin-right:10rpx;font-size:"></icon> -->
+                        <view class="abs_box_r_t_r_img cenFlex">
+                            <image src='{{imgUrl}}index3_ico7.png' ></image>
+                        </view>
+                         <view class="abs_box_r_t_r_txt" >未认证</view>
+                    </view>
+                    <view class="abs_box_r_t_r" style="color:#f7a20e"  wx:else>
+                          <icon class="{{item.auth_type==1?'icon-pq-ggrz':'icon-pq-dprz'}} cenFlex" style="margin-right: 10rpx;"></icon>
+                        <view class="abs_box_r_t_r_txt" >{{item.auth_type==1?'个人认证':'店铺认证'}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+       <!-- 如果关注列表为空 -->
+            <view wx:if="{{lth==0}}">
+                <vwx-null-data nullData="{{nullData}}" ></vwx-null-data>
+            </view>
+    </compage>
+</view>
+<view class="abs_foot_box" wx:if="{{eidtFlage}}">
+    <view class="abs_foot_box_l cenFlex" bindtap="clickAllBtn">
+            <icon class="icon-pq-circle" style="font-size:42rpx; color: #aaa;" wx:if="{{!allAbFlag}}"></icon>
+            <icon class="icon-pq-xuanzhong" style="font-size:42rpx; color:#e60012;" wx:if="{{allAbFlag}}"></icon>
+            <view class="abs_foot_box_l_txt" >全选</view>
+    </view>
+        <view class="abs_foot_box_r cenFlex" style="background: #{{judgeNum>0?'e60012':'ccc'}}"  bindtap="{{judgeNum>0?'emptyBtn':''}}">取消关注</view>
+       
+</view>
+
+
+

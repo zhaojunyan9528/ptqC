@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "modal": "/component/modal/modal",
+    "vwx-btn": "/component/button/button"
+  }
+}

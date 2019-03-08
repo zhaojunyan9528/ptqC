@@ -1,0 +1,26 @@
+<!--pages/my/order/logistics/detail.wxml-->
+<import src='../../template/no-list/no-list'/>
+
+<compage id="compage">
+  <view wx:if="{{!noList}}" class='banner flex-y-center'>
+    <view class='banner_logo flex-center'>
+      <image src='../../../../assets/images/logistics.png'></image>
+    </view>
+    <view class='banner_cont'>
+      <view>{{logisticsCom}}</view>
+      <view>运单号：{{waybillNumber}}</view>
+    </view>
+  </view>
+  <view wx:if="{{noList}}">
+    <template is='no-list' data='{{noListInfo, noBtn}}'></template>
+  </view>
+  <view wx:if='{{!noList}}' class='list'>
+    <view class='list_item' wx:for='{{list}}'>
+      <view class='item_box' data-item='{{item}}'>
+        <view class='item_cont'>{{item.AcceptStation}}</view>
+        <view class='item_time'>{{item.AcceptTime}}</view>
+      </view>
+    </view>
+  </view> 
+  <modal id="modal" ></modal>
+</compage>

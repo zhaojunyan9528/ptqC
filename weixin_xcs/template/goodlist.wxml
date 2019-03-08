@@ -1,0 +1,13 @@
+<template name="indexGoodItem2">
+   <view class='indexGoodItem2'>
+      <view class='img'>
+         <image src='{{item.goods_img}}'></image>
+      </view>
+      <view class='h5'>哇哇哇</view>
+      <view class='weui-flex'>
+         <view class='weui-flex__item'>￥5000.00</view>
+         <view>99人下单</view>
+      </view>
+   </view>
+   
+</template>

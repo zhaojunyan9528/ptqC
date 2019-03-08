@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "分享",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-modal": "/component/modal/modal",
+    "vwx-button": "/component/button/button",
+      "vwx-countdownShare": "/component/countdownShare/countdownShare",
+      "vwx-gooditem-sale": "/component/goods/itemSale",
+      "vwx-footer": "/component/footer/footer"
+  }
+}

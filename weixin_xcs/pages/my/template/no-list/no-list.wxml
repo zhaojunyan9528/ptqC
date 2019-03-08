@@ -1,0 +1,11 @@
+<!--pages/my/template/no-list/no-list.wxml-->
+<template name='no-list'>
+  <view class='no-list'>
+    <view wx:if='{{noListInfo.img}}' class='flex-center'>
+      <image class='tip-img' src='{{noListInfo.img}}'></image>
+    </view>
+    <view class='tip-txt1'>{{noListInfo.txt1}}</view>
+    <view class='tip-txt'>{{noListInfo.txt}}</view>
+    <vwx-button wx:if="{{!noBtn}}" class="tip-btn" type="ms" text="{{btn.text || '逛逛'}}" bind:tap-event='goPage' data-upage="{{btn.fn || 'switchTab:///pages/nearShopList/nearShopList'}}"></vwx-button>
+  </view>
+</template>

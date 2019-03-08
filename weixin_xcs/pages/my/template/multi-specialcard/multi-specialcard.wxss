@@ -1,0 +1,172 @@
+.specard-item {
+  margin-top: 20rpx;
+}
+
+.item-content {
+  width: 690rpx;
+  margin: 0 auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 220rpx;
+}
+
+.item-u {
+  background-image: url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/multicard.png');
+}
+
+.item-l {
+  background-image: url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/multicard_lost.png');
+}
+
+.item-myl{
+	background-image: url('https://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/multicard_lost1.png');
+}
+
+.i-l {
+  width: 557rpx;
+  padding: 20rpx;
+}
+
+.i-l-t {
+  height: 134rpx;
+}
+
+.i-l-t-l {
+  width: 200rpx;
+  height: 134rpx;
+  min-width: 200rpx;
+  overflow: hidden;
+}
+
+.i-l-t-l > image {
+  width: 200rpx;
+  height: 134rpx;
+}
+
+.i-l-t-r {
+  padding-left: 20rpx;
+  width: 333rpx;
+}
+
+.i-l-t-r-t {
+  font-size: 26rpx;
+  color: #333;
+  text-align: left;
+}
+
+.i-use {
+  width: 110rpx;
+  height: 34rpx;
+  border-radius: 17px;
+  font-size: 22rpx;
+  color: #333;
+  line-height: 34rpx;
+}
+
+.i-can {
+  background: rgba(251, 235, 207, 1);
+}
+
+.i-lose {
+  background: rgba(240, 240, 240, 1);
+}
+
+.i-left {
+  margin-left: 8rpx;
+}
+
+.i-l-b {
+  line-height: 1;
+}
+
+.i-l-b-l {
+  width: 200rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  position: relative;
+}
+
+.orange {
+  color: #ef4827;
+}
+
+.gray {
+  color: #666;
+}
+
+.i-l-b-l .donate {
+  position: absolute;
+  left: 0;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 500;
+  display: inline-block;
+  line-height: 32rpx;
+}
+
+.donate-can {
+  background: rgba(255, 98, 67, 1);
+}
+
+.donate-lose {
+  background: rgba(204, 204, 204, 1);
+}
+
+.i-l-b-r {
+  padding-left: 20rpx;
+  font-size: 22rpx;
+  color: #666;
+  text-align: left;
+}
+
+.i-r {
+  width: 133rpx;
+  color: #fff;
+  font-size: 20rpx;
+}
+
+.i-r-c,.i-r-l {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  line-height: 88rpx;
+  min-width: 88rpx;
+}
+.i-r-red{
+  background: #f75838;
+}
+.i-r-lose{
+	background: #BDBDBD;
+}
+
+.txtCenter {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.Flexb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colFlex {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexColc {
+  display: flex;
+  align-items: center;
+}
+
+.flexC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

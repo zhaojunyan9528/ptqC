@@ -1,0 +1,117 @@
+/* packageFree/pay/paySuccess/paySuccess.wxss */
+page{
+  background-color:#fff;
+}
+.container{
+  background-color:#fff;
+  width:100%;
+
+
+}
+.icon{
+  width:98rpx;
+  height:98rpx;
+  margin-top:72rpx;
+}
+.successText{
+  font-weight: bold;
+  font-size: 40rpx;
+  color:#e60012;
+  padding:30rpx 0 25rpx 0;
+}
+.money{
+  font-size: 28rpx;
+  font-weight: 500;
+  color:#333;
+}
+.goDetail{
+
+    width: 100%;
+    height: 70vh;
+    position: relative;
+  
+}
+
+.container_top{
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+.phoneInput{
+   width:80vw;
+  height:92rpx;
+  background: #fff;
+    position:absolute;
+  margin:0 auto;
+  left: 10vw;
+  top:13vh;
+   padding-left: 25rpx;
+ 
+}
+.claInput{
+  font-size:32rpx;font-weight:500;color:#ccc;
+}
+.goDetail_in2{
+    width:64vw;
+  height:92rpx;
+  line-height:92rpx;
+  text-align:center;
+  font-size:32rpx;
+  font-weight:500;
+  border-radius:20rpx;
+  background-color:#F81224;
+  color:#FFFFFF;
+  position:absolute;
+  margin:0 auto;
+  top:322rpx;
+  left:18vw;
+
+}
+.Hint{
+    width:64vw;
+
+  line-height:26rpx;
+  text-align:center;
+  font-size:26rpx;
+  font-weight:500;
+
+  color:#FF3020 ;
+  position:absolute;
+  margin:0 auto;
+  top:22vh;
+  left:18vw;
+}
+.goDetail_in{
+  width:64vw;
+  height:92rpx;
+  line-height:92rpx;
+  text-align:center;
+  font-size:32rpx;
+  font-weight:500;
+  border-radius:20rpx;
+  background-color:#F81224;
+  color:#FFFFFF;
+  position:absolute;
+  margin:0 auto;
+  top:27vh;
+  left:18vw;
+
+
+}
+.goDetail_in1{
+    width:420rpx;
+  height:92rpx;
+  line-height: 92rpx;
+  text-align: center;
+  font-size:32rpx;
+  font-weight:500;
+  border-radius:20rpx;
+  background-color:#FCB224 ;
+  color: #FFFFFF ;
+  position: absolute; 
+  margin: 0 auto;
+  top:18vh;
+  left: 22vw
+}

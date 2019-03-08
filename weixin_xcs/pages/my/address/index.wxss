@@ -1,0 +1,128 @@
+/* pages/my/address/index.wxss */
+page{
+  /* background-color:#fff; */
+  background: #f0f0f0;
+}
+.content{
+  width:750rpx;
+  border-top:20rpx solid #f0f0f0;
+}
+.noAddress{
+  width:750rpx;
+  height:400rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  font-size:36rpx;
+}
+.img-content{
+  margin-top:170rpx;
+  margin-bottom:30rpx;
+}
+.noAddress .text-hint{
+  text-align:center;
+  width:750rpx;
+}
+
+.list{
+  width:100%;
+  background-color:#fff;
+  border-top:0.5px solid #E8E8E8;
+  border-bottom:20rpx solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  padding:0 30rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+.name-tel{
+  width:100%;
+  height:60rpx;
+  display:flex;
+  flex-direction: row;
+  font-size:32rpx;
+  color:#333;
+  line-height:60rpx;
+  margin-top:10rpx;
+}
+.name,.tel{
+  display: inline-block;
+}
+.name{
+  text-align: left;
+  width:65%;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.tel{
+  text-align: right;
+  width:35%
+}
+.address{
+  padding:10rpx 0 20rpx 0;
+}
+.address-content{
+  color:#333;
+  font-size:28rpx;
+}
+.icon{
+  margin-right:30rpx;
+}
+.address-operation{
+  width:100%;
+  height:85rpx;
+  display: flex;
+  flex-direction: row;
+  color:#666;
+  border-top:0.5px solid #eee;
+  align-items: center;
+}
+.default-address,.operation{
+  width:50%;
+  display: flex;
+  flex-direction: row;
+   font-size:28rpx;
+  color:#666;
+}
+
+.operation{
+  justify-content: flex-end;
+  z-index:999
+}
+.edit{
+  margin-right: 30rpx;
+}
+.footer{
+  width:100%;
+  height:200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top:0.5px solid #eee;
+  position: fixed;
+  bottom: 0;
+  background-color:#fff;
+  z-index: 9999;
+}
+.add-address{
+  width:480rpx;
+  height:94rpx;
+  background-color: #e60012;
+  color:#fff;
+  font-size:34rpx;
+  border-radius: 10px;
+  line-height:94rpx;
+}
+button[class="add-address"]::after{
+  border:0;
+}
+.sel-img-selected{
+  color:#e60012;
+}
+
+
+
+
+

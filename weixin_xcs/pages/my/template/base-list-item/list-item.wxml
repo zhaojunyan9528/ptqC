@@ -1,0 +1,16 @@
+<!--template/list-item/list-item.wxml-->
+<template name='simple-list-block'>
+  <view class='weui-cells weui-cells_after-title list-block'>
+    <view class='list-item weui-cell weui-cell_access' hover-class="weui-cell_active" wx:for='{{item}}' wx:key='{{index}}' bindtap='goPage' data-upage='{{item.navUrl}}'>
+      <template is='simple-list-item' data='{{item}}'></template>
+    </view>
+  </view>
+</template>
+
+<template name='simple-list-item'>
+  <view class="weui-cell__hd">
+      <icon class='{{item.iconClass}}' style="font-size: {{item.iconSize}};color:{{item.iconColor}};"></icon>
+  </view>
+  <view class="list-item-text weui-cell__bd">{{item.text}}</view>
+  <view class="list-item-opttxt weui-cell__ft weui-cell__ft_in-access">{{item.optTxt}}</view>
+</template>

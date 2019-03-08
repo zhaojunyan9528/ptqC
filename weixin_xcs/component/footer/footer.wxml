@@ -1,0 +1,13 @@
+<!--component/footer/footer.wxml-->
+
+  <view class='footer-box' >
+    <view class='footer-item1 '>
+      <!-- <view > 一<text>   做爆生意  如此简单   </text>一 </view> -->
+      <image mode='aspectFill' src="/assets/images/footer.png"></image>
+    </view>
+    <view class='footer-item2'>拼团趣提供技术支持</view>
+    <view class='footer-item3' wx:if="{{show ==1}}" bindtap='registered' data-storeId="{{store_id}}" >点击注册 成为商家</view> 
+  </view>
+
+
+

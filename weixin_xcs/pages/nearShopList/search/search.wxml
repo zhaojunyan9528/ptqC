@@ -1,0 +1,29 @@
+<!--pages/nearShopList/nearShopList/search/search.wxml-->
+<compage id="compage">
+<view class="index_all_box">
+	<view class="search_t cenFlex">
+		<view class="search_t_l">
+       <icon class="icon-pq-sousuo"></icon>
+			<view class="search_t_l_m">
+				<input type="text" value="{{clearKey}}" placeholder="请输入您要搜索的内容" placeholder-class="aaF" bindinput="bindinput"/>
+
+			</view>
+      		<view class='search_t_l_img_box' bindtap="clearKeyWord" wx:if="{{keyWork.length>0}}">
+    
+         <icon class="icon-pq-clean" ></icon>
+     
+      </view>
+	
+		</view>
+		<view class="search_t_r cenFlex" data-index="{{index}}" data-name="{{keyWork}}" bindtap="navNearBtn">搜索</view>
+	</view>
+  <view class='search_b_t sbFlex'>
+	<view class="">历史搜索</view>
+  <view class="search_b_t_icon " bindtap="clearDataBtn">
+			<image src="/assets/images/n3_ico12.png"></image>
+	</view>
+  </view>
+	<view class="search_b_in" wx:for="{{storyArr}}" wx:key="{{index}}" data-name="{{item.name}}" bindtap="navNearBtn">{{item.name}}</view>
+  	<view class="search_b_in" wx:if="{{!storyArr[0]}}">暂无历史记录</view>
+</view>
+</compage>

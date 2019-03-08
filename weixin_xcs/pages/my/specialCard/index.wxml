@@ -1,0 +1,43 @@
+<!--pages/my/specialCard/index.wxml-->
+<import src='../template/multi-specialcard/multi-specialcard' />
+
+<compage id="compage">
+
+  <template name="vip-card-no">
+    <view>
+      <image class="img-card" src="/assets/images/n3_ico7.png" mode="aspectFill"></image>
+      <view class="hint-text">暂无专享卡，先去逛逛吧</view>
+      <view class="btn-footer">
+        <button class="btn-stroll" bindtap='redirect'>逛逛</button>
+      </view>
+    </view>
+  </template>
+
+  <view class="content" style="background:{{cardLen == 0 && currentIndex == 0 || cardLostLen == 0 && currentIndex == 1?'#fff':''}}">
+    <view class="nav">
+      <view class="{{item.index == currentIndex?'red':'default'}}" data-id='{{item.index}}' bindtap='select' wx:for="{{tabs}}" wx:index="index">
+        {{item.text}}
+      </view>
+    </view>
+
+    <view class="tab-content">
+      <view class="{{currentIndex?'hidden':'show'}}">
+        <block wx:if="{{cardLen == 0}}">
+          <template is="vip-card-no"></template>
+        </block>
+        <block wx:if="{{card_list.length > 0}}" wx:for="{{card_list}}" wx:key="index">
+          <template is="multi-specialcard" data="{{showTFlag,item,flag}}"></template>
+        </block>
+      </view>
+
+      <view class="{{currentIndex?'show':'hidden'}}">
+        <block wx:if="{{cardLostLen == 0}}">
+          <template is="vip-card-no"></template>
+        </block>
+        <block wx:if="{{card_lose_list.length > 0}}" wx:for="{{card_lose_list}}" wx:key="{{index}}">
+          <template is="multi-specialcard" data="{{showTFlag,item,flag}}"></template>
+        </block>
+      </view>
+    </view>
+  </view>
+</compage>

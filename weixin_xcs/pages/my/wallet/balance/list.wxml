@@ -1,0 +1,21 @@
+<!--pages/my/wallet/balance/list.wxml-->
+<import src='../../template/no-list/no-list'/>
+
+<compage id="compage" >
+
+  <view   wx:if="{{noList}}">
+    <template is='no-list' data='{{noListInfo, noBtn}}'></template>
+  </view>
+  <view wx:if="{{!noList}}" class='blist'>
+    <view wx:if="{{item.title}}" class="relative-box" wx:for='{{list}}' wx:key='{{index}}' bindtap='goPage' data-upage="detail/detail?id={{item.id}}">
+      <view class='blist_item border-b flex-between'>
+        <view class='blist_item_l'>
+          <view class='blist_item_title'>{{item.title}}</view>
+          <view class='blist_item_time'>{{item.create_at}}</view>
+        </view>
+        <view class="blist_item_r {{item.type == 1 ? 'income' : ''}}">{{item.type == 1 ? '+' : '-'}}{{item.amount}}</view>
+      </view>
+    </view>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

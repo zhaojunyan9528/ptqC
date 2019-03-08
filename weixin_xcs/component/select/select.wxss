@@ -1,0 +1,35 @@
+/* component/select/select.wxss */
+@import '../../css/weui.wxss';
+
+.select-border::before, .select-border::after{
+  border-width: 1px;
+  border-color: #f0f0f0;
+}
+.select-font{
+  font-size: 28rpx;
+  color: #333;
+}
+
+
+.select-title{
+  padding-bottom: 10rpx;
+}
+.select-txt{
+  margin-left: 20rpx;
+}
+.select-btn{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.weui-cell:hover{
+  background-color: #fff;
+}
+
+.icon-pq-WeChat:before { content: "\e712"; }
+.icon-pq-Alipay:before { content: "\e713"; }
+.icon-pq-circle:before { content: "\e6fa"; }
+.icon-pq-xuanzhong:before { content: "\e6fb"; }
+.icon-pq-xuanzhong{
+  color: #e60012;
+}

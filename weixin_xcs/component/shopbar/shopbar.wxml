@@ -1,0 +1,63 @@
+<!--component/shopBar/shopBar.wxml-->
+<!--活动详情页面底部bar  -->
+<view class="shopBarPage">
+  <view class="shopBar">
+    <view class="shopBar_store" data-storeid="{{store.store_id}}" data-type="{{store.store_type}}" bindtap="storebutton">
+      <view class="shopBar_store_icon">
+        <icon class="icon-pq-stores" style='font-size:38rpx'></icon>
+      </view>
+      <view class="shopBar_store_txt">店铺</view>
+    </view>
+    <view class="shopBar_goods_info" bindtap="aboutBtn" data-goodsid="{{goods.goods_id}}" data-storeid="{{store.store_id}}">
+      <view class="shopBar_goods_icon" wx:if="{{is_collect==0}}">
+        <icon class="icon-pq-shoucang" style="font-size:38rpx"></icon>
+      </view>
+      <view class="shopBar_goods_icon" wx:if="{{is_collect==1}}">
+        <icon class="icon-pq-collection" style="font-size:38rpx;}}"></icon>
+      </view>
+      <view class="shopBar_store_txt" style="color: #{{is_collect==1?'ffa626':''}}">收藏</view>
+    </view>
+    <view class="shopBar_store_Phone" bindtap="callPhone">
+      <view class="shopBar_store_Phone_icon">
+        <icon class="icon-pq-phone" style='font-size:38rpx'></icon>
+      </view>
+      <view class="shopBar_store_txt">联系商家</view>
+    </view>
+  </view>
+  <view class="shop_buy"  bindtap="{{is_group != 6? 'goBuy':'goBargain'}}" wx:if="{{type==0}}" data-type="{{type}}" data-is_remind="{{is_remind}}" data-group_id="{{group.group_id}}" data-goodsid="{{goods.goods_id}}">
+    <view class="shop_bu_in" wx:if="{{is_group == 4 }}">
+      <view class="shop_buy_price cenFlex">
+        ￥{{price}}
+      </view>
+      <view class="shop_buy_txt cenFlex">
+        {{buyTxt}}
+      </view>
+    </view>
+    <view class="shop_bu_in" wx:if="{{is_group==1 }}">
+      <view class="shop_buy_price cenFlex">
+        ￥{{price}}
+      </view>
+      <view class="shop_buy_txt cenFlex">
+        {{buyTxt}}
+      </view>
+    </view>
+    <view class="shop_bu_in" wx:if="{{is_group==3}}">
+
+      <view class="shop_buy_txt cenFlex">
+        {{shareGroup>0 && group.group_num >0 ? '参与拼单':'发起拼团'}}￥{{price}}
+      </view>
+
+    </view>
+		 <view class="shop_bu_in" wx:if="{{is_group==6 }}">
+      <view class="shop_buy_txt cenFlex" wx:if="{{!is_phone}}">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{buyTxt}}</button>
+      </view>
+      <view class="shop_buy_txt cenFlex" wx:else>
+          {{buyTxt}}
+      </view>
+    </view>
+  </view>
+  <view class="shop_buy_out cenFlex" wx:if="{{type!=0}}" style="background:{{type!=0?'#d1d1d1':'#ff534c'}}">
+    <view class="shop_buy_out_in">{{type==3?'活动已售罄':'活动已结束'}}</view>
+  </view>
+</view>

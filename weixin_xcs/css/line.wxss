@@ -1,0 +1,64 @@
+
+[class*=border-]:before,
+[class*=border-]:after
+{
+    content: " ";
+    position: absolute;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    z-index: 0;
+}
+
+.border-none:before {
+    border: none;
+}
+
+.border-b:before {
+    border-bottom: 1px solid #e5e5e5;
+    width: 200%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+}
+
+.border-t:before {
+    border-top: 1px solid #e5e5e5;
+    width: 200%;
+    height: 1px;
+    top: 0;
+    left: 1px;
+}
+
+.border-tb:before {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    width: 200%;
+    height: 200%;
+    top: 0;
+}
+
+.border-l:before {
+    border-left: 1px solid #e5e5e5;
+    height: 200%;
+    left: 0;
+    top:0;
+}
+
+.border-r:before {
+    border-right: 1px solid #e5e5e5;
+    height: 200%;
+    right: 0;
+    top: 0;
+}
+
+.border-tblr:after,
+.border:after,
+    {
+    border: 1px solid #e5e5e5;
+    height: 200%;
+    width: 200%;
+    left: 0;
+    top: 0;
+}

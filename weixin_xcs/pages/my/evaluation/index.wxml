@@ -1,0 +1,53 @@
+<!--pages/my/evaluation/index.wxml-->
+<import src='../template/no-list/no-list'/>
+<import src='../template/acts-list-item/list-item'/>
+
+<compage id="compage">
+  <view wx:if='{{noList}}'>
+    <template is='no-list' data='{{noListInfo}}'></template>
+      <btn id='btn-m' type='m' text='逛逛' class='no_list_opt' bindtap='goPage' data-upage='switchTab:///pages/nearShopList/nearShopList'></btn>
+  </view>
+ 
+  <view class='elist' wx:if='{{!noList}}' bindtap="hideOptItem">
+    <view class='elist_item' wx:for='{{list}}' wx:key='{{index}}' data-index='{{index}}' >
+      <!-- 基本信息 -->
+      <view class='eitem_info flex-between'>
+        <view class='eitem_info_logo'>
+          <image src='{{item.wx_img}}'></image>
+        </view>
+        <view class='eitem_info_o'>
+          <view class='flex-between'>
+            <view class='eitem_info_name'>{{item.wx_name}}</view>
+            <view class='eitem_info_btn' data-index='{{index}}' catchtap='otherOpts'>
+              <icon class='icon-pq-wait'></icon>
+            </view>
+            <view wx:if="{{showOptItem == index}}" class='eitem_info_opts_box'>
+              <view class='eitem_info_opt' data-id='{{item.evaluate_id}}' bindtap='delEval'>删除</view>
+            </view>
+          </view>
+          <view class='eitem_info_b flex-between'>
+            <rate id='rate' edit='false' fontSize="30rpx" marginRight="5rpx" rate="{{item.score - 1}}"></rate>
+            <view class='eitem_info_time'>{{item.add_time}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 评价内容 -->
+      <view class='eitem_cont' >
+        <view class='eitem_cont_txt'>{{item.content}}</view>
+        <view wx:if="{{item.img_array[0]}}" class='eitem_cont_imgs'>
+          <view class='eitem_cont_img' wx:for='{{item.img_array}}' wx:key='{{index}}' wx:for-item='img'>
+            <image src='{{img}}' mode="aspectFill" bindtap="preview" data-img="{{img}}" data-array="{{item.img_array}}" wx:if="{{img}}"></image>
+          </view>
+        </view>
+        <view class='clear'></view>
+      </view>
+      <!-- 活动信息 -->
+      <view class='eitem_act flex-between'>
+        <template is='list-item1' data='{{item, ActsType, isEdit}}'></template>
+      </view>
+      <!-- 商家回复 -->
+      <view wx:if="{{item.reply_content}}" class='eitem_reply'>商家回复：<text>{{item.reply_content}}</text></view>
+    </view>
+  </view>
+  <modal id="modal"></modal>
+</compage>

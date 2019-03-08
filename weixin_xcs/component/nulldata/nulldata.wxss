@@ -1,0 +1,68 @@
+/* component/nulldata/nulldata.wxss */
+/*如果为空出现的页面*/
+
+.nD_i {
+    width: 100%;
+    height: 1100rpx;
+    overflow: hidden;
+    background: #fff;
+    padding-top:100rpx;
+
+
+}
+.nD_s {
+    width: 100%;
+    height: 550rpx;
+    overflow: hidden;
+    background: #fff;
+}
+
+.nD_s .nD_i_in {
+    width: 540rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 670rpx;
+    margin: 100rpx auto;
+}
+.nD_i .nD_i_in {
+    width: 540rpx;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: 670rpx;
+    margin: 100rpx auto;
+
+}
+
+.nD_i_in_t {
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+
+.nD_i_in_t_img {
+    width: 300rpx;
+    height: 300rpx;
+    min-width: 300rpx;
+}
+
+.nD_i_in_t_txt {
+    margin-top: 50rpx;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+ .nD_i_in_b {
+    width: 480rpx;
+    height: 92rpx;
+    background: #e60012;
+    color: #fff;
+    border-radius: 15rpx;
+    font-size: 32rpx;
+}
+.cenFlex{
+display:flex;
+align-items:center;
+justify-content:center;
+
+}

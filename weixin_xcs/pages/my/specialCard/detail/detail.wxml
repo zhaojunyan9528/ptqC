@@ -1,0 +1,50 @@
+<!--pages/my/specialCard/detail/detail.wxml-->
+<import src='../../template/multi-specialcard/multi-specialcard' />
+
+<compage id="compage">
+  <view class="container">
+    <view class="lose-date" wx:if="{{flag==1}}">
+      <view class="sad-img">
+        <image src="{{loseSrc}}"></image>
+      </view>
+      <view class="lose-hint">已失效</view>
+    </view>
+    <view class="store-top">
+      <view class="store-name">
+        <image src="{{storeSrc}}"></image>
+        <view class="name">{{store_info.store_name}}</view>
+      </view>
+      <view class="use-lose">{{card_info.lose_str}}</view>
+    </view>
+    <template is="multi-specialcard" data="{{showTFlag,item,flag,myText}}"></template>
+    <view class="instruction">
+      <text style="color:#666;">使用说明：</text>凭专享卡消费码到店内消费</view>
+    <view class="card-code">
+      <view class="card-left">专享卡消费码</view>
+      <view class="remain-count">剩余次数：
+        <text class="red">{{card_info.card_use_num}}</text>次</view>
+    </view>
+    <view class="two-dimen-code" wx:if="{{flag == 0}}">
+      <image src="{{card_info.qr_url}}" class="img-code"></image>
+      <view class="bottom-hint">请向商家出示以上二维码</view>
+    </view>
+		<view class="records" wx:if="{{records_list.length>0}}">
+      <view class="records-title">核销记录</view>
+      <block wx:for="{{records_list}}" wx:key="index">
+        <view class="records-time">核销时间：{{item.time}}</view>
+      </block>
+    </view>
+    <view class="contact-seller">
+      <view class="contact-title" bindtap='callPhone'>
+        <view>联系卖家</view>
+        <image src="{{telSrc}}"></image>
+      </view>
+      <view class="that-shop">
+        <view class="onFontNow">店铺地址：{{store_info.store_address}}</view>
+        <view>营业时间：{{store_info.start_time}}~{{store_info.end_time}}</view>
+      </view>
+    </view>
+    
+  </view>
+
+</compage>

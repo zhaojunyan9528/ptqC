@@ -1,0 +1,31 @@
+<!--component/allyactivity.wxml-->
+<!-- 多人拼团 拼团立减 限时专享 砍价 -->
+<view class="indexAll_bus" wx:if="{{goods_item}}">
+  <view class="indexAll_bus_m_b">
+    <view data-goods_id="{{goods_item.goods_id}}"  data-group_id="{{item.group_is_group}}" data-type="{{goods_item.is_group}}" bindtap="goDetail" class="indexAll_bus_m_b_in" >
+      <view class="indexAll_bus_m_b_in_l" style="position:relative">
+        <image src="{{goods_item.goods_img}}" mode="aspectFill"></image>
+        <view class="{{goods_item.inventory == 0 ? 'zhezhao':''}}"></view>
+        <view class="not_inv" wx:if="{{goods_item.inventory==0}}">
+          <image src="/assets/images/in3_ico30.png" mode="aspectFill"></image>
+        </view>
+      </view>
+      <view class="indexAll_bus_m_b_in_r">
+        <view class="indexAll_bus_m_b_in_r_t twoFontNow">{{goods_item.goods_name}}</view>
+        <view class="r-b">
+          <view class="indexAll_bus_m_b_in_r_b">
+            <view class="indexAll_bus_m_b_in_r_b_in2">{{goods_item.is_group==1?'团长价':goods_item.is_group==3?'原价':goods_item.is_group==4?'原价':goods_item.is_group==6?'原价':'原价'}}:
+              <text style="text-decoration:line-through">¥{{goods_item.goods_price}}</text>
+            </view>
+            <view class="indexAll_bus_m_b_in_r_b_in1">{{goods_item.is_group==1?'最低价':goods_item.is_group==3?'拼团价':goods_item.is_group==4?'优惠价':goods_item.is_group==6?'底价':'最低价'}}:¥{{goods_item.bottom_price}}</view>
+          </view>
+          <view class="gd_pr_t_l_ico" style="border-color:#{{goods_item.is_group==1?'ff4949':goods_item.is_group==3?'ff5581':goods_item.is_group==4?'ffa625':goods_item.is_group==6?'E971D7':'fff'}};">
+            <view class="gd_pr_t_l_ico_in" style="background:#{{goods_item.is_group==1?'ff4949':goods_item.is_group==3?'ff5581':goods_item.is_group==4?'ffa625':goods_item.is_group==6?'E971D7':'fff'}};">
+              {{goods_item.is_group==1?'拼团立减':goods_item.is_group==3?'多人拼团':goods_item.is_group==4?'限时专享':goods_item.is_group==6?'砍价':'暂无状态'}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>
+</view>

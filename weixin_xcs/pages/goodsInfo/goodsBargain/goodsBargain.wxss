@@ -1,0 +1,534 @@
+/**index.wxss**/
+@import "../goods.wxss";
+@import "../goodsGroup/goodsGroup.wxss";
+/* 新增代码 start */
+/* 赚红包动图 */
+.animation{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  right:0;
+  bottom:27rpx;
+}
+/* 推荐人 */
+.topfree {
+  position: fixed;
+  top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 30rpx;
+  z-index: 999;
+  overflow: hidden;
+  height: 92rpx;
+}
+
+.topfree_le {
+  width: 252rpx;
+  height: 72rpx;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 0rpx 45rpx 45rpx 0rpx;
+  color: #fff;
+  overflow: hidden;
+  padding-left: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.information-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  background: #fff;
+  overflow: hidden;
+  min-width: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.information-img image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.information-nickName {
+  display: flex;
+  flex-direction: column;
+  width: 170rpx;
+  padding-left: 11rpx;
+}
+
+.name {
+  font-size: 18rpx;
+  color: #fff;
+}
+
+.nickName {
+  font-size: 20rpx;
+  color: #ffd74c;
+  overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+}
+
+/* 新增红包小图标 */
+
+.good_packet {
+ display: flex;
+ align-items: center;
+ vertical-align: middle;
+  width: 13px;
+  height: 17px;
+  margin-left: 10rpx;
+}
+
+.good_packet image{
+  max-width: 100%;
+  max-height: 100%;
+}
+.good_font{
+  display: flex;
+  align-items: flex-end;
+}
+/* 新增分享赚现金红包长条 */
+
+.good_longstrip {
+  margin: 20rpx 0;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.good_longstrip_img {
+  padding: 30rpx 0;
+  height: 177rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.good_longstrip_font {
+  display: flex;
+  position: absolute;
+  right: 15rpx;
+}
+
+.good_income {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.good_share {
+  font-size: 30rpx;
+  color: #fec453;
+  font-weight: 500;
+}
+
+.cash {
+  font-size: 42rpx;
+}
+
+.platform {
+  font-size: 20rpx;
+}
+
+.income {
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.income text {
+  font-size: 36rpx;
+}
+
+.good_particulars {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 40rpx;
+}
+
+.good_particulars>icon {
+  font-size: 12px;
+  vertical-align: middle;
+  color: #fff;
+  margin-left: 8rpx;
+}
+/* 赚红包活动玩法 */
+.makepackget_rule{
+  color:#000000;
+overflow:hidden;
+width:615rpx;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+border-radius:20rpx;
+z-index:9999;
+background:#fff;
+box-sizing:content-box;
+font-size:13px;
+
+}
+.rule_title{
+  height:88rpx;
+border-bottom:2rpx #eee solid;
+font-size:1.2em;
+
+}
+.cenFlex {
+   display:flex;
+align-items:center;
+justify-content:center;
+
+}
+.rule_content{
+  padding: 20rpx 30rpx 0 30rpx;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+.rule_content_arr{
+  flex-wrap:wrap;
+position:relative;
+width:100%;
+}
+.rule_img{
+  width: 96rpx;
+  height: 96rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f0f0f0;
+}
+.rule_img image{
+  width: 100%;
+  height: 100%；
+}
+.rule_ziti{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  padding: 0 0 0 30rpx;
+  margin-top: 12rpx;
+  margin-bottom: 30rpx;
+}
+.rule_font{
+  color: #666666;
+  font-size: 20rpx;
+}
+.rule_jian{
+  display: flex;
+justify-content: space-around;
+align-items: center;
+}
+.jiantou{
+  width:22rpx;
+height:17rpx;
+}
+.rule_share{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.rule_share_t{
+  flex-wrap:wrap;
+  display:flex;
+width:95rpx;
+height:80rpx;
+
+}
+/* 赚红包活动玩法  分享按钮 */
+.share_packget_btn{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90rpx;
+  margin-bottom: 30rpx;
+  width: 480rpx;
+  height: 88rpx;
+  background-color: #E60012;
+  border-radius: 20rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+.share_packget_btn text{
+  font-size: 20rpx;
+}
+/* 我知道了 */
+.share_packget_Know{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60rpx;
+  width: 100%;
+}
+.share_packget_know{
+   width: 480rpx;
+  height: 88rpx;
+  border-radius: 20rpx;
+  color: #E60012;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1rpx solid #E60012
+}
+/* 新增代码 end */
+.rcmd_activ {
+  height: 85rpx;
+  background: #fff;
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.gd_ex_l {
+  max-width: 450rpx;
+}
+
+.footerRes {
+  padding-bottom: 100rpx;
+}
+
+.gd_ex {
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85rpx;
+  border-top: 2rpx #f5f5f5 solid;
+}
+
+.gd_ex_r {
+  width: 35rpx;
+  height: 35rpx;
+  min-width: 35rpx;
+}
+
+.cenFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cenFlexy {
+  display: flex;
+  align-items: center;
+}
+
+.gd_pr_t_in {
+  font-size: 32rpx;
+  color: #000;
+  padding: 10rpx 0;
+  font-weight: bold;
+}
+
+.gd_pr_puch2_t_l_out {
+  border: 2rpx #ff6243 solid;
+  border-radius: 10rpx;
+  position: relative;
+  padding: 3rpx 5rpx;
+  font-size: 28rpx;
+}
+
+.gd_pr_puch2_t_l_l::after {
+  content: "";
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  background: #fff;
+  left: 0rpx;
+  top: -6rpx;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.gd_pr_puch2_t_l_l::before {
+  content: "";
+  display: block;
+  width: 12rpx;
+  height: 12rpx;
+  background: #fff;
+  left: 0rpx;
+  bottom: -6rpx;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.gd_pr_puch1_l::before {
+  content: "·";
+  font-size: 40rpx;
+  color: #e60012;
+  margin-right: 10rpx;
+  margin-bottom: 5rpx;
+  font-weight: 700;
+}
+
+.gd_pr_puch1_l::after {
+  content: "·";
+  font-size: 40rpx;
+  color: #e60012;
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+  font-weight: 700;
+}
+
+.onFontNow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gd_pr_puch2_t {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.gd_pr_puch2_t_l_r {
+  padding: 0rpx 10rpx;
+  color: #ff6243;
+  max-width: 380rpx;
+}
+
+.cred {
+  color: #e60012;
+}
+
+.gd_pr_puch2_t_l_in {
+  width: 224rpx;
+  min-width: 224rpx;
+}
+
+.gd_pr_puch2_t_l {
+  width: 100%;
+}
+
+.cssFlex_st {
+  position: fixed;
+  height: 111rpx;
+  width: 180rpx;
+  top: 896rpx;
+  right: 20rpx;
+  z-index: 100;
+}
+
+.cssFlex {
+  position: relative;
+}
+
+.shake {
+  animation: shake 1s;
+  -o-animation: shake 1s;
+  -webkit-animation: shake 1s;
+  -moz-animation: shake 1s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: rotate(-10deg);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: rotate(10deg);
+  }
+}
+
+/* @-o-keyframes shake{
+  0%, 100% {
+        -o-transform: rotate(10deg);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -o-transform: rotate(-10deg);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -o-transform: rotate(10deg);
+    }
+} */
+
+/* @-moz-keyframes shake{
+  0%, 100% {
+        -moz-transform: rotate(10deg);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -moz-transform: rotate(-10deg);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -moz-transform: rotate(10deg);
+    }
+} */
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: rotate(10deg);
+  }
+
+  15%, 30%, 50%, 70%, 90% {
+    -webkit-transform: rotate(-10deg);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: rotate(10deg);
+  }
+}
+
+.tag-yh {
+  padding: 6rpx 0rpx;
+  border-top: 2rpx #E971D7 dashed;
+  border-bottom: 2rpx #E971D7 dashed;
+  border-left: 2rpx #E971D7 solid;
+  border-right: 2rpx #E971D7 solid;
+  border-radius: 5rpx;
+  display: inline-block;
+  min-width: 118rx;
+  text-align: center;
+}
+
+.tag-yh .tag-yh_t {
+  padding: 0rpx 15rpx;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  background-color: #E971D7;
+  min-width: 118rpx;
+  height: 30rpx;
+  max-height: 30rpx;
+}
+.mengban {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    z-index: 1200;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    overflow: hidden;
+}
+.headerImgBox .wx-swiper-dot {
+  margin-left: 16rpx;
+}
+.restriction {
+  margin-bottom: 15rpx;
+}

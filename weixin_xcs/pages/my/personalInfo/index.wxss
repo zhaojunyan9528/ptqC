@@ -1,0 +1,36 @@
+/* pages/my/personalInfo/index.wxss */
+@import "../base.wxss";
+
+page{
+  background-color: #f8f8f8;
+}
+.container{
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+}
+.item{
+  /* padding-left: 30rpx; */
+  height: 135rpx;
+  line-height: 135rpx;
+}
+picker{
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.logo_img_box{
+  height: 100%;
+}
+.logo_img{
+  width: 100rpx;
+  height: 100rpx;
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+.opt_box{
+  height: 135rpx;
+}
+.opt_txt{
+  margin-right: 15rpx;
+  color: #bfbfbf;
+}

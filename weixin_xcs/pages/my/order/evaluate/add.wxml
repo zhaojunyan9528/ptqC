@@ -1,0 +1,46 @@
+<!--pages/my/order/evaluate/add.wxml-->
+<compage id="compage">
+  <view class='cont'>
+    <view class='rate flex'>
+      <view class='rate_act_logo'>
+        <image src='{{actLogo}}' mode="aspectFill"></image>
+      </view>
+      <view class='rate_cont'>
+        <view class='rate_cont_title flex-y-start'>商品评分</view>
+        <view class='rate_cont_opt flex-y-end'>
+          <rate id='rate' edit='true' rate="{{rate}}" bind:rate='setRate'></rate>
+        </view>
+      </view>
+    </view>
+    <view class='opinion'>
+      <textarea value="{{content}}" placeholder='请发表您的意见~' bindinput="setContent" ></textarea>
+    </view>
+  </view>
+  <view class='photo'>
+    <view class='photo_header flex-between'>
+      <view>添加照片
+        <!-- <view class='tips' style='display: inline-block;margin-left: 10rpx; color: #999; font-size: 23rpx;'>(点击图片可删除)</view> -->
+      </view>
+      <view class='photo_num'>{{photos.length}} / {{photoAllNum}}</view>
+    </view>
+    <view class='photo_cont'>
+      <view class='photo_cont_item' wx:for='{{photos}}' wx:key='{{index}}' data-index='{{index}}' bindtap='delPhoto'>
+        <image src='{{item}}' mode="aspectFill"></image>
+      </view>
+      <view class='photo_cont_item add_photo' bindtap='addPhoto'>
+        <image src='https://www.pintuanqu.cn/Public/WeChatApps/image/eval3_ico1.png'></image>
+      </view>
+    </view>
+    <view class='photo_opt flex-y-center' bindtap='setAnonymous'>
+      <view class='photo_opt_sel'>
+        <icon class="{{isAnonymous ? 'icon-pq-xuanzhong' : 'icon-pq-circle'}}" style="font-size: 40rpx;"></icon>
+      </view>
+      <view class='photo_opt_label'>匿名评价</view>
+    </view>
+  </view>
+  <view class='save'>
+    <!-- <button class="save_btn weui-btn" type="warn" bindtap='saveEvaluation'>发布</button> -->
+    <vwx-button id='btn-m' type='m' text='发布' loading="loading" bind:tap-event="saveEvaluation" ></vwx-button>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

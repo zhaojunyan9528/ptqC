@@ -1,0 +1,17 @@
+/* component/rate/rate.wxss */
+ .icon-pq-wjx:before { content: "\e710"; } 
+
+.rate-box{
+  line-height: 1;
+}
+.rate-item{
+  display: inline-block;
+  margin-right: 10rpx; 
+  font-size: 40rpx;
+}
+.yellow-star{
+  color: #ffc923;
+}
+.grey-star{
+  color: #ccc;
+}

@@ -1,0 +1,77 @@
+/* pages/my/template/acts-type/type.wxss */
+/* .type-box{
+  padding: 6rpx 0;
+  border-top-style: dashed;
+  border-bottom-style: dashed;
+  border-left-style: solid;
+  border-right-style: solid;
+  border-width: 2rpx;
+  border-color:  #eee;
+  border-radius: 10rpx;
+  height: 100%;
+}
+.type-inbox{
+  padding: 0 20rpx;
+  background-color: #eee;
+  text-align: center;
+  color: #fff;
+} */
+/* 拼团立减 */
+/* .group_buying_cashback_box{
+  border-color: #ff4949;
+}
+.group_buying_cashback_box > text{
+  background-color: #ff4949;
+} */
+/* 多人拼团 */
+/* .group_buying_box{
+  border-color: #ff5581;
+}
+.group_buying_box > text{
+  background-color: #ff5581;
+} */
+/* 限时优惠 */
+/* .limited_time_discount_box{
+  border-color: #ffa625;
+}
+.limited_time_discount_box text{
+  background-color: #ffa625;
+} */
+/* .act-type-box{
+  font-size: 150rpx;
+} */
+/* .icon-pq-tgfx{
+  color: #ff4949;
+}
+.icon-pq-drpt{
+  color: #ff5581;
+}
+.icon-pq-xxyh{
+  color: #ffa625;
+} */
+.pic-one {
+  /* padding: 0rpx 15rpx; */
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  background-color: #eee;
+  min-width: 118rpx;
+  height: 30rpx;
+  max-height: 30rpx;
+  text-align: center;
+}
+
+.pic {
+  padding: 6rpx 0rpx;
+  border-top: 2rpx #eee dashed;
+  border-bottom: 2rpx #eee dashed;
+  border-left: 2rpx #eee solid;
+  border-right: 2rpx #eee solid;
+  border-radius: 5rpx;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 45rpx;
+  /* min-width:118rx; */
+  text-align: center;
+}

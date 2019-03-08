@@ -1,0 +1,19 @@
+<!--packageFree/pay/paySuccess/paySuccess.wxml-->
+<compage id="compage">
+  <view class="container">
+    <view class='container_top' >
+      <view class="icon">
+        <image src='{{successImg}}' mode="aspectFill"></image>
+      </view>
+      <view class="successText">支付成功</view>
+      <view class="money">支付金额：￥{{payAmount}}</view>
+
+    </view>
+    <view class="goDetail" style="background-image:url({{jump==1?'http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj21.png':'http://ptq.oss-cn-hangzhou.aliyuncs.com/ptq/wxxcx/gj17.png'}}) ;background-repeat:no-repeat;background-size:100% 100% ; ">
+        <!-- <input wx:if="{{jump==1 && !isPhone}}" type="number" bindblur="bindblur" placeholder-class="claInput" placeholder="{{inputPlaceholder}}" class='phoneInput'></input> -->
+        <!-- <view class='Hint'>{{Hint}}</view> -->
+        <view  bindtap='jump'  class="{{jump==1  ?'goDetail_in': 'goDetail_in1'}}" >{{jump==1?btnText:jump==2?btnText1:''}}</view>
+    
+    </view>
+  </view>
+</compage>

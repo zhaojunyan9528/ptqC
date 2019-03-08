@@ -1,0 +1,43 @@
+<!--packageFree/couponList/index.wxml-->
+<compage id="compage">
+<view class="container">
+  <vwx-tabs tabs="{{tabs}}" bind:myselect="selectTab" data-index="{{actIndex}}"></vwx-tabs>
+  <view class="topTip">{{tips}}</view>
+  <!-- 代金券列表  start -->
+  <view>
+  <view class="couponList" wx:if="{{couponList.length>0}}">
+    <view class="item" wx:for="{{couponList}}" wx:key="index">
+      <view class="backImg">
+        <image src="{{currentIndex==1?couponLoseImg:couponImg}}"  mode="aspectFill"></image>
+      </view>
+      <view class="item-l">
+        <view class="i-t">
+          <view class="i-name">代金券</view>
+          <view class="i-money">{{item.voucher_amount}}元</view>
+        </view>
+        <view class="i-c">
+          <view class="i-l">
+            <view class="i-date">有效期至：</view>
+            <view class="i-time">{{item.end_time}}</view>
+          </view>
+          <view class="i-r">满{{item.lowest_amount}}元可用</view>
+        </view>
+        <view class="i-b">
+          <view class="i-storename">店铺：{{item.storename}}</view>
+          <view class="i-address onFontNow">地址：{{item.address_info}}</view>
+        </view>
+      </view>
+      <view class="item-r {{item.status==1?'gold':'color6'}}">{{item.status==1?'待使用':item.status==2?'已使用':item.status==3?'已过期':''}}</view>
+    </view>
+  </view>
+  <view class="null-data" wx:else>
+      <view class="null-img">
+        <image  mode="aspectFill" src="{{nullData.img}}"></image>
+      </view>
+      <view class="null-text">{{nullData.text}}</view>
+    </view>
+    </view>
+  <!-- 代金券列表  end -->
+  
+</view>
+</compage>

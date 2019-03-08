@@ -1,0 +1,109 @@
+.tcr_3 {
+   color: #90a4ae;
+}
+.tcr_4 {
+   color: #78909c;
+}
+.tcr_5 {
+   color: #607d8b;
+}
+.tcr_6 {
+   color: #546e7a;
+}
+.tcr_7 {
+   color: #455a64;
+}
+.tcr_8 {
+   color: #37474f;
+}
+.tcr_o7 {
+   color: #f57c00;
+}
+.tcr_a2 {
+   color: #fff59d;
+}
+.tcr_a3 {
+   color: #fff176;
+
+}
+.loading{
+   margin: auto;
+   text-align: center;
+}
+.loading view {
+   display: inline-block;
+   vertical-align: middle;
+   width: 0.6em;
+   height: 0.6em;
+   margin: 0.19em;
+   background: #01579B;
+   border-radius: 0.6em;
+   -webkit-animation: loading 1s infinite alternate;
+   animation: loading 1s infinite alternate;
+}
+.loading .h5 {
+   margin: auto;
+   width: 100px;
+   height: auto;
+   display: block;
+   color: #fff;
+}
+.loading view:nth-of-type(2) {
+   background: #01579B;
+   -webkit-animation-delay: 0.2s;
+   animation-delay: 0.2s;
+}
+.loading view:nth-of-type(3) {
+   background: #0277BD;
+   -webkit-animation-delay: 0.4s;
+   animation-delay: 0.4s;
+}
+.loading view:nth-of-type(4) {
+   background: #01579B;
+   -webkit-animation-delay: 0.6s;
+   animation-delay: 0.6s;
+}
+.loading view:nth-of-type(5) {
+   background: #0277BD;
+   -webkit-animation-delay: 0.8s;
+   animation-delay: 0.8s;
+}
+.loading view:nth-of-type(6) {
+   background: #01579B;
+   -webkit-animation-delay: 1.0s;
+   animation-delay: 1.0s;
+}
+.loading view:nth-of-type(7) {
+   background: #0277BD;
+   -webkit-animation-delay: 1.2s;
+   animation-delay: 1.2s;
+}
+.loading view:nth-of-type(8) {
+   background: #01579B;
+   -webkit-animation-delay: 1.2s;
+   animation-delay: 1.2s;
+}
+/*
+ * Animation keyframes
+ * Use transition opacity instead of keyframes?
+ */
+
+@-webkit-keyframes loading {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}
+
+@keyframes loading {
+   0% {
+      opacity: 0;
+   }
+
+   100% {
+      opacity: 1;
+   }
+}

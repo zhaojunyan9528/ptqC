@@ -1,0 +1,41 @@
+/* template/list-item/list-item.wxss */
+.weui-cells:before, .weui-cells:after{
+  border:none;
+}
+.weui-cell:before{
+  border-color: #f0f0f0;
+}
+.weui-cell__ft_in-access{
+  padding-right: 36rpx;
+  font-size: 30rpx;
+}
+.weui-cell__ft_in-access:after{
+  border-width:1px 1px 0 0;
+  border-color:#999;
+  width: 17rpx;
+  height: 17rpx;
+}
+
+.list-block{
+  z-index: 1;
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.list-block:first-child{
+  padding-top: 100rpx;
+  margin: 0;
+}
+.list-item{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #333333;
+}
+.weui-cell_active{
+  background-color: rgba(0, 0, 0, .1);
+}
+
+
+.list-item-text{
+  margin-left: 20rpx;
+}

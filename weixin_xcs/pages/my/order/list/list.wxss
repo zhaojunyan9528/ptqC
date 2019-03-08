@@ -1,0 +1,52 @@
+/* pages/my/order/list/list.wxss */
+@import "../../base.wxss";
+@import "../../template/no-list/no-list.wxss";
+@import "../../template/order-list-item/list-item.wxss";
+page{
+  background-color: #f0f0f0;
+}
+.weui-navbar{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 88rpx;
+  white-space: nowrap;
+  overflow-x: scroll;
+  border-bottom: 1rpx solid #f0f0f0;
+  background-color: #fff;
+}
+.nav_item{
+  height:88rpx;
+  display: inline-block;
+}
+.weui-navbar__item{
+  padding: 30rpx 15rpx;
+  margin: 0 30rpx;
+}
+
+/* .weui-navbar__item.weui-bar__item_on{ */
+.nav_item_box{
+  border-bottom: 2rpx solid #e60012;
+  color: #e60012;
+  height:86rpx;
+}
+.weui-navbar__title{
+  font-size: 28rpx;
+}
+
+.weui-tab__panel{
+  padding-top: 110rpx;
+}
+
+
+.list_item{
+  border-bottom: 20rpx solid #f0f0f0;
+  background-color: #fff;
+}
+.list_item:last-child{
+  border:none;
+}
+
+.no-data{
+  background-color: #fff;
+}

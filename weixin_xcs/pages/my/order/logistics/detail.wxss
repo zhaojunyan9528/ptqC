@@ -1,0 +1,63 @@
+/* pages/my/order/logistics/detail.wxss */
+@import '../../base.wxss';
+@import '../../template/no-list/no-list.wxss';
+
+page{
+  background-color: #f8f8f8;
+}
+
+.banner{
+  height: 240rpx;
+  background-color: #ffa625;
+}
+.banner_logo{
+  margin: 0 40rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.banner_logo > image{
+  width: 70%;
+  height: 70%;
+}
+.banner_cont{
+  height: 120rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.list{
+  background-color: #fff;
+}
+.list_item{
+  position: relative;
+  padding-left: 50rpx;
+  color: #979797;
+  font-size: 28rpx;
+}
+.list_item::before{
+  content: "";
+  position: absolute;
+  left: 40rpx;
+  top: 35rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+.list_item:first-child::before{
+  background-color: #ffa625;
+  box-shadow: 0 0 20rpx #ffa625;
+}
+.item_box{
+  padding:20rpx 30rpx 20rpx 70rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+.item_cont, .item_time{
+  font-size: 28rpx;
+}
+.item_time{
+  margin-top: 10rpx;
+}

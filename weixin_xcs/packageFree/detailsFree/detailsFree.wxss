@@ -1,0 +1,1209 @@
+/* packageFree/detailsFree /detailsFree.wxss */
+page{
+  margin: 0;
+  padding: 0;
+  color: #333333
+ 
+}
+/* 整个页面 */
+.cssFlex_st{
+  position: fixed;
+  height: 111rpx;
+  width: 180rpx;
+  top:896rpx;
+  right: 20rpx;
+  z-index:11
+  
+}
+.shareBox{
+  width:620rpx;
+  height:361rpx;
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  margin-left:65rpx;
+  z-index:99999;
+  position:fixed;
+  top:330rpx;
+
+}
+.closeBtn{
+  width: 100%;
+
+  z-index: 1400;
+
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+
+  
+  
+}
+.closeBtn_in{
+  height:60rpx;
+  width:60rpx;
+  border-radius:50%;
+  color:#fff;
+  border:2rpx solid #fff;
+  font-size:30rpx;
+  display:inline-block;
+  font-weight:800;
+
+
+}
+.cssFlex{
+  position: relative
+}
+.freeDetails{
+   width: 100;
+
+  position: relative;
+   overflow-x:hidden ;
+   overflow-y: scroll;
+   
+}
+.freeDetails::-webkit-scrollbar {
+  display: none;
+}
+.back_preson{
+  position:fixed;
+  right:10px;
+  top:62px;
+  width:87rpx;
+  height:75rpx;
+  z-index:9999;
+
+
+}
+/* 禁止页面滚动 */
+.noScroll{
+  height: 100vh;
+  overflow: hidden
+}
+/* 页面顶部 */
+.icon-pq-music{
+  font-size:64rpx;
+  background-color:#51130e;
+  color:#fff;
+  overflow: hidden;
+  position:relative;
+  top:-2rpx;
+  left:-1.5rpx;
+
+
+}
+
+.canFelx{
+  display: flex
+}
+.icon-pq-musicStop{
+    font-size:64rpx;
+background-color:#51130e;
+color:#fff;
+
+position:relative;
+top:-2rpx;
+left:-1rpx;
+
+}
+.topfree_ri{
+  height:59rpx;
+  width:59rpx;
+  position:absolute;
+  border-radius:50%;
+  overflow:hidden;
+  top:30rpx;
+  right:30rpx;
+  z-index:1000;
+
+}
+
+.freeFled{
+  position:fixed;
+width:130rpx;
+height:130rpx;
+z-index:800;
+top:61%;
+
+}
+.freeShare{
+  position:fixed;
+width:110rpx;
+height:120rpx;
+z-index:800;
+top:70%;
+left:-5rpx;
+}
+.topfree{
+  position: fixed;
+  top :30rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 30rpx;
+  z-index: 999;
+  overflow: hidden;
+  height:92rpx;
+}
+.topfree_le{ 
+  width:270rpx;
+  height:92rpx;
+  background:rgba(0,0,0,0.55);
+  border-radius:0rpx 45rpx 45rpx 0rpx;
+  color: #fff;
+  line-height: 92rpx;
+  overflow: hidden;
+  font-size:22rpx;
+  padding-left:10rpx;
+}
+.topfree-b{
+  position:absolute;
+  top:0;
+  color:#fff;
+  height:92rpx;
+  width:100%;
+  line-height:92rpx;
+  font-size:22rpx;
+}
+.scroll{
+  transition: 1s;
+}
+
+.freeDetails_top_con{
+  height: 552rpx;
+}
+.freeDetails_top{
+  height: 50vw;
+  width: 100%;
+  position: relative;
+
+}
+/* d倒计时 */
+.countDown{
+  margin-left:12rpx;
+  color: #FFFEFC;
+}
+.countDown_top >text{
+  font-size: 20rpx;
+
+}
+.countDown_top{
+ 
+  font-size: 28rpx;
+}
+.countEnd{
+}
+.countDown_number{
+  height: 44rpx;
+  line-height: 44rpx;
+  min-width: 44rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  display:inline-block;
+  background: #000;
+  text-align: center;
+  border-radius: 10rpx;
+  margin: 0 10rpx;
+}
+.countDown_bot{
+  font-size:24rpx;
+  height:44rpx;
+  line-height:44rpx;
+
+}
+
+
+.storeAndCount{
+    position: absolute;
+    bottom: 30rpx;
+    height: 88rpx;
+    display: flex;
+}
+.cou_store{
+  width: 92rpx;
+  height: 92rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 33rpx;
+  background-color: #fff;
+  position: relative;
+
+}
+.cou_store_img{
+  height: 88rpx;
+  width: 88rpx;
+  overflow: hidden;
+  border-radius: 50%;
+ /* margin-left: 33rpx; */
+ margin:  auto;
+ position: absolute;
+ top:50%;
+ left: 50%;
+ margin-left: -44rpx;
+ margin-top: -44rpx;
+}
+
+/* 奖金池 */
+.freeDetails_bo{
+margin-top:190rpx;
+border-top:1rpx solid transparent;
+height:1096rpx;
+
+ 
+}
+.freeDetails_bous{
+
+    height: 525rpx;
+    width: 92%;
+    margin: 0 4%;
+    background-color: #fff;
+    border: 5rpx solid #ffba01;
+    border-radius:20rpx;
+    margin-top: -190rpx;
+}
+.bouns_preson_peo{
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  align-items: center;
+  
+}
+.bouns_preson_peo_img{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 15rpx;
+  
+}
+.bouns_preson_peo_name{
+  padding-left: 20rpx;
+}
+.freeDetails_bouns{
+    
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    font-size: 48rpx;
+    font-weight: 900;
+
+    height: 154rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #EEE;
+
+
+}
+.bouns_m{
+  color: #e60012;
+  line-height:1.1;
+  font-weight: 700;
+  vertical-align: middle;
+
+
+}
+.bouns_m >text{
+  font-size: 26rpx;
+  font-weight: 900;
+  padding-left: 5rpx;
+}
+.bouns_preson_bom_top{
+  height: 150rpx;
+  line-height:150rpx;
+  display:flex;
+  flex-direction: column;
+}
+.bouns_preson_bom_bom{
+   height: 121rpx;
+   background-color: #f7f7f7;
+   overflow: hidden;
+}
+.bouns_preson_bom_tconle{
+  padding:0 90rpx;
+
+}
+.bouns_preson_bom_tconle >text{
+  color: #e60012
+}
+.bouns_preson_bom_tconri >text{
+  color: #e60012
+}
+.bouns_preson_bom_topc{
+  display: flex;
+  height: 90rpx
+
+
+}
+.biuns_progr{
+  padding-top: 15rpx;
+  width: 562rpx;
+  margin-left: 64rpx
+}
+.biuns_progr_con{
+  border-radius: 20rpx;
+  overflow: hidden
+}
+.bouns_preson_bom_bom_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 25rpx;
+  padding-top: 20rpx;
+  line-height: 1.2
+
+}
+  
+.bouns_preson_bom_bom_bom{
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 25rpx;
+  padding-top: 20rpx
+}
+/* 刮奖列表 */
+.record{
+
+  height: 130rpx;
+  width: 100%;
+  line-height: 130rpx;
+  text-align: center
+}
+.record_top{
+  font-size: 40rpx;
+  color: #fff;
+
+}
+.record_top >text{
+  color: #ffd321;
+  font-weight: 700
+}
+.record_del{
+
+  height:577rpx;
+  width:92%;
+  margin:0 4%;
+  background-color:#fff;
+  border:5rpx solid #ffba01;
+  border-radius:20rpx;
+ margin-bottom: 44rpx
+}
+.record_del_top{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+  border-bottom: 1rpx solid #EEE;
+}
+.record_swiper{
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  width: 100%;
+  height: 117.5rpx;
+}
+.record_del_bom{
+position:relative;
+height:470rpx;
+overflow:hidden;
+
+
+  
+}
+.goldPoola{
+  line-height: 470rpx;
+}
+.rec_con{
+  position: relative;
+  transform: translateZ(0);
+}
+.record_del_bom > view{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.record_swiper_le{
+  height: 82rpx;
+  width: 82rpx;
+  border-radius: 50%;
+  overflow: hidden
+}
+.record_swiper_ri{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 570rpx;
+  padding-left: 20rpx
+}
+.record_name{
+  font-size: 28rpx;
+  max-width: 45%
+
+}
+.record_tom{
+  display: flex;
+  flex-direction: column;
+  text-align: right
+
+} 
+.record_tom_top >text{
+  color: #e60012
+}
+.record_tom_top{
+  color: #333333
+}
+.record_tom_bom >text{
+  color: #e60012
+}
+.record_tom_bom{
+  color: #666
+}
+/* 活动介绍 */
+.activity{
+  height: 1080rpx;
+  width:92%;
+  margin:0 4%;
+  background-color:#fff;
+  border:5rpx solid #ffba01;
+  border-radius:20rpx;
+  margin-bottom:40rpx;
+}
+.record_del_bom::-webkit-scrollbar {
+  display: none;
+}
+.activity_top{
+  height: 73rpx;
+  line-height: 73rpx;
+  padding-left: 20rpx
+}
+.activity_bom{
+  height: 980rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  width: 86vw;
+  margin-left: 20rpx;
+}
+.activity_bom >image{
+  width: 100%;
+  height: 100%;
+}
+/* 店铺介绍 */
+.store_con{
+  /* margin-top: 53rpx; */
+
+}
+.store_con_top{
+  text-align: center;
+  font-size: 46rpx;
+  font-weight:bold;
+  color: #fff;
+  margin-bottom: 20rpx;
+}
+.store_con_bom{
+  width:92%;
+  margin:0 4%;
+  background-color:#fff;
+  border:5rpx solid #ffba01;
+  border-radius:20rpx;
+  margin-bottom: 40rpx;
+  border-top-left-radius:62rpx;
+  border-top-right-radius:62rpx;
+  border-top:0;
+  overflow: hidden;
+}
+.store_con_img{
+    height: 390rpx;
+		position: relative
+}
+.store_con_img >image {
+  height: 100%;
+  width: 100%;
+}
+.store_simg{
+
+  height: 110rpx;
+  width: 110rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  text-align: center
+}
+.store_con_im{
+  
+  height: 160rpx;
+}
+.store_sname{
+  padding-top: 15rpx;
+  text-align: center
+}
+.store_con_im_in{
+  padding-top:28rpx;
+  /* width:100%; */
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  margin:0 auto;
+}
+.store_brief{
+  background-color: #f7f7f7;
+  padding: 0 20rpx
+
+}
+.store_phone{
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  margin-top: 15rpx;
+   background-color: #f7f7f7;
+   text-align: center;
+}
+.store_phone_in{
+
+  display: flex;
+  align-items: center;
+ 
+  width: 100%;
+  justify-content: center
+
+}
+.store_phone_in1{
+ padding-top: 15rpx;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  justify-content: center
+}
+.store_map{
+  height: 340rpx;
+  width: 94%;
+  margin: 15rpx 3%;
+}
+.icon-pq-map{
+  color: #ccc;
+   font-size: 32rpx;
+   padding-right: 20rpx;
+}
+.icon-pq-phoneYou{
+  font-size: 32rpx;
+  padding-right: 20rpx;
+  color: #ccc;
+}
+.store_brie{
+  height:110rpx;
+  text-align:center;
+  line-height:110rpx;
+  display:flex;
+  align-items:center;
+  width:100%;
+  justify-content:center;
+
+}
+.store_brie_line{
+  height: 3rpx;
+  background-color: #999;
+  width: 60rpx;
+
+}
+.store_brie_lcon{
+  padding: 0 23rpx;
+  font-weight:500;
+  font-size:32rpx;
+  color: #333333
+}
+.store_bgimg{
+  width: 94%;
+  margin: 20rpx 3% 20rpx 3%;
+  max-height: 416rpx;
+  height: 416rpx
+}
+.store_bgimg > image{
+  width:100%;
+}
+/* 去刮奖 */
+.footer{
+  z-index: 999;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+}
+.footer_le{
+  background-color:#fff;
+  width:50%;
+  /* text-align:center; */
+  font-weight:500;
+  font-size:28rpx;
+  /* line-height:100rpx; */
+  color:#FFB018;
+  display:flex;
+  align-items:center;
+  margin:0 auto;
+  justify-content:center;
+}
+.footer-lt{
+  display:inline-block;
+}
+.store-image{
+  width:39rpx;
+  height:36rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+}
+.footer_ri{
+    background-color: #ffb018;
+    width: 50%;
+    text-align: center;
+    font-size:32rpx;
+    line-height: 100rpx;
+    color:#fff;
+    font-weight:bold;
+}
+.bouns_preson_bom text{
+    color: #e60012
+}
+.noScratch{
+  background-color: #ccc
+
+}
+/* 刮奖弹窗 */
+.scratch{
+  position:fixed;
+
+  width: 80%;
+  left: 10%;
+  z-index: 99999
+
+}
+.scratch1{
+  position:fixed;
+
+  width: 100%;
+  z-index: 10000
+}
+.scratchType1{
+top: 100rpx;
+}
+.scratchType5{
+top: -120rpx;
+}
+.scratchType2{
+top: 0rpx;
+}
+.scratchType3{
+top: 200rpx;
+
+
+}
+.scratchCoupon_in{
+  width: 100%;
+  height: 204rpx;
+}
+.mengban {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .8;
+    /* z-index: 9000; */
+    z-index: 10001;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    overflow: hidden;
+}
+.shareBoxFlag_top{
+  width:480rpx;
+  height:98rpx;
+  background:rgba(255,193,85,1);
+  border-radius:20rpx;
+  margin-left: 70rpx;
+  line-height: 98rpx;
+  text-align: center;
+  margin-top: 60rpx;
+  font-weight:500;
+  font-size:32rpx;
+  color:rgba(255,255,255,1);
+}
+.shareBoxFlag_bot{
+  width:480rpx;
+  height:98rpx;
+  border:1px solid rgba(230,0,18,1);
+  border-radius:20rpx;
+  margin-left: 70rpx;
+  line-height: 98rpx;
+  text-align: center;
+  margin-top: 45rpx;
+  font-weight:500;
+  color:rgba(255,25,53,1);
+  font-size:32rpx;
+}
+
+
+.scratch_top_in{
+  width: 100%;
+  height: 308rpx;
+}
+.scratchCoupon_in{
+   width: 100%;
+  height: 576rpx; 
+  position: relative;
+  
+}
+.scratchCoupon_in_ri{
+    position: absolute;
+    height:92rpx;
+    background:rgba(230,0,18,1);
+    border-radius:20rpx;
+    bottom: 30rpx;
+    width: 486rpx;
+    text-align: center;
+    line-height: 92rpx;
+    
+    font-size: 33rpx;
+    left: 60rpx;
+    color: #fff
+}
+.scratchCoupon_in_r{
+  height: 124vw;
+  position: relative
+}
+.freeOnclickj{
+  width: 100%;
+  left: 0
+}
+
+.scratchCoupon_in1{
+   width: 100%;
+  height: 102rpx; 
+  line-height: 102rpx;
+  text-align: center;
+  font-size:56rpx;
+  color:   #FFC821;
+  font-weight:800;
+  
+}
+.scratchCoupon_in2{
+   width: 100%;
+  height: 102rpx; 
+  line-height: 102rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color:   #FFC821;
+  font-weight:800;
+  
+}
+.scratchCoupon_in_r > image{
+    width: 100%;
+    height: 100%;
+}
+.scratchCoupon_in2 >text{
+   width: 100%;
+  height: 102rpx; 
+  line-height: 102rpx;
+  text-align: center;
+  font-size: 52rpx;
+  font-weight:800;
+
+  
+}
+.scratch_top_in >image{
+  height: 100%;
+  width: 100%;
+}
+.scratch_bom{
+  background-color: #fff;
+  padding-top: 20rpx;
+}
+.scratch_bom_in{
+  margin: 0 36rpx 30rpx 36rpx;
+  width:522rpx;
+  height:146rpx;
+  border:2rpx solid rgba(198,198,198,1);
+  border-radius:20rpx;
+  border-style:dashed;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.scratch_bom_in1{
+   /* margin: 0 10% 25rpx 10%; */
+    /* height:100rpx; */
+    margin: 0 10% 30rpx 10%;
+    font-size:28rpx;
+    font-weight:bold;
+    color:rgba(255,133,60,1);
+    line-height:36rpx;
+}
+.scratch_bom_in2{
+  /* margin:0 10%; */
+  /* height:23rpx; */
+  margin: 0 10% 50rpx 10%;
+  font-size:24rpx;
+  font-weight:bold;
+  color:rgba(153,153,153,1);
+  line-height:42rpx;
+}
+.scratch_foot{
+  /* height: 100rpx;
+  line-height: 135rpx; */
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.scratch_foot_in{
+  margin: 0 auto;
+  /* height:32rpx; */
+  font-size:33rpx;
+  font-weight:bold;
+  color:#FF823C  ;
+}
+
+.freeType4and{
+  position: absolute;
+  bottom:55rpx;
+  left: 18vw
+}
+.freeType4and1{
+  position: absolute;
+  bottom:36rpx;
+  left: 18vw
+}
+.freeType5and{
+  position: absolute;
+  bottom:203rpx;
+
+  height: 92rpx
+}
+.claInput{
+  font-size:32rpx;font-weight:500;color:#ccc;
+}
+.phoneInput{
+   width:80vw;
+  height:92rpx;
+  background: #fff;
+    position:absolute;
+  margin:0 auto;
+  left: 8vw;
+  padding-left: 25rpx
+  
+
+ 
+}
+.Hint{
+  width:100vw;
+  line-height:26rpx;
+  text-align:center;
+  font-size:26rpx;
+  font-weight:500;
+  color:#FF3020;
+  position:absolute;
+  margin:0 auto;
+
+  bottom:157rpx;
+
+}
+.freeType4an{
+  width:480rpx;
+  height:92rpx;
+  background:#FF3020 ;
+  border-radius:20rpx;
+  text-align: center;
+  color: #FFF;
+  line-height: 92rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+
+}
+.scratch_share_in{
+  width:468rpx;
+  background:rgba(230,0,18,1);
+  border-radius:20rpx;
+  line-height: 92rpx;
+  text-align: center;
+  color: #E60012;
+  font-size:33rpx;
+  font-weight: 500;
+ 
+  background-color: #fff;
+  border: 1rpx solid #E60012
+
+}  
+.scratch_share{
+  padding:20rpx 0;
+
+}
+.scratch_bom_type3{
+  text-align: center;
+  height:53px;
+  font-size:56rpx;
+  font-weight:800;
+  color:rgba(51,51,51,1);
+  line-height:103rpx;
+}
+.scratch_foot_type3{
+
+
+  font-size:30rpx;
+  font-weight:bold;
+  color: #666
+ 
+}
+.scratch_bom_type1{
+  margin-left: 16rpx;
+  margin-top: 10rpx;
+  width:491rpx;
+  height:125rpx;
+  background:linear-gradient(-55deg,rgba(255,184,31,1),rgba(255,202,41,1));
+}
+.scratch_type2_content{
+  width:520rpx;
+  height:200rpx;
+  margin:0 auto;
+  padding-top: 20rpx;
+  margin-bottom:15rpx;
+  
+  
+}
+.money-num_bot_lr{
+  background-color: #fff
+}
+.money-num_inj{
+  padding-top: 25rpx;
+    padding-left: 26rpx;
+}
+.money-num_iny{
+  display: flex;
+  flex-direction: column;
+}
+.money-num_iny1{
+
+  height:45rpx;
+  font-size:45rpx;
+  font-weight:800;
+  color:rgba(255,255,255,1);
+  padding-top: 10rpx;
+  padding-left: 19rpx;
+}
+.money-num_bot{
+  background-color: #FFF2E5;
+  height: 67rpx;
+  width: 100%;
+  font-size:24rpx;
+  font-weight:400;
+line-height: 67rpx;
+color: #666666;
+
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+.money-num_bot >text{
+  padding-left: 24rpx
+}
+.money-num_iny2{
+font-size: 24rpx;
+padding-top: 30rpx;
+font-weight: 500;
+padding-left: 19rpx;
+}
+.money-num{
+  
+  color:#fff;
+  height: 133rpx;
+  font-weight: bold;
+
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+
+  display: flex;
+  overflow: hidden;
+  background-color: #FFA546;
+  
+}
+.money-num_inj >image{
+  height: 83rpx;
+  width: 67rpx;
+}
+
+/* 代金券列表--start */
+
+.item-right{
+  width:491rpx;
+  height:125rpx;
+  border-radius: 20rpx;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  position: relative;
+  color:#fff;
+   background:linear-gradient(-55deg,rgba(255,184,31,1),rgba(255,202,41,1));
+}
+.item-right::after{
+  content: '';
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50rpx;
+  left: -8px;
+}
+.item-right::before{
+  content: '';
+  position: absolute;
+  width: 28rpx;
+  height: 28rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50rpx;
+  right: -8px;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50rpx;
+  line-height: 1.2;
+}
+.t-l{
+  font-size: 36rpx;
+  font-weight: 800;
+  
+}
+.t-r{
+  font-size: 40rpx;
+  font-weight: 800;
+}
+.bottom{
+  display: flex;
+  align-items: flex-end;
+  line-height: 1.2;
+  justify-content: space-between;
+}
+.b-l{
+  font-size: 20rpx;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.b-r{
+  font-size: 26rpx;
+  font-weight: 800;
+}
+.icon-pq-circle,.icon-pq-xuanzhong{
+  font-size: 40rpx;
+}
+.icon-pq-xuanzhong{
+  color:#e60012;
+}
+.icon-pq-circle{
+  color:#999;
+}
+/* 代金券列表--end */
+ .shareBtn{
+   position:absolute;
+left:0;
+top:840rpx;
+height:80rpx;
+
+ }     
+ .scratch_top_in2{
+  height:72rpx;
+  font-size:54rpx;
+  font-weight:bold;
+  color:rgba(255,200,33,1);
+  text-align: center;
+  line-height:72rpx;
+  padding-left: 54rpx;
+
+ }
+ .scratch_top_in3{
+  text-align:center;
+  height:45rpx;
+  font-size:32rpx;
+  font-weight:800;
+  color:rgba(255,200,33,1);
+  line-height:45rpx;
+  padding-top:10rpx;
+
+ }
+ .scratch_top_in1{
+  position: absolute;
+  top:165rpx;
+  display: flex;
+  flex-direction:column;
+    width: 100%;
+
+  
+  
+ }
+ .scratchCoupon{
+   z-index: 99999;
+   margin-top: 30rpx;
+ }
+ .scratchCoupon{
+ border-radius:20rpx;
+overflow:hidden;
+ }
+.store_brief{
+
+  padding: 28rpx ;
+  margin-top: 15rpx;
+   background-color: #f7f7f7;
+ 
+}
+.store_brief text{
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(102,102,102,1);
+  line-height:36rpx;
+}
+.cenFlex{
+  display: flex;
+    align-items:center;/*垂直居中*/
+
+}
+.noPeople{
+  width: 100%;
+    text-align: center
+}
+.mariginBot{
+  padding-bottom: 100rpx
+}
+.swiper{
+  height:470rpx;
+}
+.swiper > swiper{
+  height:470rpx;
+}
+swiper-item{
+  height:117.5rpx;
+}
+/*分享图片的样式*/
+.canvas{
+    position: fixed;
+    top: 0;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 10001;
+  
+}
+.cenFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.posterCanvas{
+    height: 540px;
+    overflow: hidden;
+}
+.canvas_box_in{
+    width: 100%;
+}
+.canvas_box_in_txt{
+    padding: 20rpx 50rpx;
+    background: #e60012;
+    color:#fff;
+    font-size: 1.1em;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+
+}

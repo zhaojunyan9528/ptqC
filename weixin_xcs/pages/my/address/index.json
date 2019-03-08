@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "用户-收货地址",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-modal": "/component/modal/modal/",
+    "vwx-button": "/component/button/button/"
+  }
+}

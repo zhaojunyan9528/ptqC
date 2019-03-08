@@ -1,0 +1,42 @@
+/* pages/my/footprint/index.wxss */
+@import "../base.wxss";
+@import "../template/topbar/topbar.wxss";
+@import "../template/no-list/no-list.wxss";
+@import "../template/acts-list-item/list-item.wxss";
+
+.tip-txt{
+  font-size: 32rpx;
+}
+.no_list_opt{
+  display: block;
+  margin-top: 180rpx;
+}
+
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-bottom: 2rpx solid #f0f0f0;
+  width: 100%;
+  background-color: #fff;
+  line-height: 3;
+  font-size: 35rpx;
+}
+.title{
+  
+}
+.opt{
+  position: absolute;
+  right: 0;
+  padding: 0 30rpx;
+  color: #6e6e6e;
+}
+
+.list{
+  margin: 110rpx 0;
+}
+.list_item{
+
+}

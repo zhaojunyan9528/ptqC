@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "刮奖免单",
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-modal-input": "/component/modal/modalinput"
+  }
+}

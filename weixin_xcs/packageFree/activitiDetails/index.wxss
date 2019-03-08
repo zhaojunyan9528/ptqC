@@ -1,0 +1,146 @@
+/* packageFree/activitiDetails/index.wxss */
+/* 顶部 免单 start  */
+.money{
+height:90rpx;
+border-bottom:1rpx solid #f0f0f0;
+display:flex;
+padding:0 30rpx;
+box-sizing:border-box;
+align-items:center;
+font-size: 28rpx;
+}
+page{
+  background-color: #fff;
+  color:#333;
+}
+.container{
+  width:100%;
+  overflow: hidden;
+}
+.topTip{
+  height:80rpx;
+  width:750rpx;
+  background-color:#F7F7F7;
+  padding:0 30rpx;
+  font-size: 24rpx;
+  line-height: 80rpx;
+}
+.top-content{
+  width:100%;
+  /* height:300rpx; */
+  height: 160rpx;
+  border-bottom:20rpx solid #f0f0f0;
+  background-color:#fff;
+}
+.top-t{
+  height:160rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  text-align:center;
+  padding:20rpx 0 30rpx 0;
+}
+.freeText{
+  font-size: 26rpx;
+  font-weight: 400;
+}
+.freeNum{
+  font-size: 62rpx;
+  color:#e60012;
+  font-weight: 800;
+  line-height:1.2;
+}
+.top-b{
+  display: flex;
+  justify-content: space-around;
+  text-align:center;
+  padding:10rpx 0;
+}
+.b-money{
+  color:#E2A02C;
+  font-size: 36rpx;
+  font-weight: 800;
+}
+.b-text{
+  font-size: 26rpx;
+  font-weight: 400;
+}
+/* 顶部 免单  end  */
+
+/* 奖励列表  start  */
+.rewardsList{
+  width:100%;
+  overflow: hidden;
+}
+.rewards-item{
+  height:120rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  padding:0 30rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.item-left{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  overflow:hidden;
+}
+.item-left > image{
+  min-width:80rpx;
+}
+.item-right{
+  padding-left:20rpx;
+  display: flex;
+  justify-content:space-between;
+  width:610rpx;
+}
+.item-name{
+  font-size: 26rpx;
+  color:#333;
+  font-weight: 400;
+  height:40rpx;
+  width:480rpx;
+}
+.item-time{
+  font-size: 22rpx;
+  font-weight: 400;
+  color:#666;
+  height:40rpx;
+}
+.item-r-r{
+  font-size: 32rpx;
+  display:flex;
+  align-items:flex-end;
+  color:#999;
+}
+.font{
+  font-size: 28rpx;
+}
+.red{
+  color:#e60012;
+}
+.bold{
+  font-weight: 800;
+}
+.heavy{
+  font-weight: 600;
+}
+/* 奖励列表  end  */
+
+/* 空  start  */
+.null-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.null-img,.null-img > image{
+  width:347rpx;
+  height:165rpx;
+}
+.null-img{
+  margin:180rpx 0 80rpx 0;
+}
+.null-text{
+  font-size: 30rpx;
+  font-weight: 500;
+}
+/* 空  end  */

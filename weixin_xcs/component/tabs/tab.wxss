@@ -1,0 +1,25 @@
+/* component/tab/tab.wxss */
+@import "../../css/weui.wxss";
+@import "../../css/com.wxss";
+
+.border-b:before {
+    border-bottom: 1px solid #e5e5e5;
+    width: 200%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+}
+
+.weui-navbar__title{
+  font-size:28rpx;
+  color:#333;
+}
+.weui-navbar__item{
+  padding:0 0 10px 0;
+  height:88rpx;
+  position:relative;
+}
+
+.weui-bar__item_on > .weui-navbar__title{
+   color: #e60012
+}

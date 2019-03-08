@@ -1,0 +1,22 @@
+.haveMar{
+  margin-top: 20rpx;
+}
+page{
+  background-color: #F0F0f0;
+}
+.otherFun{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  height: 92rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #E8E8E8;
+  background-color: #fff
+
+
+}
+.otherFun_le{
+  font-size:28rpx;
+color: #333333;
+}

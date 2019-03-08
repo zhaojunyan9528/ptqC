@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-evaluation-list": "/component/evaluationlist/evaluationlist",
+    "vwx-shop-bar": "/component/shopbar/shopbar",
+    "vwx-tab": "/component/tabs/tab",
+    "vwx-shop-item": "/component/goods/itemShop",
+    "vwx-good-more": "/component/goods/goodmore",
+    "vwx-countdown": "/component/countdown/countdown",
+    "vwx-good-express": "/component/goods/goodexpress",
+    "vwx-modal": "/component/modal/modal",
+    "vwx-button":"/component/button/button"
+    
+  }
+}

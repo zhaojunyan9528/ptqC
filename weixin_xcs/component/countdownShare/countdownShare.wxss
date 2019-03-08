@@ -1,0 +1,11 @@
+/* component/countdown/countdown.wxss */
+@import "../../css/weui.wxss";
+
+.good_avt_time{
+
+    font-size:25px;
+  font-weight:42px;
+}
+.colorSet{
+  color:#666
+}

@@ -1,0 +1,29 @@
+<!--pages/my/wallet/index.wxml-->
+<compage id="compage">
+  <view class='info_box'>
+    <view class='info_header flex-between' bindtap='goPage' data-upage='/pages/my/wallet/balance/list'>
+      <view class='info_header_title'>我的钱包</view>
+      <view class='info_header_opt color-lg'>
+       <view class='personalData_in_ri'>
+            <text>余额明细</text>
+            <icon class='icon-pq-rightarr' style='font-size:26rpx;margin-left:5rpx;'></icon>
+          </view>
+      </view>
+    </view>
+    <view class='info_balance'>
+      <view class='info_balance_title'>当前余额（元）</view>
+      <view class='info_balance_cont color-r'>￥<view class='info_balance_val'>{{info.wallet}}</view></view>
+    </view>
+    <!-- <view class='info_alipayAccount flex-between border-t' bindtap='goPage' data-upage='/pages/my/wallet/alipayAccount/list'>
+      <view class='info_alipayAccount_title'>管理支付宝</view>
+      <view class='go-btn info_alipayAccount_btn'>
+        <image src='https://www.pintuanqu.cn/Public/WeChatApps/image/goods3_ico6.png'></image>
+      </view>  
+    </view> -->
+  </view>
+  <view class='opts_box'>
+    <!-- <btn type='b' text='充值' bindtap='goPage' data-upage='/pages/my/wallet/recharge/recharge'></btn> -->
+    <btn id='btn-b2' loading="{{loading}}" type='l' text='提现' bindtap='goPage' data-upage='/pages/my/wallet/withdrawDeposit/withdrawDeposit'></btn>
+  </view>
+  <modal id="modal" ></modal>
+</compage>

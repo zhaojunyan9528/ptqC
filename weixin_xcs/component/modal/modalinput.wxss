@@ -1,0 +1,18 @@
+/* component/modal/modalinput.wxss */
+@import "../../css/weui.wxss";
+@import "modal.wxss";
+.wx-dialog-content{
+   padding:0;
+}
+.icon-pq-circle:before { content: "\e6fa"; }
+.icon-pq-xuanzhong:before { content: "\e6fb"; }
+
+.wx-dialog-title{
+  font-size: 32rpx;
+  height: 88rpx;
+}
+.wx_dialog_once{
+  height: 92rpx;
+  font-size: 32rpx;
+  line-height: 92rpx;
+}

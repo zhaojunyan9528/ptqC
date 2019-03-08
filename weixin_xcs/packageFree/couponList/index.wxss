@@ -1,0 +1,113 @@
+/* packageFree/couponList/index.wxss */
+page{
+  background-color: #fff;
+  color:#333;
+}
+.container{
+  width:100%;
+  overflow: hidden;
+}
+.topTip{
+  height:80rpx;
+  width:750rpx;
+  background-color:#F7F7F7;
+  padding:10rpx 30rpx;
+  font-size: 24rpx;
+  line-height: 1.2;
+}
+
+/* 代金券列表  start */
+.couponList{
+  width:100%;
+  overflow: hidden;
+  padding:30rpx 30rpx;
+}
+.item{
+  width:690rpx;
+  height:235rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+}
+.backImg{
+  position: absolute;
+  top:0;
+  left:0;
+  width:690rpx;
+  height:235rpx;
+}
+.backImg > image{
+  width:690rpx;
+  height:235rpx;
+}
+.item-l{
+  position:absolute;
+  top:0;
+  left:45rpx;
+  width:480rpx;
+  color:#fff;
+  padding-right:30rpx;
+}
+.i-t{
+  display:flex;
+  justify-content:space-between;
+  font-size:52rpx;
+  padding-right:20rpx;
+  padding-top:5rpx;
+}
+.i-c{
+  display:flex;
+  justify-content:space-between;
+}
+.i-l{
+  font-size:20rpx;
+  font-weight:500;
+}
+.i-r{
+  display:flex;
+  align-items:flex-end;
+}
+.i-b{
+  font-size:24rpx;
+  padding:10rpx 0;
+  line-height:1.2;
+}
+.item-r{
+  width:107rpx;
+  height: 107rpx;
+  background-color:#fff;
+  border-radius: 50%;
+  position:absolute;
+  right:40rpx;
+  top:64rpx;
+  text-align:center;
+  line-height:107rpx;
+}
+.gold{
+  color:#F7C149;
+}
+.color6{
+  color:#666;
+}
+/* 代金券列表  end */
+
+/* 空  start  */
+.null-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.null-img,.null-img > image{
+  width:280rpx;
+  height:182rpx;
+}
+.null-img{
+  margin:160rpx 0 80rpx 0;
+}
+.null-text{
+  font-size: 30rpx;
+  font-weight: 500;
+}
+/* 空  end  */

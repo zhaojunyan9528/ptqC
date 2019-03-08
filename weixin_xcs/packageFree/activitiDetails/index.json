@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "活动明细",
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "vwx-tabs":"/component/tabs/tab"
+  }
+}

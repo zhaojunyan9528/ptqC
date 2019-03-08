@@ -1,0 +1,93 @@
+/* pages/my/login/login.wxss */
+/* 蒙版  */
+.hide{
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  background:rgba(0, 0, 0, 0.7);
+}
+/* 弹框 start */
+.box{
+  width:620rpx;
+  /* height:375rpx; */
+  background:rgba(255,255,255,1);
+  border-radius:20rpx;
+  position: fixed;
+  top: 369rpx;
+  left: 65rpx;
+  right: 65rpx;
+  z-index: 999;
+}
+.one{
+  width: 620rpx;
+  height: 93rpx;
+  background: rgba(255,255,255,1);
+  border-bottom: 1rpx solid #EEEEEE;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  text-align: center;
+  line-height: 93rpx;
+  font-size: 32rpx;
+}
+.two{
+width: 620rpx;
+height: 190rpx;
+text-align: left;
+font-size: 32rpx;
+padding: 58rpx 52rpx 61rpx 51rpx;
+}
+.three{
+  width:620rpx;
+  height:94rpx;
+  background:rgba(230,0,18,1);
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  text-align: center;
+  line-height: 94rpx;
+  color: #fff;
+}
+.three .btn{
+  width:620rpx;
+  height:94rpx;
+  outline: none;
+  line-height: 94rpx;
+  font-size: 32rpx;
+}
+/* 弹框 end */
+.index_all_box {
+   overflow-x: hidden;
+   width: 100%;
+   text-align: center;
+}
+
+.up_t {
+   width: 100%;
+   padding:50px;
+}
+
+.up_t_in {
+   width: 190rpx;
+   height: 230rpx;
+   min-width: 190rpx;
+   margin: auto;
+}
+
+.up_m {
+   color: #666;
+   font-size: 32rpx;
+}
+
+.up_b {
+   margin-top: 298rpx;
+}
+
+.up_b button {
+   width: 80%;
+   height: 92rpx;
+   line-height: 92rpx;
+   background: #e60012;
+   color: #fff;
+   border-radius: 20rpx;
+}

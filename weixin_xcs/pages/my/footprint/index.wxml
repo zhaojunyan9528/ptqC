@@ -1,0 +1,27 @@
+<!--pages/my/footprint/index.wxml-->
+<import src="../template/topbar/topbar"/>
+<import src="../template/no-list/no-list"/>
+<import src="../template/acts-list-item/list-item"/>
+
+<compage id="compage">
+  <view wx:if='{{noList}}'>
+    <template is='no-list' data='{{noListInfo}}'></template>
+    <btn id='btn-m' type='m' text='逛逛' class='no_list_opt' bindtap='goPage' data-upage='switchTab:///pages/nearShopList/nearShopList'></btn>
+  </view>
+
+  <view wx:if='{{!noList}}'>
+    <template is='topbar' data='{{topbar}}'></template>
+    <!-- <view class='header flex-center'>
+      <view class='title'>我的足迹</view>
+      <view class='opt fr' bindtap='clearFootprint'>清空</view>
+    </view> -->
+    <view class='list'>
+      <view class='relative-box' wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.goods_id}}' data-index='{{index}}' bindtap="{{isEdit ? 'selCol' : ''}}">
+        <view class='list_item border-b'><!--页面跳转-->
+          <template is='list-item' data='{{listType, item, ActsType}}'></template>
+        </view>
+      </view>
+    </view>
+  </view>
+  <modal id="modal"></modal>
+</compage>

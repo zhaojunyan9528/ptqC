@@ -1,0 +1,61 @@
+<!--pages/my/participatingActs/index.wxml-->
+<import src='../template/acts-list-item/list-item'/>
+<import src='../template/no-list/no-list'/>
+
+<compage id="compage">
+  <!-- 空列表 -->
+  <view wx:if="{{noList}}">
+    <template is='no-list' data='{{noListInfo}}'></template>
+  </view>
+ 
+  <!-- 列表 -->
+  <view wx:if="{{!noList}}" class='list'>
+    <view class='list_item bg-w' wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.goods_id}}' data-index='{{index}}'><!--页面跳转-->
+
+      <!-- 刮奖免单 -->
+			<!-- <template wx:if="{{item.is_group == 5}}" is='list-item3'  data='{{listType, item, ActsType, isEdit}}'></template> -->
+      <view  wx:if="{{item.is_group == 5}}">
+       <view class='relative-box' >
+    <view class="item-info-box {{listType == 2 ? '' : 'border-b'}} flex-between">
+
+      <view wx:if="{{isEdit}}" class='item-sel item-sel-edit flex-center'>
+        <view class='item-sel-box'>
+          <icon class="{{!!item.noSelected ? 'icon-pq-xuanzhong sel-img-selected' : 'icon-pq-circle sel-img-noselected'}}" style="font-size: 45rpx;"></icon>
+        </view>
+      </view>
+     <!-- 跳转地址 -->
+      <view class='item-info flex-between' bindtap="{{isEdit?'':'goPage'}}" data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{item.initiator_id}}">
+        <view class='item-logo'>
+          <image class='item-logo-img' src='/assets/images/gjFree.png' mode='scaleToFill'></image>
+        </view>
+        <view class="item-cont {{isEdit ? 'item-cont-edit' : ''}}">
+          <view class='item-name'>刮奖免单</view>
+          <view class='item-other noSingle'>
+            <!-- 待分享活动、分享 -->
+            <!-- <view  class='item-price'> -->
+              <view class='item-discount rewards'>消费金额：￥{{item.pay_fee}}</view>
+              <!-- <vwx-button id="active" type="s" data-id="{{item.initiator_id}}" text="活动明细" bubbles="false" width="150" theme="font-b1" catchtap="goPage1" ></vwx-button> -->
+              <view class='active' data-id="{{item.initiator_id}}" catchtap="goPage1" >活动明细</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 待分享活动 -->
+
+  <view  class='item-opt-box flex-between'>
+    <view>参与人数：<text class="red">{{item.now_num}}</text>人</view>
+    <view>已免单：<text class="red">{{item.real_all_cash}}</text>元</view>
+    <!-- <vwx-button id="beShare" type="s" text="分享" width="150" theme="font-b1" bind:tap-event="goPage" data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{item.initiator_id}}"></vwx-button> -->
+    <view class='share' bindtap="{{isEdit?'':'goPage'}}" data-upage="/packageFree/detailsFree/detailsFree?initiator_id={{item.initiator_id}}">分享</view>
+  </view>
+  </view>
+			<!-- 刮奖免单 -->
+			
+			<!-- 多人拼团 拼团立减 砍价  -->
+      <template  wx:else is='list-item4' data='{{listType, item, ActsType, isEdit}}'></template>
+			<!-- 多人拼团 拼团立减 砍价  -->
+    </view>
+  </view>
+
+</compage>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "附近-搜索",
+  "component": true,
+  "usingComponents": {
+    "compage": "/vwx/component/template/",
+    "btn": "/component/button/button",
+    "modal":"/component/modal/modal"
+  }
+}

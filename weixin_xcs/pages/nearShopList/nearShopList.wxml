@@ -1,0 +1,107 @@
+<!--pages/nearShopList/nearShopList/nearShopList.wxml-->
+<compage id="compage">
+<view style="height:{{mengFlag==1?canvasH:''}}px;overflow:hidden">
+<view class="page__hd" >
+    <view class="near_chart cenFlex">
+        <view class="near_chart_in" bindtap="goPage" data-upage="/pages/nearShopList/search/search">
+            <icon class="icon-pq-sousuo"></icon>
+            <view class="near_chart_in_input">
+                <input placeholder="{{keyword?keyword:'搜索附近的多人拼团活动'}}" confirm-type='search' disabled="{{true}}" placeholder-class="aaF" />
+            </view>
+        </view>
+        <view class="near_chart_in_btn" bindtap="{{keyword==''? 'navNearGo' :'nearAllDataBtn'}}">{{keyword==''?'搜索':'全部'}}
+        </view>
+    </view>
+     <view class="inteSort">
+        <view class="inteSort_in cenFlex" data-index='0' bindtap="{{mapFlag[0]?'sortTabBtn':''}}">
+            <view class="inteSort_in_l" style="color:#{{sortFlag[0]?'e60012':mapFlag[1]?'333':'333'}};font-size:26rpx;" >{{inteSortArr[nearType-1]}}</view>
+            <icon class="{{sortFlag[0]?'icon-pq-sjxu':'icon-pq-sjxd'}}"></icon>
+        </view>
+        <view class="inteSort_in cenFlex" data-index='1' bindtap="sortTabBtn">
+            <view class="inteSort_in_l" style="color:#{{sortFlag[1]?'e60012':mapFlag[1]?'333':'333'}};font-size:26rpx;">{{mapFlag[0] == 1?'列表展示':'地图展示'}}</view>
+               <icon class="{{sortFlag[1]?'icon-pq-sjxu':'icon-pq-sjxd'}}"></icon>
+        </view>
+    </view>
+    <view class="inteSort_box" wx:if="{{sortFlag[0] && !mapFlag[1]}}">
+        <view class="inteSort_box_in" data-index="{{index}}" wx:for="{{inteSortArr}}" wx:key="{{index}}" bindtap="sortBtn">
+            <view class="inteSort_box_in_l" style="color: #{{inteSortFlag[index]?'e60012':''}}">{{item}}</view>
+            <view class="inteSort_box_in_r">
+                <icon class="icon-pq-duihao" wx:if="{{inteSortFlag[index]}}"></icon>
+            </view>
+        </view>
+    </view>
+    <view class="inteSort_box" wx:if="{{sortFlag[1]}}">
+        <view class="inteSort_box_in" data-index="{{index}}" wx:for="{{mapArr}}" wx:key="{{index}}" bindtap="mapTabBtn">
+            <view class="inteSort_box_in_l" style="color: #{{mapFlag[index]?'e60012':''}}">{{item}}</view>
+            <view class="inteSort_box_in_r">
+                <icon class="icon-pq-duihao" wx:if="{{mapFlag[index]}}"></icon>
+            </view>
+        </view>
+    </view>
+    <!-- 逛逛列表 -->
+    <view class="down_goods" style="width: 100%;min-height: {{mapHeight}}px;" wx:if="{{mapFlag[0] && goods_list[0]}}">
+        <view class="mengban" bindtap="hideAllSelct" wx:if="{{mengFlage}}"></view>
+        <view class="near_goods" wx:for="{{goods_list}}" wx:key="index" bindtap="navStore"  data-type="{{item.is_group}}" data-id="{{item.goods_id}}" data-index="{{index}}">
+           <!-- style="background:url({{item.goods_img}}) no-repeat;background-size :100% 100% ;background-position:center center;" -->
+            <view class="near_goods_h" >
+              <image src="{{item.goods_img}}" mode="aspectFill"></image>
+            </view>
+            <view class="near_goods_t">
+                <view class="near_goods_t_1 cenFlex">
+                    <view class="near_goods_t_l_in">距结束仅剩</view>
+                    <view class="near_goods_t_l_in_f cenFlex">{{item.dTime[0]}}</view>
+                    <view class="near_goods_t_l_in">天</view>
+                    <view class="near_goods_t_l_in_f cenFlex">{{item.dTime[1]}}</view>
+                    <view class="near_goods_t_l_in">时</view>
+                    <view class="near_goods_t_l_in_f cenFlex">{{item.dTime[2]}}</view>
+                    <view class="near_goods_t_l_in">分</view>
+                    <view class="near_goods_t_l_in_f cenFlex">{{item.dTime[3]}}</view>
+                    <view class="near_goods_t_l_in">秒</view>
+                </view>
+                <view class="near_goods_t_r">
+                    <view class="near_goods_t_r_t">{{item.group_num}}人团</view>
+                    <view class="near_goods_t_r_b">{{item.distance}}</view>
+                </view>
+            </view>
+             <!-- 商品信息 -->
+            <view class="near_goods_info">
+                <view class="nowDay_box_txt">{{item.goods_name}}</view>
+                <view class="nowDay_box_btn">
+                    <view class="nowDay_box_btn_l cenFlex">
+                        <view class="nowDay_box_btn_l_in1">{{item.price_str}}:<text class="bold">¥{{item.bottom_price}}</text></view>
+                        <view class="nowDay_box_btn_l_in2">原价:¥{{item.goods_price}}</view>
+                    </view>
+                    <view class="buyBtn">
+                        <view class="nowDay_box_btn_r_in1">马上团</view><view class="valignCenter">
+                        <icon class="icon-pq-rightarr"></icon>
+                        </view>
+                        
+                            
+                    </view>
+                </view>  
+            </view>      
+        </view>
+    </view>
+    <map wx:if="{{mapFlag[1]}}" id="nearByMerchants" class="nearByMerchants" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{nearMarkerArr}}" bindmarkertap="clickBjOrigin" bindcallouttap="clickBjOrigin" show-location="true"  data-index="1" scale="{{scaleMap}}" style="height:{{mapHeight}}px;top: {{topJuli}}px;height:100vh;">
+    <cover-view class='shadow' wx:if="{{shadow}}"></cover-view>
+    </map>
+</view>
+  <!-- 如果关注列表为空 -->
+<view wx:if="{{listNull && !mapFlag[1]}}">
+    <!-- <vwx-null-data nullData="{{nullData}}" ></vwx-null-data> -->
+     <view class="{{nullData.shortFlag?'nD_i':'nD_s'}}">
+        <view class="nD_i_in cenFlex">
+            <view class="nD_i_in_t cenFlex">
+                <view class="nD_i_in_t_img cenFlex">
+                    <image  mode="aspectFill" src="{{nullData.img}}"></image>
+                </view>
+                <view class="nD_i_in_t_txt cenFlex">{{nullData.txt}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="meng" wx:if="{{mengFlag==1}}" bindtap="cancelMeng">
+</view>
+</view>
+</compage>
+

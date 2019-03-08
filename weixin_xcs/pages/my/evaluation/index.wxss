@@ -1,0 +1,173 @@
+/* pages/my/evaluation/index.wxss */
+@import '../base.wxss';
+@import "../template/no-list/no-list.wxss";
+@import '../template/acts-list-item/list-item.wxss';
+
+/* 无数据 */
+
+.tip-txt {
+  font-size: 32rpx;
+}
+
+.no_list_opt {
+  display: block;
+  margin-top: 180rpx;
+}
+
+/* 列表 */
+
+.elist {
+  background-color: #f8f8f8;
+}
+
+.elist_item {
+  margin-bottom: 20rpx;
+  padding: 0 30rpx 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.elist_item:last-child {
+  margin: 0;
+}
+
+/* 基本信息 */
+
+.eitem_info {
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.eitem_info_logo {
+  width: 88rpx;
+  min-width: 88rpx;
+  height: 88rpx;
+}
+
+.eitem_info_logo > image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.eitem_info_o {
+  position: relative;
+  padding-left: 20rpx;
+  width: 100%;
+}
+
+.eitem_info_name {
+  font-size:28rpx;
+}
+
+.eitem_info_btn > icon {
+  color: #999;
+  font-size: 38rpx;
+}
+
+.eitem_info_opts_box {
+  position: absolute;
+  top: 50rpx;
+  right: 0;
+  width: 210rpx;
+  box-shadow: 0 0 20rpx #eee;
+  background-color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.eitem_info_opt {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.eitem_info_b {
+  margin-top: 6rpx;
+}
+
+.eitem_info_time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+/* 评价内容 */
+
+.item-cont1 {
+  padding-left: 14rpx;
+  width: 65%;
+  height: 140rpx;
+}
+
+.eitem_cont_txt {
+  padding: 24rpx 0;
+  font-size: 26rpx;
+}
+
+.eitem_cont {
+  /* padding: 0 0 30rpx 0; */
+  font-size: 30rpx;
+  word-wrap: break-word;
+}
+
+.eitem_cont_imgs {
+  /* margin-top: 30rpx; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10rpx;
+  justify-content: space-between
+}
+
+.eitem_cont_img {
+  /* width: 31%; */
+  /* width: 30%; */
+  height: 220rpx;
+  /* margin-right: 2%; */
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+/* .eitem_cont_img:last-child {
+  margin-bottom: 0;
+} */
+
+.eitem_cont_img > image {
+  width: 220rpx;
+  min-width: 220rpx;
+  height: 220rpx;
+}
+
+/* 活动信息 */
+
+.eitem_act {
+  /* margin-top: 10rpx; */
+  padding: 15rpx;
+  background-color: #f7f7f7;
+}
+
+/* 商家回复 */
+
+.eitem_reply {
+  /* position: relative; */
+  margin-top: 40rpx;
+  position: relative;
+  padding: 30rpx;
+  background-color: #f0f0f0;
+  font-size: 26rpx;
+  color: #666;
+  word-break: break-all;
+}
+
+.eitem_reply::after {
+  content: "";
+  position: absolute;
+  top: -25rpx;
+  left: 35rpx;
+  width: 0;
+  height: 0;
+  border-left: 20rpx solid transparent;
+  border-right: 20rpx solid transparent;
+  border-bottom: 30rpx solid #f0f0f0;
+}
+
+.eitem_reply > text {
+  color: #999;
+}

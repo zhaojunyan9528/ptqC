@@ -1,0 +1,6 @@
+<!--component/countdown/countdown.wxml-->
+<view class='good_avt_time weui-flex__item colorSet'>
+   <text>{{dt.h}}</text>:
+   <text>{{dt.m}}</text>:
+   <text>{{dt.s}}</text>
+</view>

@@ -1,0 +1,69 @@
+/* pages/my/wallet/index.wxss */
+@import '../base.wxss';
+
+page{
+  background-color: #f8f8f8 !important;
+  font-size: 30rpx;
+}
+.personalData_in_ri > icon{
+   font-size: 13px; 
+   vertical-align: middle;
+}
+.personalData_in_ri {
+  display: flex;
+  align-items: center;
+  color: #999;
+}
+
+
+.info_box{
+  background-color: #fff;
+}
+.info_header{
+  font-size: 28rpx;
+  margin: 0 30rpx;
+  padding: 40rpx 0 20rpx 0;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.info_header > view{
+  display: inline-block;
+}
+.info_header_opt_btn{
+   margin-top: -2rpx; 
+  margin-left: 10rpx;
+}
+
+.info_balance{
+  /* padding: 25rpx 0; */
+  height: 240rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.info_balance > view{
+  text-align: center;
+}
+.info_balance_title{
+  font-size: 32rpx;
+  padding-top: 54rpx;
+}
+.info_balance_cont{
+  margin-top: 10rpx;
+  font-size: 50rpx;
+}
+.info_balance_val{
+  display: inline-block;
+  font-size: 75rpx;
+}
+
+
+.info_alipayAccount{
+  position: relative;
+  padding: 30rpx;
+}
+
+.opts_box{
+  margin-top: 130rpx;
+}
+#btn-b2{
+  display: block;
+  margin-top: 50rpx;
+}

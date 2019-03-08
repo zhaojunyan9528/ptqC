@@ -1,0 +1,2 @@
+/* pages/my/specialCard/multiCard/multiCard.wxss */
+@import '../../template/multi-specialcard/multi-specialcard.wxss'

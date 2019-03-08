@@ -1,0 +1,24 @@
+/* component/footer/footer.wxss */
+.icon-pq-zbsyrcjd:before { content: "\e707"; }
+.footer-box{
+height:240rpx;
+padding:60rpx 0 65rpx;
+text-align:center;
+background-color:#f7f7f7;
+
+}
+.footer-item1 > image{
+width:340rpx;
+min-width:340rpx;
+height:30rpx;
+}
+.footer-item2{
+
+  font-size: 24rpx;
+  color: #999;
+}
+.footer-item3{
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: #6A7FA6
+}

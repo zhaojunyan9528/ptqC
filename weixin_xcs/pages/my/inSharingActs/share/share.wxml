@@ -1,0 +1,82 @@
+<!--pages/my/participatingActs/share/share.wxml-->
+<import src="../../template/acts-list-item/list-item"/>
+
+
+<compage id="compage" >
+  <view class="container_box" wx:if="{{noDate}}" >
+    <!-- 倒计时 -->
+    <view class='count_down flex-x-center' wx:if="{{info.is_group == 3 &&  info.is_succeed!=1}}">
+      <view class='count_down_label'>活动倒计时</view>
+        <vwx-countdownShare time="{{info.last_time}}"></vwx-countdownShare>
+    </view>
+
+    <view class='container'>
+      <!-- 购买成功提示 -->
+      <view class='bought_tip'>
+        <view class='bought_tip_title flex-center'>
+          <view class='bought_tip_title_logo'>
+            <image src='../../../../assets/images/share3_ico1.png'></image>
+          </view>
+          <view class='bought_tip_title_txt'>{{info.title}}</view>
+        </view>
+        <view class='bought_tip_cont'>{{info.text}}</view>
+      </view>
+
+      <!-- 活动信息 -->
+      <view class='acts_info'>
+        <view class='acts_info_inner'>
+          <template is='list-item' data='{{listType, item, ActsType}}'></template>
+        </view>
+      </view>
+
+      <!-- 参团信息 -->
+      <view class='group_info'>
+        <view class='group_info_logos flex-center'>
+          <view class='group_info_logo' wx:key="{{index}}" wx:for="{{item.arr}}">
+            <image src='{{item}}'></image>
+          </view>
+        </view>
+        <view class='group_info_tip'>{{info.succeed_str}}</view>
+        <view class='group_info_time' wx:if="{{info.is_group == 4 || info.is_group == 6}}">{{info.time_str}}</view>
+      </view>
+
+      <!-- 按钮列表 -->
+      <view class='btn_list'>
+        <vwx-button class="btn_item" wx:if="{{isShare == 1}}" text="立即购买" bind:tap-event="goPage" data-upage="/pages/goodsInfo/goodsInfo1/goodsInfo1"></vwx-button>
+        <button class="btn_iteml"  hover-class="none" open-type="share">立即分享</button>
+        <vwx-button class="btn_item" text="订单详情" theme="font-r1" bind:tap-event="goPage" data-upage="/pages/my/order/detail/detail?order_id={{orderId}}"></vwx-button>
+        <vwx-button class="btn_item" wx:if="{{info.card_id}}" text="查看我的专享卡" theme="font-r1" bind:tap-event="goPage" data-upage="/pages/my/specialCard/detail/detail?card_id={{info.card_id}}"></vwx-button> 
+      </view>
+
+      <!-- 其他入口 -->
+      <view class='entry flex-center'>
+        <view class='entry_inner flex-between'>
+          <view class='entry_item flex-y-center order' bindtap="goOrderList">
+            <view class='entry_item_logo'>
+              <icon class='icon-pq-ordert'></icon>
+            </view>
+            <view class='entry_item_name'>我的订单</view>
+          </view>
+          <view class='entry_item  flex-y-center' bindtap="goPage" data-upage="reLaunch:///pages/myStore/index?store_id={{info.store_id}}">
+            <view class='entry_item_logo'>
+              <icon class='icon-pq-stores'></icon>
+            </view>
+            <view class='entry_item_name'>进店逛逛</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 大家还参加了 -->
+    <view class='recommend_acts' wx:if="{{info.is_group == 1 && info.recommend_list[0]}}">
+      <view class='recommend_acts_title'>大家还参加了</view>
+      <view class='recommend_acts_list'>
+        <view class='recommend_act_item'  wx:key="{{index}}" wx:for="{{info.recommend_list}}">
+          <vwx-gooditem-sale data="{{item}}"></vwx-gooditem-sale>
+        </view>
+      </view>
+    </view>
+    
+  <!-- 首页下方显示拼团趣技术支持 -->
+    <vwx-footer is="footer" store_id= "{{info.store_id}}"></vwx-footer> 
+  </view>
+</compage>

@@ -1,0 +1,23 @@
+<!-- !--pages/my/login/login.wxml -->
+<compage id="compage">
+   <view class="index_all_box">
+      <view class="up_t">
+         <view class="up_t_in">
+            <image src="/assets/images/up_ico1.png"></image>
+         </view>
+      </view>
+      <view class="up_m">是否使用微信登录拼团趣?</view>
+      <view class="up_b">
+         <button open-type="getUserInfo" bindgetuserinfo="userDataBtn">登录</button>
+         <!-- 蒙版 -->
+           <view class='hide' hidden='{{hiddenName}}'></view>
+           <!-- 弹框  start-->
+          <view class='box' hidden='{{hiddenName}}'>
+          <view class='one'><text>授权手机号码</text></view>
+          <view class='two'><text class='font'>我们需要您的授权获得您在微信中绑定的手机号码</text></view>
+           <view class='three'><button class='btn' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">同意授权</button></view>
+          </view>
+          <!-- 弹框 end -->
+      </view>
+   </view>
+</compage>

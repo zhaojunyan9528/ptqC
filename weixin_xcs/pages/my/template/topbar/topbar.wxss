@@ -1,0 +1,8 @@
+/* pages/my/template/topbar/topbar.wxss */
+.topbar-box{ box-sizing: initial; position: fixed; top: 0; left: 0; z-index: 999; width: 100%; background-color: #fff; text-align: center; color: #333 }
+.topbar-inbox{ padding: 0 30rpx; width: 100%; border-color: #dcdcdc; }
+.topbar-box-ios{ height: 88rpx; line-height: 88rpx; font-size: 32rpx }
+.topbar-box-and{ height: 96rpx; line-height: 96rpx; font-size: 36rpx }
+
+.topbar-opt-txt{ font-size: 30rpx; color: #333 }
+.topbar-opt-icon{ font-size: 40rpx; color: #666 }
